@@ -1,0 +1,250 @@
+aid: qbe
+name: QBE Insurance
+review:
+  question: >-
+    Does QBE Insurance expose a real, public, self-serve API surface — and if not,
+    what is the actual integration seam for a global P&C carrier headquartered in
+    Australia?
+  answer: partial
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: Australia
+  gated: true
+findings:
+  summary: |
+    QBE is a partner-gated carrier with a real, unusually legible developer portal.
+    QBE Australia runs an Azure API Management developer portal at
+    https://connect.api-au.qbe.com/ (HTTP 200) whose API catalogue, product list,
+    operation list, request/response representations, examples and full OpenAPI
+    components document can all be read ANONYMOUSLY through the portal's data
+    endpoints. That is materially more than most carriers publish, and it is why
+    this record is "built" rather than "built-stub".
+
+    It is still not self-serve. Both published products — "ANZO Digital Brokers"
+    and "ANZO CTP Service" — carry subscriptionRequired:true and
+    approvalRequired:true, and the broker API requires an X-Partner-Id drawn from a
+    fixed enumeration of QBE's named broker partners. There is no public signup that
+    yields working credentials; the portal describes itself in its own footer as a
+    "Partner API Portal". So: a REAL developer portal with real reference docs,
+    wrapped around a partner-gated integration.
+
+    Nothing here is compelled by regulation. Australia's Consumer Data Right was
+    designated to extend to general insurance and was then deferred and
+    de-prioritised, so unlike Australian banking there is no open-insurance mandate
+    behind this surface. Everything QBE publishes it publishes because brokers are
+    its distribution channel.
+  developerPortals:
+  - url: https://connect.api-au.qbe.com/
+    region: Australia
+    httpStatus: 200
+    classification: real self-serve-browsable developer portal, partner-gated access
+    platform: Azure API Management developer portal (data API at /developer/*, api-version=2022-04-01-preview)
+    note: >-
+      Homepage, /apis, /products and /getting-started all return 200 anonymously.
+      The catalogue and full operation/schema metadata are readable without a login;
+      obtaining a working subscription key is not.
+  - url: https://partnerportal-api.qbena.com/
+    region: North America
+    httpStatus: 200
+    classification: marketing / onboarding landing page, no anonymous catalogue
+    note: >-
+      Same Azure APIM developer-portal software, but GET /developer/apis and
+      GET /developer/products both return an empty value array to anonymous callers.
+      The site markets Renters and Homeowners partner solutions and links an API
+      Terms of Use; no endpoints, no specs, no auth details are exposed.
+  - url: https://www.qbe.com/hk/en/agents-and-partners/partner-api/api-endpoints
+    region: Hong Kong
+    httpStatus: 403
+    classification: unverifiable — qbe.com bot-blocks anonymous fetchers
+    note: >-
+      QBE Hong Kong documents a partner API (endpoints page plus a partner API
+      onboarding page) under qbe.com, but every qbe.com URL probed returned 403 to
+      curl and to WebFetch with a browser user agent, so nothing was confirmed and
+      nothing was recorded from it.
+  probedAndAbsent:
+  - host: developer.qbe.com
+    result: NXDOMAIN
+  - host: developers.qbe.com
+    result: NXDOMAIN
+  - host: docs.qbe.com
+    result: NXDOMAIN
+  - host: api.qbe.com
+    result: NXDOMAIN
+  - host: apis.qbe.com
+    result: NXDOMAIN
+  - host: developer.qbe.com.au
+    result: NXDOMAIN
+  - host: api.qbe.com.au
+    result: NXDOMAIN
+  - host: partners.qbe.com
+    result: NXDOMAIN
+  - url: https://www.qbe.com/developers
+    result: HTTP 403 (bot block, not a 404 — existence not determinable)
+  - url: https://www.qbe.com/api
+    result: HTTP 403 (bot block)
+  - url: https://www.qbe.com/partners
+    result: HTTP 403 (bot block)
+  - url: https://www.qbe.com/integrations
+    result: HTTP 403 (bot block)
+  - url: https://portal.api-au.qbe.com/
+    result: connection failed (000) — host referenced by search results but not resolvable
+  acordPosture: >-
+    No ACORD reference found. Searched the QBE Australia portal pages, both published
+    API products, all 17 operations and the 258-schema OpenAPI components document
+    for ACORD, AL3, ACORD XML, NGDS, IVANS, Vertafore and Applied Epic — zero hits.
+    QBE Australia's broker API uses its own proprietary JSON canonical policy model
+    (policyHeader / policyTransactionInformation / risk covers, product codes such as
+    BPK), not an ACORD payload, and the transport is REST over HTTPS rather than
+    AL3 agency download. Note that qbe.com marketing and US/agency-facing pages could
+    not be read (403), so an ACORD or IVANS claim made there would not have been seen.
+  insuranceVerbs:
+    quote: >-
+      YES — POST /auth/quotes (create), PUT /auth/quotes/{quoteId} (modify, re-issues
+      a quote number), POST /auth/quotes/{quoteId}/abandon, POST
+      /auth/quotes/{quoteId}/refer (refer to a QBE underwriter).
+    bind: >-
+      YES — POST /auth/quotes/{quoteId}/bind (convert quote to policy) and POST
+      /auth/policies/{policyId}/bind (save changes after endorsement, cancellation or
+      renewal).
+    issue: >-
+      YES — binding a quote issues a policy number; the lifecycle continues with POST
+      /auth/policies/{policyId}/endorse, /renew, /cancel, /abandon, /refer and
+      document upload on both quotes and policies.
+    fnol: >-
+      NO — no claims, FNOL or loss-notification operation is exposed on any public
+      QBE surface found. Claims integration is not part of the published catalogue.
+    audience: >-
+      Agent/broker-facing and partner-only. The X-Partner-Id header on quote creation
+      is constrained to an enumeration of QBE's named broker partners; there is no
+      consumer-facing API.
+  authModel: >-
+    Azure APIM subscription key — Ocp-Apim-Subscription-Key header or subscription-key
+    query parameter — as the declared securityScheme (apiKeyHeader / apiKeyQuery), on
+    top of which the Digital Brokers operations additionally require X-ClientID and
+    X-ClientSecret headers plus a required X-Partner-Id. No OAuth2 or OpenID Connect
+    is configured: the APIM authenticationSettings arrays are empty on both APIs, and
+    /.well-known/openid-configuration returns 404 on both connect.api-au.qbe.com and
+    gateway.api-au.qbe.com. Subscriptions require QBE approval (approvalRequired:true,
+    subscriptionsLimit 10 per product).
+  webhooksAndEvents: >-
+    None. No event catalogue, no AsyncAPI, no webhook registration operation, and no
+    callback definitions appear anywhere in the published catalogue. Absence is the
+    finding — this is a request/response broker integration only.
+  postmanGraphQLGrpc: >-
+    No public Postman collection or workspace was found. No /graphql surface and no
+    published .proto were found. The two published APIs declare protocols ["https"]
+    only.
+  specHarvest:
+    count: 2
+    note: >-
+      QBE's own anonymous OpenAPI export endpoint returns a valid but hollow document
+      — GET /developer/apis/{apiId}?api-version=2022-04-01-preview&export=true&format=openapi+json
+      returns HTTP 200 with correct info, servers and securitySchemes but "paths": {}.
+      The same portal separately publishes, anonymously and in full, the operation
+      list, per-operation parameters/requests/responses/examples, and the complete
+      OpenAPI components document. The two files in openapi/ are assembled from those
+      QBE-served endpoints and carry an info.x-provenance block naming every source
+      URL and HTTP status. Nothing was invented — no endpoint, schema, scope or host.
+  specs:
+  - file: openapi/qbe-anzo-digital-brokers-openapi.yml
+    api: ANZO Digital Brokers Experience API
+    apiId: x-digital-brokers-qbe-anzov1
+    paths: 15
+    schemas: 258
+    openapi: 3.0.1
+    server: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
+    sources:
+    - url: https://connect.api-au.qbe.com/developer/apis/x-digital-brokers-qbe-anzov1?api-version=2022-04-01-preview&export=true&format=openapi+json
+      httpStatus: 200
+      fetched: '2026-07-25'
+      note: info, servers, securitySchemes (paths returned empty to anonymous callers)
+    - url: https://connect.api-au.qbe.com/developer/apis/x-digital-brokers-qbe-anzov1/operations?api-version=2022-04-01-preview
+      httpStatus: 200
+      fetched: '2026-07-25'
+      note: 15 operations with method and urlTemplate
+    - url: https://connect.api-au.qbe.com/developer/apis/x-digital-brokers-qbe-anzov1/operations/{operationId}?api-version=2022-04-01-preview
+      httpStatus: 200
+      fetched: '2026-07-25'
+      note: parameters, headers, request representations with examples, response codes
+    - url: https://connect.api-au.qbe.com/developer/apis/x-digital-brokers-qbe-anzov1/schemas/67dd2297fb42680af0ea6dcb?api-version=2022-04-01-preview
+      httpStatus: 200
+      fetched: '2026-07-25'
+      note: application/vnd.oai.openapi.components+json, 258 schemas, 405 KB
+  - file: openapi/qbe-ctp-switch-service-openapi.yml
+    api: CTP Switch Service
+    apiId: ctp-switch-service
+    paths: 2
+    schemas: 3
+    openapi: 3.0.1
+    server: https://gateway.api-au.qbe.com/ctp-service
+    sources:
+    - url: https://connect.api-au.qbe.com/developer/apis/ctp-switch-service?api-version=2022-04-01-preview&export=true&format=openapi+json
+      httpStatus: 200
+      fetched: '2026-07-25'
+    - url: https://connect.api-au.qbe.com/developer/apis/ctp-switch-service/operations?api-version=2022-04-01-preview
+      httpStatus: 200
+      fetched: '2026-07-25'
+    - url: https://connect.api-au.qbe.com/developer/apis/ctp-switch-service/schemas/6928f848b949c324c087c5e6?api-version=2022-04-01-preview
+      httpStatus: 200
+      fetched: '2026-07-25'
+  transports:
+  - protocol: REST
+    scheme: https
+    baseURL: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
+    documented: true
+  - protocol: REST
+    scheme: https
+    baseURL: https://gateway.api-au.qbe.com/ctp-service
+    documented: true
+  - protocol: GraphQL
+    documented: false
+    note: No /graphql surface found on any QBE host probed.
+  - protocol: gRPC
+    documented: false
+    note: No published .proto found.
+  - protocol: WebSocket
+    scheme: wss
+    documented: false
+    note: Both published APIs declare protocols ["https"] only.
+  - protocol: AsyncAPI/Webhooks
+    documented: false
+    note: No event catalogue or callback definitions published.
+  - protocol: ACORD AL3 / agency download
+    documented: false
+    note: No ACORD or IVANS reference found in any accessible QBE surface.
+  productCatalogue:
+  - id: anzo-digital-brokers-product
+    name: ANZO Digital Brokers
+    subscriptionRequired: true
+    approvalRequired: true
+    subscriptionsLimit: 10
+  - id: anzo-ctp-switch-product
+    name: ANZO CTP Service
+    subscriptionRequired: true
+    approvalRequired: true
+    subscriptionsLimit: 10
+sources:
+- url: https://connect.api-au.qbe.com/
+  type: DeveloperPortal
+  httpStatus: 200
+  note: QBE Australia API Hub Portal home; nav is Home / Products / API Catalogue / Getting Started.
+- url: https://connect.api-au.qbe.com/apis
+  type: APIReference
+  httpStatus: 200
+  note: API catalogue listing the two published APIs.
+- url: https://connect.api-au.qbe.com/developer/products?api-version=2022-04-01-preview
+  type: APIReference
+  httpStatus: 200
+  note: Product list with subscriptionRequired/approvalRequired flags and QBE's own product description.
+- url: https://partnerportal-api.qbena.com/
+  type: PartnerPortal
+  httpStatus: 200
+  note: QBE North America API Product Hub; anonymous catalogue is empty.
+- url: https://partnerportal-api.qbena.com/guide
+  type: Documentation
+  httpStatus: 200
+  note: API Marketplace Guide landing page; no endpoint or auth detail exposed.
+- url: https://www.qbe.com/
+  type: Website
+  httpStatus: 403
+  note: Corporate site bot-blocks anonymous fetchers; no qbe.com page could be read.

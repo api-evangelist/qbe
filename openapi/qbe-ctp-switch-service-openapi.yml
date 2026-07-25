@@ -1,0 +1,81 @@
+openapi: 3.0.1
+info:
+  title: CTP Switch Service
+  description: ''
+  version: v1
+  x-provenance:
+    harvestedBy: API Evangelist
+    harvestDate: '2026-07-25'
+    portal: https://connect.api-au.qbe.com/apis
+    method: Assembled from QBE's own anonymously-published Azure API Management developer-portal data endpoints. info/servers/securitySchemes
+      come verbatim from GET https://connect.api-au.qbe.com/developer/apis/ctp-switch-service?export=true&format=openapi+json
+      (HTTP 200), which QBE returns with an empty paths object to anonymous callers. Paths, parameters, request/response bodies
+      and examples come verbatim from GET https://connect.api-au.qbe.com/developer/apis/ctp-switch-service/operations and
+      .../operations/{operationId} (HTTP 200). components.schemas come verbatim from GET https://connect.api-au.qbe.com/developer/apis/ctp-switch-service/schemas/{schemaId}
+      (HTTP 200). No endpoint, schema or scope was invented.
+servers:
+- url: https://gateway.api-au.qbe.com/ctp-service
+tags:
+- name: CTP Switch
+paths:
+  /ctp-documents/appenddata:
+    post:
+      operationId: append-data
+      summary: Append data
+      tags:
+      - CTP Switch
+      description: Append data
+      parameters:
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /ctp-documents/saveddata:
+    get:
+      operationId: get-saved-data
+      summary: Get saved data
+      tags:
+      - CTP Switch
+      description: Get saved data
+      parameters:
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: Referer
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+  schemas:
+    Ctp-documentsAppenddataPostRequest:
+      type: string
+      x-apim-inline: true
+    Ctp-documentsSaveddataGetRequest:
+      type: string
+      x-apim-inline: true
+    Ctp-documentsSaveddataGetRequest-1:
+      type: string
+      x-apim-inline: true
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []

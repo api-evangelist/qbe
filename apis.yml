@@ -1,0 +1,108 @@
+aid: qbe
+url: https://raw.githubusercontent.com/api-evangelist/qbe/refs/heads/main/apis.yml
+name: QBE Insurance
+kind: company
+description: >-
+  QBE Insurance Group Limited is a Sydney-headquartered, ASX-listed global general
+  insurance and reinsurance group, tracing back to 1886 in Townsville, Queensland,
+  and operating today across Australia Pacific, North America and International
+  divisions including a Lloyd's of London syndicate. QBE writes commercial and
+  personal property and casualty lines — property, liability, motor and compulsory
+  third party (CTP), workers compensation, marine, aviation, trade credit, crop and
+  specialty — distributed overwhelmingly through brokers and agents rather than
+  direct to consumers. Its API posture reflects that distribution model and is
+  partner-gated by design: QBE Australia runs a real, publicly browsable Azure API
+  Management developer portal at connect.api-au.qbe.com whose catalogue, operations,
+  schemas and examples can be read anonymously, but every product requires an
+  approved subscription (approvalRequired true) and the broker API is keyed to named
+  partner platforms. The portal exposes genuine quote, bind, endorse, renew, cancel
+  and refer operations for the commercial policy lifecycle — the four real insurance
+  verbs, minus claims/FNOL, which QBE does not expose publicly. A separate QBE North
+  America partner API hub exists at partnerportal-api.qbena.com but publishes no
+  catalogue anonymously, and QBE Hong Kong documents a partner API behind
+  qbe.com pages that are bot-blocked to anonymous fetchers. Australia is the home
+  market; the Consumer Data Right was designated for general insurance and then
+  deferred, so nothing here is compelled by regulation.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Insurance
+- Australia
+- Property and Casualty
+- Commercial Insurance
+- Underwriting
+- Policy Administration
+- Quote
+- Broker
+- Reinsurance
+- Carrier
+- Partner API
+created: '2026-07-25'
+modified: '2026-07-25'
+specificationVersion: '0.19'
+apis:
+- aid: qbe:qbe-anzo-digital-brokers-api
+  name: QBE Australia ANZO Digital Brokers Experience API
+  description: >-
+    QBE Australia's broker-facing policy lifecycle API, published in the QBE
+    Australia API Hub as the "ANZO Digital Brokers" product. QBE describes it as
+    providing "access to the insurance policy lifecycle with QBE from creating quotes
+    to policy binding, endorsements, renewals and more", integrating a broker
+    platform with QBE's underwriting system. Fifteen documented operations cover
+    create/modify/abandon quote, bind a quote into a policy (issuing a policy
+    number), endorse, renew, cancel, abandon and refer a policy to a QBE underwriter,
+    plus quote and policy document upload and a health check. Access requires an
+    approved Azure APIM subscription key plus X-ClientID / X-ClientSecret and an
+    X-Partner-Id drawn from a fixed enumeration of QBE's broker partners — it is not
+    self-serve. No claims or FNOL operations are exposed.
+  humanURL: https://connect.api-au.qbe.com/apis
+  baseURL: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
+  tags:
+  - Insurance
+  - Quote
+  - Bind
+  - Policy Administration
+  - Broker
+  - Australia
+  properties:
+  - type: Documentation
+    url: https://connect.api-au.qbe.com/
+  - type: APIReference
+    url: https://connect.api-au.qbe.com/apis
+  - type: OpenAPI
+    url: openapi/qbe-anzo-digital-brokers-openapi.yml
+- aid: qbe:qbe-ctp-switch-service-api
+  name: QBE Australia CTP Switch Service
+  description: >-
+    A small QBE Australia service published in the same API Hub as the "ANZO CTP
+    Service" product, supporting the compulsory third party (CTP) motor insurance
+    switching flow. Two documented operations append data to and retrieve saved data
+    for a CTP document, keyed by a code parameter. Like every product in the hub it
+    requires an approved subscription key and is partner-gated rather than self-serve.
+  humanURL: https://connect.api-au.qbe.com/apis
+  baseURL: https://gateway.api-au.qbe.com/ctp-service
+  tags:
+  - Insurance
+  - CTP
+  - Motor Insurance
+  - Australia
+  properties:
+  - type: Documentation
+    url: https://connect.api-au.qbe.com/
+  - type: APIReference
+    url: https://connect.api-au.qbe.com/apis
+  - type: OpenAPI
+    url: openapi/qbe-ctp-switch-service-openapi.yml
+common:
+- type: Website
+  url: https://www.qbe.com/
+- type: DeveloperPortal
+  url: https://connect.api-au.qbe.com/
+- type: Documentation
+  url: https://connect.api-au.qbe.com/getting-started
+- type: APIReference
+  url: https://connect.api-au.qbe.com/apis
+- type: PartnerPortal
+  url: https://partnerportal-api.qbena.com/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
