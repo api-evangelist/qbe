@@ -1,0 +1,102 @@
+generated: '2026-07-25'
+method: derived
+source: >-
+  openapi/qbe-anzo-digital-brokers-openapi.yml, openapi/qbe-ctp-switch-service-openapi.yml,
+  https://connect.api-au.qbe.com/developer/apis?api-version=2022-04-01-preview (HTTP 200)
+docs: https://connect.api-au.qbe.com/getting-started
+summary: >-
+  Cross-cutting request/response semantics for QBE's published APIs, derived from QBE's own operation
+  and schema definitions. The shape is a MuleSoft experience API fronted by Azure API Management: JSON
+  over HTTPS, a single canonical policy document posted to every lifecycle verb, an errors[] envelope,
+  mandatory per-request tracing, and a correlation reference (x-master-ref-id) that stitches a two-step
+  transaction (endorse/cancel/renew, then bind or abandon) together.
+authentication:
+  style: APIM subscription key + partner client credentials as headers
+  detail: authentication/qbe-authentication.yml
+transport:
+  protocols: [https]
+  content_type: application/json
+  note: >-
+    Both published APIs declare protocols ["https"] only in the APIM catalogue. Document upload
+    operations post a body carrying effectiveDate plus primaryFile.
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    QBE documents no idempotency key. Every lifecycle operation is a POST/PUT with no
+    Idempotency-Key parameter anywhere in either spec, and no retry-safety guidance is published.
+    x-master-ref-id is a CORRELATION reference, not an idempotency key — QBE's own description is
+    "Send the x-master-ref-id value that was send during preceeding transaction for
+    endorse/cancel/renewal", i.e. it links a follow-on bind/abandon/refer to the transaction that
+    opened it. Re-sending the same request is not defined as safe.
+correlation:
+  header: x-master-ref-id
+  required: true
+  operations: 11
+  description: >-
+    Carried across the two-step lifecycle: an endorse / cancel / renew call opens a pending transaction,
+    and the subsequent bind, abandon or refer call must replay the same x-master-ref-id together with
+    the matching x-bind-policy-transaction / x-abandon-policy-transaction / x-refer-policy-transaction
+    value (ENDORSEMENT | CANCEL | RENEWAL).
+request_tracing:
+  header: X-TrackingID
+  required: true
+  operations: 14
+  description: Source system's tracking ID for troubleshooting / analysis purposes.
+  response_header: null
+pagination:
+  supported: false
+  note: >-
+    There is no list/collection operation in either published API — every operation acts on a single
+    quote or policy identified in the path — so no pagination convention exists.
+filtering_and_expansion:
+  supported: false
+  note: >-
+    No sparse fieldsets, no expand parameter and no field selection. Response shape is fixed per
+    operation. The only query parameters published are `type` (document upload context) and `code`
+    (CTP switch service).
+metadata:
+  supported: false
+  note: No free-form metadata object is exposed on any resource.
+versioning:
+  scheme: azure-apim-version-set
+  current: v1
+  detail: >-
+    Both APIs are members of an APIM version set (apiVersionSetId x-digital-brokers-qbe-anzoversionset
+    and 68ad05724a9c5fb442ddf729) with apiVersion "v1". The version is not carried in the path — the
+    server URLs are /x-digital-brokers-qbe-anzo/api and /ctp-service — so version selection is a
+    gateway/product concern rather than a URL concern.
+  lifecycle: lifecycle/qbe-lifecycle.yml
+errors:
+  envelope: errors[]
+  media_type: application/json
+  rfc9457: false
+  detail: errors/qbe-problem-types.yml
+  note: >-
+    Not RFC 9457. Every 4xx/5xx returns {"errors":[{"code","message","details"}]}; business exceptions
+    add extendedMessages[] with a policy-system reason code.
+rate_limiting:
+  published: false
+  note: >-
+    No rate-limit headers, quotas or throttling policy are published. The only published limit is the
+    APIM product subscriptionsLimit of 10 subscriptions per product, which is a subscription cap rather
+    than a request rate limit.
+mocking:
+  supported: true
+  detail: sandbox/qbe-sandbox.yml
+  note: X-Mockable + X-Mock-Scenario select canned scenarios from QBE's MuleSoft WireMock service.
+transaction_model:
+  canonical_document: PolicyType
+  note: >-
+    Quote create/modify and every policy verb post the SAME canonical policy document; the operation is
+    differentiated by the URL verb, by
+    policyHeader.policyTransactionInformation.transactionType (NEW_QUOTE, CONVERT_QUOTE, ENDORSEMENT,
+    RENEWAL, RENEWAL_AMEND, CANCEL) and by the x-*-policy-transaction headers. Modelled in
+    data-model/qbe-data-model.yml; controlled values in vocabulary/qbe-vocabulary.yml.
+related:
+  authentication: authentication/qbe-authentication.yml
+  errors: errors/qbe-problem-types.yml
+  lifecycle: lifecycle/qbe-lifecycle.yml
+  data_model: data-model/qbe-data-model.yml
+  vocabulary: vocabulary/qbe-vocabulary.yml
+  sandbox: sandbox/qbe-sandbox.yml

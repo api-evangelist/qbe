@@ -1,0 +1,20 @@
+generated: '2026-07-25'
+method: generated
+source: openapi/qbe-anzo-digital-brokers-openapi.yml
+notes: >-
+  Native Arazzo 1.0.1 workflows stitching QBE Australia's own operations into the real broker journeys.
+  Every operationId used appears verbatim in the referenced OpenAPI. No sandbox test values are seeded
+  because QBE publishes none — set X-Mockable true to route to QBE's WireMock scenarios instead.
+workflows:
+- file: qbe-quote-to-bind.yml
+  workflowId: qbe-quote-to-bind
+  title: QBE quote to bound policy
+  summary: Create a commercial quote, amend it, then convert it into a bound policy.
+- file: qbe-endorse-and-bind.yml
+  workflowId: qbe-endorse-and-bind
+  title: QBE mid-term endorsement, confirmed
+  summary: Open a mid-term endorsement, confirm it with a bind replaying x-master-ref-id, then upload the endorsement schedule.
+- file: qbe-cancel-policy.yml
+  workflowId: qbe-cancel-policy
+  title: QBE policy cancellation
+  summary: Cancel an in-force policy with a published reason code, confirm it, then upload the cancellation schedule.

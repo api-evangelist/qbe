@@ -1,0 +1,101 @@
+arazzo: 1.0.1
+info:
+  title: QBE policy cancellation
+  summary: Cancel an in-force QBE policy with a published cancellation reason code, confirm it, and attach the cancellation schedule.
+  description: >-
+    Cancellation uses the same two-step open-then-bind transaction as an endorsement, differing only in
+    the opening operation and the transaction header value (CANCEL). policyHeader.cancelReasonCode must
+    be one of QBE's published reason codes — see vocabulary/qbe-vocabulary.yml.
+  version: 1.0.0
+sourceDescriptions:
+- name: qbe
+  url: ../openapi/qbe-anzo-digital-brokers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: qbe-cancel-policy
+  summary: Cancel a policy, bind the cancellation, then upload the cancellation schedule.
+  inputs:
+    type: object
+    required: [subscriptionKey, clientId, clientSecret, partnerId, trackingId, masterRefId, policyId, policy]
+    properties:
+      subscriptionKey: {type: string, description: Approved Azure APIM subscription key.}
+      clientId: {type: string, description: QBE-issued partner client id.}
+      clientSecret: {type: string, description: QBE-issued partner client secret.}
+      partnerId: {type: string, enum: [AUSTBROKERS, MARSH, PSC], description: The calling QBE broker partner.}
+      trackingId: {type: string, description: Your own tracing identifier.}
+      mockable: {type: boolean, default: true, description: X-Mockable — true routes to QBE's WireMock scenarios.}
+      masterRefId:
+        type: string
+        description: Correlation reference replayed from the cancel call onto the bind that confirms it.
+      policyId: {type: string, description: The in-force QBE policy to cancel.}
+      policy:
+        type: object
+        description: >-
+          Canonical policy document with policyHeader.policyTransactionInformation.transactionType
+          CANCEL, the cancellation effectiveDate, and policyHeader.cancelReasonCode from QBE's list
+          (CL, PR, DC, TL, IC, OG, IE, LR, ER, NR, CO, NP, PS).
+      documentEffectiveDate: {type: string, description: effectiveDate for the uploaded cancellation schedule.}
+      primaryFile: {type: object, description: The cancellation schedule document payload.}
+  steps:
+  - stepId: openCancellation
+    description: Open the cancellation. Nothing is committed yet.
+    operationId: Cancel-an-existing-policy
+    parameters:
+    - {name: policyId, in: path, value: $inputs.policyId}
+    - {name: Ocp-Apim-Subscription-Key, in: header, value: $inputs.subscriptionKey}
+    - {name: X-ClientID, in: header, value: $inputs.clientId}
+    - {name: X-ClientSecret, in: header, value: $inputs.clientSecret}
+    - {name: X-Partner-Id, in: header, value: $inputs.partnerId}
+    - {name: X-TrackingID, in: header, value: $inputs.trackingId}
+    - {name: X-Mockable, in: header, value: $inputs.mockable}
+    - {name: x-master-ref-id, in: header, value: $inputs.masterRefId}
+    requestBody:
+      contentType: application/json
+      payload: $inputs.policy
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pendingCancellation: $response.body
+  - stepId: bindCancellation
+    description: >-
+      Confirm the cancellation. Committing step, no idempotency key — resolve a timeout by reading state
+      or contacting QBE, never by re-firing.
+    operationId: Bind-a-policy-to-save-change-after-endoresement-cancellation-or-renewal-has
+    parameters:
+    - {name: policyId, in: path, value: $inputs.policyId}
+    - {name: Ocp-Apim-Subscription-Key, in: header, value: $inputs.subscriptionKey}
+    - {name: X-ClientID, in: header, value: $inputs.clientId}
+    - {name: X-ClientSecret, in: header, value: $inputs.clientSecret}
+    - {name: X-Partner-Id, in: header, value: $inputs.partnerId}
+    - {name: X-TrackingID, in: header, value: $inputs.trackingId}
+    - {name: X-Mockable, in: header, value: $inputs.mockable}
+    - {name: x-master-ref-id, in: header, value: $inputs.masterRefId}
+    - {name: x-bind-policy-transaction, in: header, value: CANCEL}
+    requestBody:
+      contentType: application/json
+      payload: $inputs.policy
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      cancelledPolicy: $response.body
+  - stepId: uploadCancellationSchedule
+    description: Attach the cancellation schedule document to the policy.
+    operationId: Policy-Document-Upload-API
+    parameters:
+    - {name: policyId, in: path, value: $inputs.policyId}
+    - {name: type, in: query, value: cancellation_schedule}
+    - {name: Ocp-Apim-Subscription-Key, in: header, value: $inputs.subscriptionKey}
+    - {name: X-ClientID, in: header, value: $inputs.clientId}
+    - {name: X-ClientSecret, in: header, value: $inputs.clientSecret}
+    - {name: X-Partner-Id, in: header, value: $inputs.partnerId}
+    - {name: X-TrackingID, in: header, value: $inputs.trackingId}
+    - {name: X-Mockable, in: header, value: $inputs.mockable}
+    requestBody:
+      contentType: application/json
+      payload:
+        effectiveDate: $inputs.documentEffectiveDate
+        primaryFile: $inputs.primaryFile
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    cancelledPolicy: $steps.bindCancellation.outputs.cancelledPolicy

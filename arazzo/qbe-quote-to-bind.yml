@@ -1,0 +1,151 @@
+arazzo: 1.0.1
+info:
+  title: QBE quote to bound policy
+  summary: Create a commercial quote with QBE Australia, amend it, then convert it into a bound policy.
+  description: >-
+    The core QBE Australia broker flow. Every step posts the same canonical policy document; the
+    operation and the transaction headers decide what QBE does with it. Requires an approved Azure APIM
+    subscription to the ANZO Digital Brokers product plus partner credentials — set X-Mockable true to
+    run against QBE's MuleSoft WireMock scenarios while building.
+  version: 1.0.0
+sourceDescriptions:
+- name: qbe
+  url: ../openapi/qbe-anzo-digital-brokers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: qbe-quote-to-bind
+  summary: Create a quote, modify it, then bind it into a policy.
+  inputs:
+    type: object
+    required: [subscriptionKey, clientId, clientSecret, partnerId, trackingId, policy]
+    properties:
+      subscriptionKey:
+        type: string
+        description: Approved Azure APIM subscription key (Ocp-Apim-Subscription-Key).
+      clientId:
+        type: string
+        description: QBE-issued partner client id (X-ClientID).
+      clientSecret:
+        type: string
+        description: QBE-issued partner client secret (X-ClientSecret).
+      partnerId:
+        type: string
+        enum: [AUSTBROKERS, MARSH, PSC]
+        description: The calling QBE broker partner.
+      trackingId:
+        type: string
+        description: Your own tracing identifier for this transaction.
+      mockable:
+        type: boolean
+        default: true
+        description: X-Mockable — true routes the call to QBE's WireMock scenarios.
+      policy:
+        type: object
+        description: >-
+          The canonical QBE policy document (components.schemas.PolicyType). Requires
+          policyHeader.policyTransactionInformation.product (BPK | MSA | MPA | MVA) and inceptionDate,
+          a customerParty with a location, and at least one risk.
+      quoteId:
+        type: string
+        description: >-
+          The quote identifier returned by createQuote. QBE publishes an empty 201 response schema
+          (AuthQuotesPost201ApplicationJsonResponse has no properties), so this workflow takes the id as
+          an input rather than inventing a response field to extract it from.
+  steps:
+  - stepId: createQuote
+    description: Create a new quote from the policy document.
+    operationId: Create-a-new-Quote
+    parameters:
+    - name: Ocp-Apim-Subscription-Key
+      in: header
+      value: $inputs.subscriptionKey
+    - name: X-ClientID
+      in: header
+      value: $inputs.clientId
+    - name: X-ClientSecret
+      in: header
+      value: $inputs.clientSecret
+    - name: X-Partner-Id
+      in: header
+      value: $inputs.partnerId
+    - name: X-TrackingID
+      in: header
+      value: $inputs.trackingId
+    - name: X-Mockable
+      in: header
+      value: $inputs.mockable
+    requestBody:
+      contentType: application/json
+      payload: $inputs.policy
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      quote: $response.body
+  - stepId: modifyQuote
+    description: Amend the quote. QBE re-issues the quote on success.
+    operationId: Modify-an-existing-Quote
+    parameters:
+    - name: quoteId
+      in: path
+      value: $inputs.quoteId
+    - name: Ocp-Apim-Subscription-Key
+      in: header
+      value: $inputs.subscriptionKey
+    - name: X-ClientID
+      in: header
+      value: $inputs.clientId
+    - name: X-ClientSecret
+      in: header
+      value: $inputs.clientSecret
+    - name: X-Partner-Id
+      in: header
+      value: $inputs.partnerId
+    - name: X-TrackingID
+      in: header
+      value: $inputs.trackingId
+    - name: X-Mockable
+      in: header
+      value: $inputs.mockable
+    requestBody:
+      contentType: application/json
+      payload: $inputs.policy
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      amendedQuote: $response.body
+  - stepId: bindQuote
+    description: >-
+      Convert the quote into a policy. This is the committing step and there is no idempotency key —
+      never re-fire it on a timeout.
+    operationId: Convert-a-Quote-to-Policy
+    parameters:
+    - name: quoteId
+      in: path
+      value: $inputs.quoteId
+    - name: Ocp-Apim-Subscription-Key
+      in: header
+      value: $inputs.subscriptionKey
+    - name: X-ClientID
+      in: header
+      value: $inputs.clientId
+    - name: X-ClientSecret
+      in: header
+      value: $inputs.clientSecret
+    - name: X-Partner-Id
+      in: header
+      value: $inputs.partnerId
+    - name: X-TrackingID
+      in: header
+      value: $inputs.trackingId
+    - name: X-Mockable
+      in: header
+      value: $inputs.mockable
+    requestBody:
+      contentType: application/json
+      payload: $inputs.policy
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      policy: $response.body
+  outputs:
+    boundPolicy: $steps.bindQuote.outputs.policy

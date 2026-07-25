@@ -1,0 +1,108 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  openapi/qbe-anzo-digital-brokers-openapi.yml, openapi/qbe-ctp-switch-service-openapi.yml,
+  https://connect.api-au.qbe.com/developer/apis?api-version=2022-04-01-preview (HTTP 200),
+  https://partnerportal-api.qbena.com/guide (HTTP 200)
+docs: https://connect.api-au.qbe.com/getting-started
+notes: >-
+  QBE runs two separate, unrelated partner API estates with two different authentication models, and
+  neither is self-serve. Both are Azure API Management fronted, and in both cases credentials are issued
+  by QBE after a business/security approval — there is no signup that yields a working key. No OAuth2 or
+  OpenID Connect is configured on the Australian estate: the APIM authenticationSettings arrays are empty
+  on both published APIs and /.well-known/openid-configuration returns 404 on connect.api-au.qbe.com,
+  gateway.api-au.qbe.com and partnerportal-api.qbena.com. QBE North America does document a token
+  exchange (client id + secret -> JWT access token) but publishes no authorization-server metadata.
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+  oauth2_flows: []
+  self_serve: false
+  approval_required: true
+schemes:
+- name: apiKeyHeader
+  type: apiKey
+  in: header
+  parameter: Ocp-Apim-Subscription-Key
+  region: Australia
+  description: >-
+    Azure API Management subscription key. Issued only against an approved subscription to the ANZO
+    Digital Brokers or ANZO CTP Service product (subscriptionRequired true, approvalRequired true,
+    subscriptionsLimit 10).
+  sources:
+  - openapi/qbe-anzo-digital-brokers-openapi.yml
+  - openapi/qbe-ctp-switch-service-openapi.yml
+- name: apiKeyQuery
+  type: apiKey
+  in: query
+  parameter: subscription-key
+  region: Australia
+  description: The same APIM subscription key passed as a query-string parameter instead of a header.
+  sources:
+  - openapi/qbe-anzo-digital-brokers-openapi.yml
+  - openapi/qbe-ctp-switch-service-openapi.yml
+additional_credentials:
+  region: Australia
+  api: QBE Australia ANZO Digital Brokers Experience API
+  note: >-
+    The APIM subscription key alone is not sufficient. Every business operation additionally requires
+    per-partner credentials and a partner identity, declared as required headers in QBE's own published
+    operation definitions. These are NOT modelled as OpenAPI securitySchemes by QBE, but they are part of
+    the real auth contract.
+  headers:
+  - name: X-ClientID
+    required: true
+    operations: 13
+    description: Partner client identifier issued by QBE.
+  - name: X-ClientSecret
+    required: true
+    operations: 13
+    description: Partner client secret issued by QBE.
+  - name: X-Partner-Id
+    required: true
+    operations: 12
+    enum: [AUSTBROKERS, MARSH, PSC]
+    description: >-
+      The calling broker partner. Constrained to a fixed enumeration of QBE's named broker groups, which
+      is why this API cannot be consumed by an arbitrary developer even with a key.
+  - name: X-TrackingID
+    required: true
+    operations: 14
+    description: Source system's tracking ID for troubleshooting / analysis purposes.
+north_america:
+  portal: https://partnerportal-api.qbena.com/
+  guide: https://partnerportal-api.qbena.com/guide
+  probe_status: 200
+  model: token-exchange + subscription key
+  description: >-
+    QBE North America's API Product Hub documents a two-factor call contract: run the portal's `auth`
+    API `partnertoken` operation with the client id and secret QBE emails you to mint a JWT access
+    token, then send that access token together with a QBE-API-Subscription-Key header to the product
+    endpoint. Credentials are sent by the QBE Business team after approval; portal sign-in credentials
+    are emailed and the user is told to change the password immediately. Product subscriptions follow a
+    "<Partner Name>-<Product Name>" naming convention and require accepting Terms & Conditions.
+  headers:
+  - name: Authorization
+    description: Bearer JWT access token minted by the portal `auth` / `partnertoken` operation.
+  - name: QBE-API-Subscription-Key
+    description: Per-subscription product key found on the portal profile page.
+  token_operation: https://partnerportal-api.qbena.com/api-details#api=auth&operation=partnertoken
+  scopes_published: false
+probed_and_absent:
+- url: https://connect.api-au.qbe.com/.well-known/openid-configuration
+  status: 404
+- url: https://connect.api-au.qbe.com/.well-known/oauth-authorization-server
+  status: 404
+- url: https://connect.api-au.qbe.com/.well-known/oauth-protected-resource
+  status: 404
+- url: https://gateway.api-au.qbe.com/.well-known/openid-configuration
+  status: 404
+- url: https://partnerportal-api.qbena.com/.well-known/openid-configuration
+  status: 404
+related:
+  scopes: null
+  conventions: conventions/qbe-conventions.yml
+  well_known: well-known/qbe-well-known.yml

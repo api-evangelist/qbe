@@ -1,0 +1,65 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  npm registry search, https://registry.npmjs.org/eslint-config-qbe,
+  https://registry.npmjs.org/stylelint-config-qbe, https://api.github.com/orgs/qbegroup,
+  https://api.github.com/orgs/qbeinsurance, PyPI
+summary: >-
+  QBE ships NO API client SDK in any language. There is no first-party library for the ANZO Digital
+  Brokers API, the CTP Switch Service or the QBE North America partner APIs — partners are expected to
+  call the REST endpoints directly (QBE's own North America guide tells partners to test with Postman or
+  SoapUI and hand-build the token call). Two genuinely first-party QBE packages DO exist on npm, but
+  they are front-end engineering standards published by QBE Insurance Group Limited, not API clients.
+sdk_available: false
+packages:
+- language: javascript
+  registry: npm
+  name: eslint-config-qbe
+  url: https://www.npmjs.com/package/eslint-config-qbe
+  install: npm install eslint-config-qbe
+  official: true
+  kind: engineering-standard
+  description: JavaScript coding standards for QBE.
+  author: QBE Insurance Group Limited
+  repository: https://github.com/qbegroup/eslint-config-qbe
+  latest_version: 1.1.0
+  last_published: '2022-05-01'
+  api_client: false
+- language: javascript
+  registry: npm
+  name: stylelint-config-qbe
+  url: https://www.npmjs.com/package/stylelint-config-qbe
+  install: npm install stylelint-config-qbe
+  official: true
+  kind: engineering-standard
+  description: CSS coding standards for QBE projects using styled-components.
+  author: QBE Insurance Group Limited
+  repository: https://github.com/qbegroup/stylelint-config-qbe
+  latest_version: 1.0.1
+  last_published: '2022-05-18'
+  api_client: false
+github_organizations:
+- login: qbegroup
+  name: QBE Insurance Group Limited
+  url: https://github.com/qbegroup
+  blog: https://qbe.com
+  public_repos: 0
+  note: >-
+    Verified via the GitHub API. The org is real and is the declared repository home of the two npm
+    packages above, but it currently exposes no public repositories — the referenced repos are private
+    or removed.
+- login: qbeinsurance
+  name: QBE Insurance
+  url: https://github.com/qbeinsurance
+  public_repos: 0
+searched_and_absent:
+  registries:
+  - {registry: pypi, queries: [qbe, qbe-api], result: 404}
+  - {registry: npm, query: qbe, result: 'no first-party API client; matches are third-party or unrelated (qbe-dw, qui-anzo, qbe-dyna-components published by other parties)'}
+  - {registry: npm, query: qbe-insurance, result: 'no QBE-authored package'}
+  note: >-
+    Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist and crates.io were not expected to carry a
+    QBE client and none is referenced from either QBE developer portal. Neither portal links a
+    downloadable SDK, CLI or Postman collection.
+related:
+  authentication: authentication/qbe-authentication.yml

@@ -46,12 +46,28 @@ findings:
   - url: https://partnerportal-api.qbena.com/
     region: North America
     httpStatus: 200
-    classification: marketing / onboarding landing page, no anonymous catalogue
+    classification: >-
+      real product catalogue in portal content pages, empty APIM data catalogue, no
+      endpoints or specs
     note: >-
-      Same Azure APIM developer-portal software, but GET /developer/apis and
-      GET /developer/products both return an empty value array to anonymous callers.
-      The site markets Renters and Homeowners partner solutions and links an API
-      Terms of Use; no endpoints, no specs, no auth details are exposed.
+      Same Azure APIM developer-portal software, and GET /developer/apis and
+      GET /developer/products both still return an empty value array to anonymous
+      callers. CORRECTED on the 2026-07-25 enrichment round: the portal's own
+      server-rendered content pages DO publish a catalogue anonymously.
+      /apis/catalog (200) names seven API products — Quote API, Bind API, Master
+      Liability API, Property Inquiry API, Zip Code Validate API and Reconciliation
+      and Cancellation for Renters, plus Quote API for Homeowners — and /guide (200)
+      documents the real call contract: mint a JWT via the portal's `auth` API
+      `partnertoken` operation using an emailed client id and secret, then send that
+      access token plus a QBE-API-Subscription-Key header. Still no endpoint host, no
+      spec and no scopes.
+    anonymousPages:
+    - {url: 'https://partnerportal-api.qbena.com/apis/catalog', httpStatus: 200}
+    - {url: 'https://partnerportal-api.qbena.com/guide', httpStatus: 200}
+    - {url: 'https://partnerportal-api.qbena.com/document/renter', httpStatus: 200}
+    - {url: 'https://partnerportal-api.qbena.com/document/homeowners', httpStatus: 200}
+    - {url: 'https://partnerportal-api.qbena.com/products_list', httpStatus: 200}
+    - {url: 'https://partnerportal-api.qbena.com/api-details', httpStatus: 200}
   - url: https://www.qbe.com/hk/en/agents-and-partners/partner-api/api-endpoints
     region: Hong Kong
     httpStatus: 403
@@ -223,6 +239,75 @@ findings:
     subscriptionRequired: true
     approvalRequired: true
     subscriptionsLimit: 10
+enrichment:
+- date: '2026-07-25'
+  round: 'Enrichment round 1'
+  contractDiscovery: >-
+    Re-probed every host for a hidden machine-readable contract before concluding none
+    exists beyond the two harvested specs. /openapi.json, /openapi.yaml, /swagger.json,
+    /v1/openapi.json, /api-docs, /docs, /redoc, /graphql and /llms.txt all return 404 on
+    connect.api-au.qbe.com, gateway.api-au.qbe.com AND partnerportal-api.qbena.com — 27
+    probes, 27 misses. The whole /.well-known/ surface (security.txt,
+    openid-configuration, oauth-authorization-server, oauth-protected-resource,
+    api-catalog, ai-plugin.json) is 404 on all three API hosts plus www.qbe.com,
+    www.qbe.com.au and qbena.com. The QBE Australia APIM catalogue is unchanged at two
+    APIs and two products.
+  newFindings:
+  - >-
+    QBE North America publishes a seven-product API catalogue and its full auth contract
+    in the portal's own content pages, which the previous round missed by only reading
+    the APIM data endpoints. See the developerPortals entry above.
+  - >-
+    QBE runs a real coordinated vulnerability disclosure program: a HackerOne team
+    (handle `qbe`, "QBE Insurance", HTTP 200, confirmed through HackerOne's public
+    GraphQL team lookup — a nonexistent handle 404s) with no public structured scopes, so
+    invite-only; plus a global Responsible Disclosure Program page, regional disclosure
+    statements for AU/US/Canada/QBE Re/LMI, and security@qbe.com as the intake at QBE's
+    Global Security Operations Centre. No bounty is paid. No security.txt anywhere.
+  - >-
+    The broker API ships a first-class MOCKING contract as its test seam: a required
+    X-Mockable boolean header plus an optional X-Mock-Scenario header selecting named
+    scenarios from QBE's MuleSoft WireMock service. That is the sandbox — QBE publishes
+    no test credentials, test policy numbers or magic identifiers.
+  - >-
+    x-master-ref-id is a CORRELATION reference, not an idempotency key. QBE's own
+    description ties a bind/abandon/refer back to the endorse/cancel/renew that opened
+    it. There is no Idempotency-Key anywhere in either spec and no retry-safety guidance,
+    so no Idempotency pointer was emitted.
+  - >-
+    No first-party API client SDK exists in any language. The only genuinely first-party
+    QBE packages on npm are eslint-config-qbe and stylelint-config-qbe (authored by QBE
+    Insurance Group Limited, repos under github.com/qbegroup) — front-end engineering
+    standards, not API clients. github.com/qbegroup and github.com/qbeinsurance are real
+    orgs with zero public repositories.
+  - >-
+    Still absent after re-probing: status page (status.qbe.com, status.api-au.qbe.com and
+    status.qbena.com are all NXDOMAIN; qbe.statuspage.io is the Atlassian wildcard
+    marketing page, not QBE's), changelog, roadmap, SLA, deprecation policy, public
+    Postman collection, trust centre, named certifications, events/webhooks/AsyncAPI,
+    GraphQL, gRPC and any MCP server.
+  artifactsAdded:
+  - authentication/qbe-authentication.yml (upgraded derived -> searched)
+  - security/qbe-vulnerability-disclosure.yml
+  - security/qbe-domain-security.yml
+  - conventions/qbe-conventions.yml
+  - errors/qbe-problem-types.yml
+  - lifecycle/qbe-lifecycle.yml
+  - conformance/qbe-conformance.yml
+  - vocabulary/qbe-vocabulary.yml
+  - data-model/qbe-data-model.yml
+  - examples/qbe-anzo-digital-brokers-examples.yml
+  - sandbox/qbe-sandbox.yml
+  - packages/qbe-packages.yml
+  - well-known/qbe-well-known.yml
+  - mcp/qbe-mcp.yml
+  - mcp/qbe-tool-crosswalk.yml
+  - llms/qbe-llms.txt
+  - overlays/qbe-anzo-digital-brokers-overlay.yaml
+  - overlays/qbe-ctp-switch-service-overlay.yaml
+  - agentic-access/qbe-agentic-access.yml
+  - skills/ (3 agent skills + _index.yml)
+  - arazzo/ (3 native workflows + _index.yml)
 sources:
 - url: https://connect.api-au.qbe.com/
   type: DeveloperPortal

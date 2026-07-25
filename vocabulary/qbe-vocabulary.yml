@@ -1,0 +1,373 @@
+generated: '2026-07-25'
+method: derived
+source: openapi/qbe-anzo-digital-brokers-openapi.yml
+name: QBE Australia ANZO Digital Brokers controlled vocabulary
+notes: 'Every controlled value list QBE publishes in the ANZO Digital Brokers OpenAPI components. These
+  are the enumerations a broker platform must speak to transact: QBE product codes, risk class codes,
+  policy transaction types, cancellation reason codes, Australian state codes, risk modes, and the excess/limit
+  ladders offered on each cover. Values are verbatim from the spec.'
+headers:
+- term: X-Partner-Id
+  values:
+  - AUSTBROKERS
+  - MARSH
+  - PSC
+  description: The named QBE broker partners permitted to call the API. Required header on 12 of 15 operations.
+- term: x-bind-policy-transaction
+  values:
+  - ENDORSEMENT
+  - CANCEL
+  - RENEWAL
+  description: Which preceding policy lifecycle transaction to bind or confirm.
+- term: x-abandon-policy-transaction
+  values:
+  - ENDORSEMENT
+  - CANCEL
+  - RENEWAL
+  description: Which preceding policy lifecycle transaction to abandon.
+- term: x-refer-policy-transaction
+  values:
+  - ENDORSEMENT
+  - RENEWAL
+  - CANCEL
+  description: Which policy lifecycle transaction to refer to a QBE underwriter.
+- term: document type (query)
+  values:
+  - new_business_schedule
+  - endorsement_schedule
+  - renewal_schedule
+  - cancellation_schedule
+  - policy_referral
+  - quote_referral
+  description: Context of a document uploaded against a policy (first five) or a quote (quote_referral).
+terms:
+- term: commissionType
+  values:
+  - VARIABLE
+  description: null
+- term: cancelReasonCode
+  values:
+  - CL
+  - PR
+  - DC
+  - TL
+  - IC
+  - OG
+  - IE
+  - LR
+  - ER
+  - NR
+  - CO
+  - NP
+  - PS
+  description: Reason codes for Cancellation of the existing policy CL -  Cancelled (Payout) PR - Policy
+    Replaced DC - Declined by Company TL - Total Loss IC - Found cheaper Policy OG - Outside Guidelines
+    IE - Insured Elsewhere LR - Loan Refinance ER - Error Correction NR - Not Required CO - Cooling Off
+    NP - Non-Payment PS - Property Sold
+- term: product
+  values:
+  - BPK
+  - MSA
+  - MPA
+  - MVA
+  description: null
+- term: transactionType
+  values:
+  - NEW_QUOTE
+  - CONVERT_QUOTE
+  - ENDORSEMENT
+  - RENEWAL
+  - RENEWAL_AMEND
+  - CANCEL
+  description: null
+- term: taxIndicator
+  values:
+  - I
+  - P
+  - T
+  - N
+  - X
+  description: null
+- term: stateCode
+  values:
+  - NSW
+  - QLD
+  - SA
+  - TAS
+  - VIC
+  - WA
+  - NT
+  - ACT
+  description: null
+- term: riskClassCode
+  values:
+  - BFP
+  - BPO
+  - BGM
+  - BEI
+  - BPP
+  - BAC
+  - BAL
+  - MVA
+  - MSA
+  description: null
+- term: terminationReason
+  values:
+  - TL
+  description: null
+- term: riskMode
+  values:
+  - A
+  - V
+  - M
+  - T
+  description: Specifies if the risk is to be added (A), modified (M), view an existing risk (V) or terminate
+    a risk (T) as a part of Endorsements.
+- term: classType
+  values:
+  - BFF
+  - BLP
+  - BBU
+  - BMO
+  - BPG
+  - BPL
+  - BGP
+  - BMB
+  - BMC
+  - BAU
+  - BDO
+  - BEP
+  - BFG
+  - BPI
+  - BPM
+  - MVG
+  - DTM
+  - MSP
+  description: null
+- term: limitOfLiability
+  values:
+  - 5000000
+  - 10000000
+  - 20000000
+  - 50000000
+  description: null
+- term: liabilityExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: propertyOwners
+  values:
+  - 'Yes'
+  - 'No'
+  description: null
+- term: buildingExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: contentsExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: indemnityPeriod
+  values:
+  - '3'
+  - '6'
+  - '9'
+  - '12'
+  - '15'
+  - '18'
+  - '24'
+  - '30'
+  - '36'
+  description: null
+- term: grossIncomeExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: OSAcctRecExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: theftExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: moneyExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: blanketCover
+  values:
+  - Y
+  - N
+  description: null
+- term: blanketCoverSI
+  values:
+  - 2500
+  - 5000
+  - 10000
+  - 15000
+  - 20000
+  description: null
+- term: glassExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: largestPaneOfGlass
+  values:
+  - A
+  - B
+  - C
+  description: C - Less than 5 sq metres B - Greater than 5 metres but less than 8 sq metres A - Greater
+    than 8 sq meters
+- term: gatewayPurposeOfUse
+  values:
+  - PX
+  description: null
+- term: fidelityExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: taxAuditSI
+  values:
+  - 5000
+  - 10000
+  - 20000
+  - 50000
+  description: null
+- term: taxAuditExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: transitExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: employmentPracticesLimit
+  values:
+  - 100000
+  - 250000
+  - 500000
+  - 1000000
+  description: null
+- term: employmentPracticesExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: statutoryLimit
+  values:
+  - 250000
+  - 500000
+  description: null
+- term: statutoryExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: electronicEquipmentExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: generalPropertyExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null
+- term: machineryBreakDownExcess
+  values:
+  - 500
+  - 750
+  - 1000
+  - 1500
+  - 2500
+  - 5000
+  - 10000
+  description: null

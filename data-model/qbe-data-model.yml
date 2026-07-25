@@ -1,0 +1,228 @@
+generated: '2026-07-25'
+method: derived
+source: openapi/qbe-anzo-digital-brokers-openapi.yml
+notes: Entity graph derived from the QBE ANZO Digital Brokers OpenAPI components (258 schemas). QBE uses
+  one canonical policy document (PolicyType) as the request body for every lifecycle verb — quote, bind,
+  endorse, renew, cancel, abandon and refer all post the same shape and differentiate on policyTransactionInformation.transactionType
+  plus the x-*-policy-transaction headers. There is no ACORD payload; identifiers are QBE-native (policyNumber
+  e.g. 145U475933BPK, quoteId, policyId). Schema names such as type_11 / items_10 are Azure APIM auto-generated
+  component names, carried verbatim from QBE.
+identifiers:
+- name: quoteId
+  in: path
+  description: Quote identifier returned by Create-a-new-Quote; re-issued by Modify-an-existing-Quote.
+- name: policyId
+  in: path
+  description: Policy identifier; a policy number is issued when a quote is bound.
+- name: policyNumber
+  in: body
+  example: 145U475933BPK
+  description: QBE policy number; the trailing three characters are the product code (BPK).
+- name: x-master-ref-id
+  in: header
+  description: Correlation reference carried across a multi-step lifecycle transaction (endorse/cancel/renew
+    then bind or abandon).
+entities:
+- name: Policy
+  schema: PolicyType
+  description: The QBE canonical policy document — the single request payload for quote create/modify
+    and every policy lifecycle transaction.
+  fields:
+  - policyHeader
+  - customerParty
+  - risks
+  - questions
+  - referral
+  - policyPremium
+- name: PolicyHeader
+  schema: PolicyType.policyHeader (inline)
+  description: 'Commercial terms and the transaction envelope: commission, broker fee, sub-product, cancellation
+    reason and the nested policyTransactionInformation.'
+  fields:
+  - variableCommRate
+  - brokerFeeTotal
+  - commissionType
+  - subProductCd
+  - cancelReasonCode
+  - policyTransactionInformation
+  - PDSDetails
+- name: PolicyTransactionInformation
+  schema: PolicyType.policyHeader.policyTransactionInformation (inline)
+  description: 'Identifies the transaction: product code, transactionType, policyNumber, inception/effective/expiry
+    dates and status flags. Required: inceptionDate, product.'
+  fields:
+  - inceptionDate
+  - effectiveDate
+  - expiryDate
+  - product
+  - policyNumber
+  - policyStatus
+  - policyMessageStatus
+  - deleteReferIfExist
+  - returnStatusInResponse
+  - partialDeclineAllowed
+  - terminateRisksNotPassed
+  - transactionType
+- name: CustomerParty
+  schema: PolicyType.customerParty (inline)
+  description: The insured — person or organisation (orgName/orgABN/tradingName), tax indicator, contact
+    block and a required location.
+  fields:
+  - firstName
+  - lastName
+  - taxIndicator
+  - taxPercent
+  - orgName
+  - orgABN
+  - businessName
+  - tradingName
+  - businessEntity
+  - emailNotification
+  - contact
+  - location
+- name: Risk
+  schema: items_10
+  description: 'One insured risk on the policy: risk class code, attachment/effective/termination dates,
+    riskMode (A/M/V/T), clauses, location, interested parties, premium and riskDetail.'
+  fields:
+  - partnerId
+  - riskAttachmentDate
+  - riskClassCode
+  - riskEffectiveDate
+  - terminationDate
+  - terminationReason
+  - riskMode
+  - riskNumber
+  - riskReferenceId
+  - clauses
+  - location
+  - interestedParties
+  - premium
+  - riskDetail
+- name: Location
+  schema: type_11
+  description: 'Australian situation address for a risk: address lines, city, stateCode, postalCode, situation
+    number/turnover and moniker.'
+  fields:
+  - addressLine1
+  - partnerId
+  - addressRelationshipType
+  - situationNumber
+  - addressLine3
+  - moniker
+  - situationTurnover
+  - stateCode
+  - situationLocated
+  - city
+  - addressLine2
+  - postalCode
+- name: InterestedParty
+  schema: items_14
+  description: 'A third party with an interest in a risk (financier, lessor): names, address, type, description,
+    terminated date.'
+  fields:
+  - name1
+  - name2
+  - address
+  - type
+  - description
+  - terminatedDate
+- name: RiskPremium
+  schema: type_12
+  description: 'Premium breakdown at risk level: broker fee, broker fee GST and premiumClass[].'
+  fields:
+  - brokerFee
+  - brokerFeeGST
+  - premiumClass
+- name: PolicyPremium
+  schema: type
+  description: 'Policy-level premium: transaction premium, FAP premium, total posted-to-date premium,
+    adjustment amount/percentage/indicator and stamp-duty exemption.'
+  fields:
+  - stampDutyExemptIndicator
+  - FAPPremium
+  - totalPostedToDatePremium
+  - transactionPremium
+  - adjustmentIndicator
+  - adjustmentAmount
+  - adjustmentPercentage
+- name: Clause
+  schema: items_13
+  description: Policy wording clause attached to a risk (clauseWording[]).
+  fields:
+  - clauseWording
+- name: Referral
+  schema: PolicyType.referral (inline)
+  description: 'Referral payload sent when a quote or policy is referred to a QBE underwriter: reasons[]
+    (1-10 entries).'
+  fields:
+  - reasons
+- name: Document
+  schema: DocumentType / DocumentType_8
+  description: 'A document uploaded against a quote or a policy: effectiveDate plus primaryFile. Required:
+    effectiveDate, primaryFile.'
+  fields:
+  - effectiveDate
+  - primaryFile
+relationships:
+- from: Policy
+  to: PolicyHeader
+  kind: has_one
+  via: policyHeader
+- from: PolicyHeader
+  to: PolicyTransactionInformation
+  kind: has_one
+  via: policyTransactionInformation
+- from: Policy
+  to: CustomerParty
+  kind: has_one
+  via: customerParty
+- from: Policy
+  to: Risk
+  kind: has_many
+  via: risks[]
+- from: Policy
+  to: PolicyPremium
+  kind: has_one
+  via: policyPremium
+- from: Policy
+  to: Referral
+  kind: has_one
+  via: referral
+- from: Policy
+  to: Question
+  kind: has_many
+  via: questions[]
+- from: CustomerParty
+  to: Location
+  kind: has_one
+  via: location
+- from: Risk
+  to: Location
+  kind: has_one
+  via: location
+- from: Risk
+  to: InterestedParty
+  kind: has_many
+  via: interestedParties[]
+- from: Risk
+  to: Clause
+  kind: has_many
+  via: clauses[]
+- from: Risk
+  to: RiskPremium
+  kind: has_one
+  via: premium
+- from: Quote
+  to: Policy
+  kind: becomes
+  via: POST /auth/quotes/{quoteId}/bind (Convert-a-Quote-to-Policy)
+- from: Policy
+  to: Document
+  kind: has_many
+  via: POST /auth/policies/{policyId}/documents
+- from: Quote
+  to: Document
+  kind: has_many
+  via: POST /auth/quotes/{quoteId}/documents
+vocabulary: vocabulary/qbe-vocabulary.yml

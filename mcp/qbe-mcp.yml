@@ -1,0 +1,87 @@
+generated: '2026-07-25'
+method: derived
+status: candidate
+source: openapi/qbe-anzo-digital-brokers-openapi.yml, openapi/qbe-ctp-switch-service-openapi.yml
+provider_signal: QBE publishes no MCP server. Searched the QBE Australia API Hub (connect.api-au.qbe.com),
+  the QBE North America API Product Hub (partnerportal-api.qbena.com), the qbegroup GitHub organisation,
+  npm and the public MCP registries — no hosted or packaged MCP server exists for QBE as of this run.
+  The tool list below is a CANDIDATE derived one-to-one from the 17 operations QBE does publish, so it
+  can be stood up by a partner without inventing surface area. Every tool binds to a real operationId.
+server:
+  name: qbe-anzo-digital-brokers
+  transport: http
+  url: null
+auth:
+  note: 'Any MCP server fronting these operations inherits QBE gating: an approved Azure APIM subscription
+    key (Ocp-Apim-Subscription-Key) plus X-ClientID / X-ClientSecret and an X-Partner-Id from the AUSTBROKERS
+    / MARSH / PSC enumeration.'
+  profile: authentication/qbe-authentication.yml
+tools:
+- name: health_get
+  description: To check the health of the API
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#get-__health
+  http: GET /__health
+- name: data_model_post
+  description: /data-model - POST
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#post-data-model
+  http: POST /data-model
+- name: abandon_a_policy_before_it_has_been_bound
+  description: The headers used for tracking transactions end-to-end
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#To-Abandon-a-policy-before-it-has-been-bound
+  http: POST /auth/policies/{policyId}/abandon
+- name: abandon_an_existing_quote
+  description: The headers used for tracking transactions end-to-end
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#To-Abandon-an-existing-quote
+  http: POST /auth/quotes/{quoteId}/abandon
+- name: amend_an_existing_policy_endorsement
+  description: The headers used for tracking transactions end-to-end
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Amend-an-existing-policy-endorsement
+  http: POST /auth/policies/{policyId}/endorse
+- name: bind_a_policy_to_save_change_after_endoresement_cancellation
+  description: The headers used for tracking transactions end-to-end
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Bind-a-policy-to-save-change-after-endoresement-cancellation-or-renewal-has
+  http: POST /auth/policies/{policyId}/bind
+- name: cancel_an_existing_policy
+  description: The headers used for tracking transactions end-to-end
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Cancel-an-existing-policy
+  http: POST /auth/policies/{policyId}/cancel
+- name: convert_a_quote_to_policy
+  description: Bind an existing quote to create a policy. This will issue a policy number.
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Convert-a-Quote-to-Policy
+  http: POST /auth/quotes/{quoteId}/bind
+- name: create_a_new_quote
+  description: Generate a Quote for given risk covers.
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Create-a-new-Quote
+  http: POST /auth/quotes
+- name: generate_a_quote_request_for_a_policy_that_has_been_invited_
+  description: To Generate a quote request for a policy that has been invited for renewal
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Generate-a-quote-request-for-a-policy-that-has-been-invited-for-renewal
+  http: POST /auth/policies/{policyId}/renew
+- name: modify_an_existing_quote
+  description: Modify an existing quote in the system. This will re-issue a new quote number.
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Modify-an-existing-Quote
+  http: PUT /auth/quotes/{quoteId}
+- name: policy_document_upload_api
+  description: Upload a document for a policy
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Policy-Document-Upload-API
+  http: POST /auth/policies/{policyId}/documents
+- name: quote_document_upload_api
+  description: Upload document for a given quote.
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Quote-Document-Upload-API
+  http: POST /auth/quotes/{quoteId}/documents
+- name: refer_a_quote_to_qbe_underwriter
+  description: Refer a quote to QBE Underwriter
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Refer-a-quote-to-QBE-Underwriter
+  http: POST /auth/quotes/{quoteId}/refer
+- name: refer_an_existing_policy
+  description: The headers used for tracking transactions end-to-end
+  source_operation: openapi/qbe-anzo-digital-brokers-openapi.yml#Refer-an-existing-Policy
+  http: POST /auth/policies/{policyId}/refer
+- name: append_data_ctp
+  description: Append data
+  source_operation: openapi/qbe-ctp-switch-service-openapi.yml#append-data
+  http: POST /ctp-documents/appenddata
+- name: get_saved_data_ctp
+  description: Get saved data
+  source_operation: openapi/qbe-ctp-switch-service-openapi.yml#get-saved-data
+  http: GET /ctp-documents/saveddata

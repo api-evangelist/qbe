@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: QBE mid-term endorsement, confirmed
+  summary: Open a mid-term endorsement on an in-force QBE policy, confirm it with a bind, and attach the endorsement schedule.
+  description: >-
+    QBE models every post-issue policy change as a two-step transaction — open it, then confirm it.
+    Nothing is committed until the bind. The correlation reference x-master-ref-id sent on the opening
+    call must be replayed verbatim on the bind (or on the abandon, if the change is backed out), paired
+    with x-bind-policy-transaction / x-abandon-policy-transaction ENDORSEMENT.
+  version: 1.0.0
+sourceDescriptions:
+- name: qbe
+  url: ../openapi/qbe-anzo-digital-brokers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: qbe-endorse-and-bind
+  summary: Endorse a policy, bind the change, then upload the endorsement schedule.
+  inputs:
+    type: object
+    required: [subscriptionKey, clientId, clientSecret, partnerId, trackingId, masterRefId, policyId, policy]
+    properties:
+      subscriptionKey: {type: string, description: Approved Azure APIM subscription key.}
+      clientId: {type: string, description: QBE-issued partner client id.}
+      clientSecret: {type: string, description: QBE-issued partner client secret.}
+      partnerId: {type: string, enum: [AUSTBROKERS, MARSH, PSC], description: The calling QBE broker partner.}
+      trackingId: {type: string, description: Your own tracing identifier.}
+      mockable: {type: boolean, default: true, description: X-Mockable — true routes to QBE's WireMock scenarios.}
+      masterRefId:
+        type: string
+        description: >-
+          Correlation reference for this transaction. The SAME value must be sent on the opening
+          endorse call and on the bind that confirms it.
+      policyId: {type: string, description: The in-force QBE policy to endorse.}
+      policy:
+        type: object
+        description: >-
+          Canonical policy document with policyHeader.policyTransactionInformation.transactionType
+          ENDORSEMENT, the change effectiveDate, and the affected risks[] using riskMode A (add),
+          M (modify), T (terminate) or V (carry through unchanged).
+      documentEffectiveDate: {type: string, description: effectiveDate for the uploaded endorsement schedule.}
+      primaryFile: {type: object, description: The endorsement schedule document payload.}
+  steps:
+  - stepId: openEndorsement
+    description: Open the mid-term endorsement. Nothing is committed yet.
+    operationId: Amend-an-existing-policy-endorsement
+    parameters:
+    - {name: policyId, in: path, value: $inputs.policyId}
+    - {name: Ocp-Apim-Subscription-Key, in: header, value: $inputs.subscriptionKey}
+    - {name: X-ClientID, in: header, value: $inputs.clientId}
+    - {name: X-ClientSecret, in: header, value: $inputs.clientSecret}
+    - {name: X-Partner-Id, in: header, value: $inputs.partnerId}
+    - {name: X-TrackingID, in: header, value: $inputs.trackingId}
+    - {name: X-Mockable, in: header, value: $inputs.mockable}
+    - {name: x-master-ref-id, in: header, value: $inputs.masterRefId}
+    requestBody:
+      contentType: application/json
+      payload: $inputs.policy
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pendingEndorsement: $response.body
+  - stepId: bindEndorsement
+    description: >-
+      Confirm the endorsement. Committing step, no idempotency key — never re-fire on a timeout. Replays
+      the same x-master-ref-id sent on openEndorsement.
+    operationId: Bind-a-policy-to-save-change-after-endoresement-cancellation-or-renewal-has
+    parameters:
+    - {name: policyId, in: path, value: $inputs.policyId}
+    - {name: Ocp-Apim-Subscription-Key, in: header, value: $inputs.subscriptionKey}
+    - {name: X-ClientID, in: header, value: $inputs.clientId}
+    - {name: X-ClientSecret, in: header, value: $inputs.clientSecret}
+    - {name: X-Partner-Id, in: header, value: $inputs.partnerId}
+    - {name: X-TrackingID, in: header, value: $inputs.trackingId}
+    - {name: X-Mockable, in: header, value: $inputs.mockable}
+    - {name: x-master-ref-id, in: header, value: $inputs.masterRefId}
+    - {name: x-bind-policy-transaction, in: header, value: ENDORSEMENT}
+    requestBody:
+      contentType: application/json
+      payload: $inputs.policy
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      endorsedPolicy: $response.body
+  - stepId: uploadEndorsementSchedule
+    description: Attach the endorsement schedule document to the policy.
+    operationId: Policy-Document-Upload-API
+    parameters:
+    - {name: policyId, in: path, value: $inputs.policyId}
+    - {name: type, in: query, value: endorsement_schedule}
+    - {name: Ocp-Apim-Subscription-Key, in: header, value: $inputs.subscriptionKey}
+    - {name: X-ClientID, in: header, value: $inputs.clientId}
+    - {name: X-ClientSecret, in: header, value: $inputs.clientSecret}
+    - {name: X-Partner-Id, in: header, value: $inputs.partnerId}
+    - {name: X-TrackingID, in: header, value: $inputs.trackingId}
+    - {name: X-Mockable, in: header, value: $inputs.mockable}
+    requestBody:
+      contentType: application/json
+      payload:
+        effectiveDate: $inputs.documentEffectiveDate
+        primaryFile: $inputs.primaryFile
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    endorsedPolicy: $steps.bindEndorsement.outputs.endorsedPolicy

@@ -1,0 +1,30 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for QBE ANZO Digital Brokers Experience API
+  version: 1.0.0
+extends: openapi/qbe-anzo-digital-brokers-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: qbe
+    x-apievangelist-artifacts:
+      authentication: authentication/qbe-authentication.yml
+      conventions: conventions/qbe-conventions.yml
+      errors: errors/qbe-problem-types.yml
+      vocabulary: vocabulary/qbe-vocabulary.yml
+      sandbox: sandbox/qbe-sandbox.yml
+      lifecycle: lifecycle/qbe-lifecycle.yml
+    x-apievangelist-access: 'partner-gated: approved Azure APIM subscription (approvalRequired), no self-serve
+      signup'
+- target: $.info.contact
+  update:
+    name: QBE Australia API Hub Portal
+    url: https://connect.api-au.qbe.com/
+- target: $.externalDocs
+  update:
+    description: QBE Australia API Hub Portal — getting started
+    url: https://connect.api-au.qbe.com/getting-started
+- target: $.tags[?(@.name=='Digital Brokers')]
+  update:
+    description: 'Broker-facing commercial policy lifecycle: quote, bind, endorse, renew, cancel, abandon,
+      refer and document upload. No claims/FNOL surface is exposed.'

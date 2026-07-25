@@ -1,0 +1,161 @@
+generated: '2026-07-25'
+method: derived
+source: mcp/qbe-mcp.yml, openapi/qbe-anzo-digital-brokers-openapi.yml, openapi/qbe-ctp-switch-service-openapi.yml
+notes: QBE has no published MCP server and no GraphQL surface, so there is no live tool list to reconcile.
+  This crosswalk binds the candidate MCP tools in mcp/qbe-mcp.yml to the QBE operations they are derived
+  from — a 1:1 mapping with no MCP-only tools and no unbound REST operations.
+surfaces:
+  openapi:
+  - openapi/qbe-anzo-digital-brokers-openapi.yml
+  - openapi/qbe-ctp-switch-service-openapi.yml
+  graphql:
+    endpoint: null
+    status: absent — /graphql returns 404 on connect.api-au.qbe.com, gateway.api-au.qbe.com and partnerportal-api.qbena.com
+  mcp:
+    url: null
+    status: candidate — no hosted server published, tools/list not probeable
+crosswalk:
+- tool: health_get
+  category: ops
+  rest:
+  - get-__health
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: data_model_post
+  category: ops
+  rest:
+  - post-data-model
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: abandon_a_policy_before_it_has_been_bound
+  category: policy
+  rest:
+  - To-Abandon-a-policy-before-it-has-been-bound
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: abandon_an_existing_quote
+  category: quote
+  rest:
+  - To-Abandon-an-existing-quote
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: amend_an_existing_policy_endorsement
+  category: policy
+  rest:
+  - Amend-an-existing-policy-endorsement
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: bind_a_policy_to_save_change_after_endoresement_cancellation
+  category: policy
+  rest:
+  - Bind-a-policy-to-save-change-after-endoresement-cancellation-or-renewal-has
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: cancel_an_existing_policy
+  category: policy
+  rest:
+  - Cancel-an-existing-policy
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: convert_a_quote_to_policy
+  category: quote
+  rest:
+  - Convert-a-Quote-to-Policy
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: create_a_new_quote
+  category: quote
+  rest:
+  - Create-a-new-Quote
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: generate_a_quote_request_for_a_policy_that_has_been_invited_
+  category: policy
+  rest:
+  - Generate-a-quote-request-for-a-policy-that-has-been-invited-for-renewal
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: modify_an_existing_quote
+  category: quote
+  rest:
+  - Modify-an-existing-Quote
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: policy_document_upload_api
+  category: policy
+  rest:
+  - Policy-Document-Upload-API
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: quote_document_upload_api
+  category: quote
+  rest:
+  - Quote-Document-Upload-API
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: refer_a_quote_to_qbe_underwriter
+  category: quote
+  rest:
+  - Refer-a-quote-to-QBE-Underwriter
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: refer_an_existing_policy
+  category: policy
+  rest:
+  - Refer-an-existing-Policy
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: append_data_ctp
+  category: ctp
+  rest:
+  - append-data
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+- tool: get_saved_data_ctp
+  category: ctp
+  rest:
+  - get-saved-data
+  binding: rest
+  confidence: high
+  note: 'One-to-one: the candidate tool IS the REST operation, so it inherits that operation''s parameters
+    and requestBody verbatim as its inputSchema.'
+mcp_only: []
+rest_only: []
+coverage:
+  tools_named: 17
+  tools_bound: 17
+  mcp_only: 0
+  rest_operations_total: 17
+  rest_operations_with_tool: 17

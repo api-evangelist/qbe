@@ -18,11 +18,15 @@ description: >-
   partner platforms. The portal exposes genuine quote, bind, endorse, renew, cancel
   and refer operations for the commercial policy lifecycle — the four real insurance
   verbs, minus claims/FNOL, which QBE does not expose publicly. A separate QBE North
-  America partner API hub exists at partnerportal-api.qbena.com but publishes no
-  catalogue anonymously, and QBE Hong Kong documents a partner API behind
-  qbe.com pages that are bot-blocked to anonymous fetchers. Australia is the home
-  market; the Consumer Data Right was designated for general insurance and then
-  deferred, so nothing here is compelled by regulation.
+  America partner API hub at partnerportal-api.qbena.com serves an empty Azure APIM
+  catalogue to anonymous callers but does publish seven named API products in its own
+  content pages — Quote, Bind, Master Liability, Property Inquiry, Zip Code Validate
+  and Reconciliation and Cancellation for Renters, plus Quote for Homeowners — behind a
+  documented client-id/secret to JWT token exchange; no endpoints or specs are exposed.
+  QBE Hong Kong documents a partner API behind qbe.com pages that are bot-blocked to
+  anonymous fetchers. Australia is the home market; the Consumer Data Right was
+  designated for general insurance and then deferred, so nothing here is compelled by
+  regulation.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Insurance
@@ -70,6 +74,12 @@ apis:
     url: https://connect.api-au.qbe.com/apis
   - type: OpenAPI
     url: openapi/qbe-anzo-digital-brokers-openapi.yml
+  - type: Overlay
+    url: overlays/qbe-anzo-digital-brokers-overlay.yaml
+    name: API Evangelist enhancements overlay
+  - type: Examples
+    url: examples/qbe-anzo-digital-brokers-examples.yml
+    name: Published request and response examples
 - aid: qbe:qbe-ctp-switch-service-api
   name: QBE Australia CTP Switch Service
   description: >-
@@ -92,7 +102,16 @@ apis:
     url: https://connect.api-au.qbe.com/apis
   - type: OpenAPI
     url: openapi/qbe-ctp-switch-service-openapi.yml
+  - type: Overlay
+    url: overlays/qbe-ctp-switch-service-overlay.yaml
+    name: API Evangelist enhancements overlay
 common:
+- type: AgenticAccess
+  url: agentic-access/qbe-agentic-access.yml
+- type: DomainSecurity
+  url: security/qbe-domain-security.yml
+- type: Authentication
+  url: authentication/qbe-authentication.yml
 - type: Website
   url: https://www.qbe.com/
 - type: DeveloperPortal
@@ -103,6 +122,59 @@ common:
   url: https://connect.api-au.qbe.com/apis
 - type: PartnerPortal
   url: https://partnerportal-api.qbena.com/
+- type: GettingStarted
+  url: https://connect.api-au.qbe.com/getting-started
+- type: Login
+  url: https://connect.api-au.qbe.com/signin
+- type: Support
+  url: https://www.qbe.com/au/contact-us
+- type: PrivacyPolicy
+  url: https://www.qbe.com/au/about/governance/privacy-policy
+- type: TermsOfService
+  url: https://www.qbe.com/us/legal/api-terms-of-use
+  name: QBE API Terms of Use (North America)
+- type: GitHubOrganization
+  url: https://github.com/qbegroup
+- type: Security
+  url: https://www.qbe.com/responsible-disclosure-program
+  name: QBE Responsible Disclosure Program
+- type: VulnerabilityDisclosure
+  url: security/qbe-vulnerability-disclosure.yml
+- type: Conventions
+  url: conventions/qbe-conventions.yml
+- type: ErrorCatalog
+  url: errors/qbe-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/qbe-lifecycle.yml
+- type: Conformance
+  url: conformance/qbe-conformance.yml
+- type: Vocabulary
+  url: vocabulary/qbe-vocabulary.yml
+- type: DataModel
+  url: data-model/qbe-data-model.yml
+- type: Sandbox
+  url: sandbox/qbe-sandbox.yml
+  name: Mocking and non-production access
+- type: Packages
+  url: packages/qbe-packages.yml
+- type: MCPServer
+  url: mcp/qbe-mcp.yml
+  name: Candidate MCP manifest (no hosted server published)
+- type: ToolCrosswalk
+  url: mcp/qbe-tool-crosswalk.yml
+- type: LLMsTxt
+  url: llms/qbe-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  url: arazzo/qbe-quote-to-bind.yml
+  name: QBE quote to bound policy
+- type: Arazzo
+  url: arazzo/qbe-endorse-and-bind.yml
+  name: QBE mid-term endorsement, confirmed
+- type: Arazzo
+  url: arazzo/qbe-cancel-policy.yml
+  name: QBE policy cancellation
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,0 +1,119 @@
+generated: '2026-07-25'
+method: derived
+source: openapi/qbe-anzo-digital-brokers-openapi.yml
+format: proprietary-json
+notes: 'QBE Australia''s broker API does not use RFC 9457 application/problem+json. Every 4xx/5xx response
+  is application/json with a single top-level `errors` array whose items follow the spec''s `items` schema
+  (title "Error type"): required `message`, optional `code` and an open `details` object. Some business
+  exceptions add `extendedMessages[]` with a QBE reason code. The status descriptions and every error
+  code below come verbatim from QBE''s own published operation responses and x-amf-examples in the portal-served
+  schema document — nothing invented.'
+envelope:
+  field: errors
+  type: array
+  item_schema: components.schemas.items
+  item_fields:
+  - name: code
+    type: string
+    description: A specific error code for consumers to customise errors
+  - name: message
+    type: string
+    required: true
+    description: A detailed error message to be passed to clients
+  - name: details
+    type: any
+    description: Open object; implementations may return additional errors
+  - name: extendedMessages
+    type: array
+    description: 'Observed on CCHANGE_BUSINESS_EXCEPTION: [{code, message}] carrying the policy-system
+      reason code'
+problems:
+- status: 400
+  title: Bad request. Error occurring due to malformed payload or due to request validation error against
+    business rules.
+  media_type: application/json
+  envelope: errors[]
+  operations: 14
+  source: openapi/qbe-anzo-digital-brokers-openapi.yml
+- status: 401
+  title: Unauthorised Request
+  media_type: application/json
+  envelope: errors[]
+  operations: 14
+  source: openapi/qbe-anzo-digital-brokers-openapi.yml
+- status: 403
+  title: Forbidden
+  media_type: application/json
+  envelope: errors[]
+  operations: 14
+  source: openapi/qbe-anzo-digital-brokers-openapi.yml
+- status: 404
+  title: Resource Not Found
+  media_type: application/json
+  envelope: errors[]
+  operations: 14
+  source: openapi/qbe-anzo-digital-brokers-openapi.yml
+- status: 405
+  title: Method Not Allowed
+  media_type: application/json
+  envelope: errors[]
+  operations: 14
+  source: openapi/qbe-anzo-digital-brokers-openapi.yml
+- status: 500
+  title: Internal Server Error
+  media_type: application/json
+  envelope: errors[]
+  operations: 14
+  source: openapi/qbe-anzo-digital-brokers-openapi.yml
+codes:
+- code: APIKIT_BAD_REQUEST
+  message_example: 'Error validating JSON. Error: - Missing required field "exampleField"'
+  meaning: Request payload failed JSON schema validation at the API gateway (MuleSoft APIkit). Fix the
+    payload and retry.
+  example_labels:
+  - APIKIT_BAD_REQUEST
+  extended_example: null
+- code: INTERNAL_BUSINESS_EXCEPTION
+  message_example: Policy Data error occurred - Start Date too long ago. Please Amend.
+  meaning: Underwriting/policy business rule rejected the transaction. The message carries the QBE business
+    reason; amend the policy data and retry.
+  example_labels:
+  - INTERNAL_BAD_REQUEST
+  extended_example: null
+- code: APIKIT_NOT_FOUND
+  message_example: The requested resource could not be located. Please check your request and try again.
+  meaning: The requested quote, policy or resource path could not be located. Check quoteId/policyId and
+    the request path.
+  example_labels:
+  - APIKIT_NOT_FOUND
+  extended_example: null
+- code: METHOD_NOT_ALLOWED
+  message_example: API method is not supported on requested resource
+  meaning: HTTP method is not supported on that resource.
+  example_labels:
+  - APIKIT_NOT_FOUND
+  extended_example: null
+- code: HTTP_FORBIDDEN
+  message_example: You cannot access this resource.
+  meaning: Caller is authenticated but not authorised for the resource — usually a subscription/product
+    or X-Partner-Id mismatch.
+  example_labels:
+  - HTTP_INTERNAL_SERVER_ERROR
+  extended_example: null
+- code: CCHANGE_BUSINESS_EXCEPTION
+  message_example: Policy Data error occurred - Start Date too long ago. Please Amend.
+  meaning: Business exception raised by the QBE cChange policy administration system; carries extendedMessages[]
+    with a QBE reason code and text.
+  example_labels:
+  - Business Exception Example
+  extended_example:
+  - code: D7
+    message: Start Date too long ago. Please Amend.
+- code: HTTP_UNAUTHORISED
+  message_example: The requested resource
+  meaning: Missing or invalid credentials — Ocp-Apim-Subscription-Key, X-ClientID or X-ClientSecret.
+  example_labels: null
+  extended_example: null
+related:
+  conventions: conventions/qbe-conventions.yml
+  authentication: authentication/qbe-authentication.yml

@@ -1,0 +1,36 @@
+generated: '2026-07-25'
+method: generated
+source: openapi/qbe-anzo-digital-brokers-openapi.yml
+notes: >-
+  Packaged agent skills for the QBE Australia ANZO Digital Brokers Experience API — the only QBE surface
+  with a machine-readable contract to ground steps in. Every operationId referenced below appears
+  verbatim in the spec. QBE publishes no AGENTS.md or provider-authored skills; these are generated.
+  The CTP Switch Service (two operations) is too thin to warrant its own skill.
+skills:
+- file: qbe-quote-to-bind.md
+  name: QBE quote to bound policy
+  api: openapi/qbe-anzo-digital-brokers-openapi.yml
+  operations:
+  - Create-a-new-Quote
+  - Modify-an-existing-Quote
+  - Refer-a-quote-to-QBE-Underwriter
+  - Convert-a-Quote-to-Policy
+  - To-Abandon-an-existing-quote
+- file: qbe-endorse-policy.md
+  name: QBE mid-term endorsement
+  api: openapi/qbe-anzo-digital-brokers-openapi.yml
+  operations:
+  - Amend-an-existing-policy-endorsement
+  - Bind-a-policy-to-save-change-after-endoresement-cancellation-or-renewal-has
+  - To-Abandon-a-policy-before-it-has-been-bound
+  - Refer-an-existing-Policy
+  - Policy-Document-Upload-API
+- file: qbe-renew-or-cancel.md
+  name: QBE renewal and cancellation
+  api: openapi/qbe-anzo-digital-brokers-openapi.yml
+  operations:
+  - Generate-a-quote-request-for-a-policy-that-has-been-invited-for-renewal
+  - Cancel-an-existing-policy
+  - Bind-a-policy-to-save-change-after-endoresement-cancellation-or-renewal-has
+  - To-Abandon-a-policy-before-it-has-been-bound
+  - Policy-Document-Upload-API

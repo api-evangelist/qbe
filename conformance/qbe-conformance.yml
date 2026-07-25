@@ -1,0 +1,87 @@
+generated: '2026-07-25'
+method: derived
+source: >-
+  openapi/qbe-anzo-digital-brokers-openapi.yml, openapi/qbe-ctp-switch-service-openapi.yml,
+  https://connect.api-au.qbe.com/developer/apis?api-version=2022-04-01-preview (HTTP 200)
+notes: >-
+  Cross-cutting standards posture for QBE's published APIs. QBE makes no explicit conformance claim
+  anywhere anonymously readable, so every assertion below is derived from what the specs and the APIM
+  catalogue actually contain. Two results are worth calling out for a general insurer: there is NO ACORD
+  anywhere (the payload is a QBE-proprietary canonical policy model, not ACORD XML/AL3, and no IVANS or
+  NGDS reference appears in any of the 17 operations or 258 schemas), and there is no open-insurance
+  mandate behind this surface — Australia's Consumer Data Right was designated for general insurance and
+  then deferred, so nothing here is regulator-compelled.
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: Both published documents are OpenAPI 3.0.1 (assembled verbatim from QBE's own portal data endpoints).
+- id: oauth2
+  conforms: false
+  evidence: >-
+    APIM authenticationSettings.oAuth2AuthenticationSettings is an empty array on both APIs; no oauth2
+    securityScheme is declared. QBE North America documents a client-id/secret token exchange but
+    publishes no authorization-server metadata.
+- id: openid-connect
+  conforms: false
+  evidence: >-
+    APIM openidAuthenticationSettings empty on both APIs; /.well-known/openid-configuration returns 404
+    on connect.api-au.qbe.com, gateway.api-au.qbe.com and partnerportal-api.qbena.com.
+- id: api-key-auth
+  conforms: true
+  evidence: securitySchemes apiKeyHeader (Ocp-Apim-Subscription-Key) and apiKeyQuery (subscription-key).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors are application/json with a proprietary errors[] envelope; no application/problem+json media
+    type appears in either spec. See errors/qbe-problem-types.yml.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on all QBE hosts probed, despite a real disclosure program existing.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation response header is defined on any operation.
+- id: rfc9110-idempotency
+  conforms: false
+  evidence: No idempotency key parameter or retry-safety contract is published. See conventions/qbe-conventions.yml.
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming, webhook or callback surface exists in the published catalogue.
+- id: graphql
+  conforms: false
+  evidence: /graphql returns 404 on connect.api-au.qbe.com, gateway.api-au.qbe.com and partnerportal-api.qbena.com.
+- id: grpc
+  conforms: false
+  evidence: No .proto published; both APIs declare protocols ["https"] only.
+- id: json-api
+  conforms: false
+  evidence: Responses are plain application/json with no JSON:API document structure.
+- id: acord
+  conforms: false
+  evidence: >-
+    Zero hits for ACORD, AL3, ACORD XML, NGDS, IVANS, Vertafore or Applied Epic across both portals,
+    both products, all 17 operations and the 258-schema components document. QBE uses its own
+    policyHeader / policyTransactionInformation / risks canonical model with QBE product codes
+    (BPK, MSA, MPA, MVA).
+- id: cdr-open-insurance-au
+  conforms: false
+  evidence: >-
+    Not applicable and not implemented. The Consumer Data Right was designated to extend to general
+    insurance in Australia and then deferred, so there is no open-insurance obligation on QBE and no
+    CDR endpoint exists.
+- id: hateoas
+  conforms: false
+  evidence: No link relations or hypermedia controls in any response schema.
+- id: pagination
+  conforms: false
+  evidence: No collection/list operation exists, so no pagination convention is defined.
+certifications_published: false
+certifications_note: >-
+  No trust centre, compliance page or named certification (SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP)
+  was verifiable. trust.qbe.com and security.qbe.com do not resolve, and every www.qbe.com governance
+  page returns a Cloudflare 403 to anonymous fetchers, so a compliance claim published there could not
+  be read and is deliberately NOT asserted here.
+related:
+  errors: errors/qbe-problem-types.yml
+  authentication: authentication/qbe-authentication.yml
+  conventions: conventions/qbe-conventions.yml
+  security: security/qbe-vulnerability-disclosure.yml

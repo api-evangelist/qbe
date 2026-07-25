@@ -1,0 +1,69 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  openapi/qbe-anzo-digital-brokers-openapi.yml (X-Mockable / X-Mock-Scenario request headers, verbatim
+  from https://connect.api-au.qbe.com/developer/apis/x-digital-brokers-qbe-anzov1/operations/{operationId}),
+  https://partnerportal-api.qbena.com/guide (HTTP 200)
+summary: >-
+  QBE publishes no public sandbox and no self-serve test credentials — you cannot obtain a working key
+  without an approved partner subscription. What QBE does publish is a real, first-class MOCKING contract
+  baked into the broker API itself: every business operation accepts a required X-Mockable boolean header
+  and an optional X-Mock-Scenario header that selects a named scenario from QBE's MuleSoft WireMock
+  mocking service. That is the test seam for this API — an approved partner flips one header to exercise
+  the policy lifecycle against canned scenarios instead of the live underwriting system. QBE North
+  America separately documents a non-production environment and an interactive "Try it" console in its
+  API Product Hub.
+test_live_separation:
+  mechanism: request header, not a key prefix
+  note: >-
+    Unlike key-prefix providers, QBE does not split test and live credentials. The same approved APIM
+    subscription key and partner credentials are used, and mocking is selected per request.
+mock_controls:
+- header: X-Mockable
+  type: boolean
+  required: true
+  operations: 13
+  description: The header flag to control the mocking of the api, if required.
+  source: QBE published operation parameter definition (verbatim)
+- header: X-Mock-Scenario
+  type: string
+  required: false
+  operations: 13
+  description: >-
+    Optionally specify the mock scenario to mimick specific API scenario. Note: Scenerio definition need
+    to be setup in API Wiremock (Mulesoft mocking service) before you can invoke it using this header.
+  source: QBE published operation parameter definition (verbatim)
+  note: >-
+    QBE does not publish the scenario names — they are provisioned per partner in QBE's WireMock
+    instance, so the catalogue of scenarios is not anonymously discoverable.
+published_test_values: []
+published_test_values_note: >-
+  QBE publishes no test policy numbers, test ABNs, test cards or magic identifiers. The example values
+  carried in the spec (policyNumber 145U475933BPK, orgABN 14069979460, example@qbe.com) are
+  documentation examples in QBE's own schemas, not sanctioned test fixtures — do not treat them as
+  working test data.
+consoles:
+- name: QBE Australia API Hub Portal — Try it
+  url: https://connect.api-au.qbe.com/apis
+  status: 200
+  access: >-
+    The interactive console renders anonymously but requires an approved subscription key to execute a
+    call. Product subscription is approvalRequired true.
+- name: QBE North America API Product Hub — Try it (non-production)
+  url: https://partnerportal-api.qbena.com/apis/catalog
+  status: 200
+  access: >-
+    QBE's own user guide instructs partners to "Make your first API Call in Non-Prod Environment" using
+    the subscription key from the profile page and the portal's Try it console. Sign-in credentials are
+    issued by the QBE Business team after approval.
+external_testing:
+  documented: true
+  source: https://partnerportal-api.qbena.com/guide
+  note: >-
+    QBE North America documents testing outside the portal with Postman or SoapUI — take the request URL
+    and sample request from the API page, mint a JWT via the `auth` / `partnertoken` operation with the
+    emailed client id and secret, then send the access token plus QBE-API-Subscription-Key. QBE ships no
+    downloadable Postman collection.
+related:
+  authentication: authentication/qbe-authentication.yml
+  conventions: conventions/qbe-conventions.yml

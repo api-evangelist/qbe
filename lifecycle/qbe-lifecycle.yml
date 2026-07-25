@@ -1,0 +1,84 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  https://connect.api-au.qbe.com/developer/apis?api-version=2022-04-01-preview (HTTP 200),
+  https://connect.api-au.qbe.com/developer/products?api-version=2022-04-01-preview (HTTP 200),
+  openapi/qbe-anzo-digital-brokers-openapi.yml, openapi/qbe-ctp-switch-service-openapi.yml
+summary: >-
+  QBE publishes no versioning policy, no deprecation policy, no changelog, no roadmap, no SLA and no
+  status page on any surface reachable anonymously. What can be established is the versioning MECHANISM
+  (Azure APIM version sets, both APIs at v1) and the access lifecycle (approval-gated product
+  subscriptions with a hard cap of 10 per product). Absence here is the finding, not an omission in the
+  harvest — each item below was probed.
+versioning:
+  scheme: azure-apim-version-set
+  current: v1
+  in_url: false
+  version_sets:
+  - api: ANZO Digital Brokers Experience API
+    apiId: x-digital-brokers-qbe-anzov1
+    apiVersion: v1
+    apiVersionSetId: x-digital-brokers-qbe-anzoversionset
+  - api: CTP Switch Service
+    apiId: ctp-switch-service
+    apiVersion: v1
+    apiVersionSetId: 68ad05724a9c5fb442ddf729
+  policy_url: null
+  note: >-
+    A version set exists for each API, so QBE has the machinery to run v2 alongside v1, but only one
+    version of each is published and no policy describes how versions are introduced or retired.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  deprecated_operations: []
+  note: >-
+    No operation in either spec carries deprecated: true, and neither RFC 8594 Sunset nor Deprecation
+    headers appear in any response definition. No deprecation policy page was found.
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA. Availability commitments, if any, live in the partner contract.
+status_page: null
+status_page_probes:
+- {url: 'https://connect.api-au.qbe.com/status', status: 404}
+- {url: 'https://status.qbe.com/', status: 'NXDOMAIN'}
+- {url: 'https://status.api-au.qbe.com/', status: 'NXDOMAIN'}
+- {url: 'https://status.qbena.com/', status: 'NXDOMAIN'}
+- {url: 'https://qbe.statuspage.io/', status: 200, note: 'Atlassian Statuspage wildcard — serves the
+    generic Statuspage marketing page, not a QBE status page. Not a hit.'}
+changelog:
+  url: null
+  note: >-
+    No dated changelog or release notes are published on either portal. The portals have no /changelog
+    route (HTTP 404 on connect.api-au.qbe.com).
+roadmap:
+  url: null
+health:
+  operation: get-__health
+  path: /__health
+  method: GET
+  note: >-
+    The broker API does expose a health endpoint — GET /__health, "To check the health of the API",
+    returning {app, dateTime}. It requires X-TrackingID and is behind the same subscription gate, so it
+    is a partner-facing health check rather than a public status signal.
+access_lifecycle:
+  self_serve: false
+  products:
+  - id: anzo-digital-brokers-product
+    name: ANZO Digital Brokers
+    subscriptionRequired: true
+    approvalRequired: true
+    subscriptionsLimit: 10
+  - id: anzo-ctp-switch-product
+    name: ANZO CTP Service
+    subscriptionRequired: true
+    approvalRequired: true
+    subscriptionsLimit: 10
+  note: >-
+    QBE North America's guide describes the same shape from the partner side: QBE emails credentials
+    after approval, partners subscribe per product under a "<Partner Name>-<Product Name>" naming
+    convention, accept Terms & Conditions, and can watch consumption on an Activity Report page.
+related:
+  conventions: conventions/qbe-conventions.yml
+  authentication: authentication/qbe-authentication.yml

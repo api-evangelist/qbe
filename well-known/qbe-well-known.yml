@@ -1,0 +1,56 @@
+generated: '2026-07-25'
+method: searched
+source: live anonymous probes, 2026-07-25
+summary: >-
+  QBE publishes NO /.well-known/ discovery surface. Every RFC-registered discovery document was probed
+  on all three API-bearing hosts plus the corporate domains and every one returned 404. This is a real
+  negative result, not an unfinished harvest: QBE has a genuine responsible-disclosure program
+  (security/qbe-vulnerability-disclosure.yml) and a genuine token-exchange auth model in North America,
+  but neither is advertised through a machine-readable well-known document. No pointer is wired into
+  apis.yml for this artifact because no document exists to point at.
+documents_found: 0
+hosts:
+- host: https://connect.api-au.qbe.com
+  role: QBE Australia API Hub developer portal
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://gateway.api-au.qbe.com
+  role: QBE Australia API gateway (servers[] host for both published specs)
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://partnerportal-api.qbena.com
+  role: QBE North America API Product Hub
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.qbe.com
+  role: corporate site (Cloudflare-protected)
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /security.txt, status: 404}
+- host: https://www.qbe.com.au
+  role: QBE Australia corporate
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+- host: https://qbena.com
+  role: QBE North America corporate
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+related:
+  vulnerability_disclosure: security/qbe-vulnerability-disclosure.yml
+  authentication: authentication/qbe-authentication.yml
+  domain_security: security/qbe-domain-security.yml
