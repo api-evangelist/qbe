@@ -10,7 +10,8 @@ surfaces:
   - openapi/qbe-ctp-switch-service-openapi.yml
   graphql:
     endpoint: null
-    status: absent — /graphql returns 404 on connect.api-au.qbe.com, gateway.api-au.qbe.com and partnerportal-api.qbena.com
+    status: none
+    status_raw: none
   mcp:
     url: null
     status: candidate — no hosted server published, tools/list not probeable
