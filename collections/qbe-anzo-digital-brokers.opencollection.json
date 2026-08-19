@@ -1,0 +1,731 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ANZO Digital Brokers Experience API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Digital Brokers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/__health - GET",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/__health",
+            "headers": [
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "To check the health of the API"
+        },
+        {
+          "info": {
+            "name": "/data-model - POST",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/data-model",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "/data-model - POST"
+        },
+        {
+          "info": {
+            "name": "Abandon a policy before it has been bound",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/policies/:policyId/abandon",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-abandon-policy-transaction",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The headers used for tracking transactions end-to-end"
+        },
+        {
+          "info": {
+            "name": "Abandon an existing quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/quotes/:quoteId/abandon",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The headers used for tracking transactions end-to-end"
+        },
+        {
+          "info": {
+            "name": "Amend an existing policy (endorsement)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/policies/:policyId/endorse",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The headers used for tracking transactions end-to-end"
+        },
+        {
+          "info": {
+            "name": "Bind a policy to save change after endoresement, cancellation or renewal has occurred",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/policies/:policyId/bind",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "x-bind-policy-transaction",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The headers used for tracking transactions end-to-end"
+        },
+        {
+          "info": {
+            "name": "Cancel an existing policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/policies/:policyId/cancel",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The headers used for tracking transactions end-to-end"
+        },
+        {
+          "info": {
+            "name": "Convert a Quote to Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/quotes/:quoteId/bind",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bind an existing quote to create a policy. This will issue a policy number."
+        },
+        {
+          "info": {
+            "name": "Create a new Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/quotes",
+            "headers": [
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a Quote for given risk covers."
+        },
+        {
+          "info": {
+            "name": "Generate a quote request for a policy that has been invited for renewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/policies/:policyId/renew",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To Generate a quote request for a policy that has been invited for renewal"
+        },
+        {
+          "info": {
+            "name": "Modify an existing Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/quotes/:quoteId",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify an existing quote in the system. This will re-issue a new quote number."
+        },
+        {
+          "info": {
+            "name": "Policy Document Upload API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/policies/:policyId/documents",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Specify the type or context of the document being uploaded"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload a document for a policy"
+        },
+        {
+          "info": {
+            "name": "Quote Document Upload API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/quotes/:quoteId/documents",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Specify the type or context of the document being uploaded"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload document for a given quote."
+        },
+        {
+          "info": {
+            "name": "Refer a quote to QBE Underwriter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/quotes/:quoteId/refer",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Refer a quote to QBE Underwriter"
+        },
+        {
+          "info": {
+            "name": "Refer an existing Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api/auth/policies/:policyId/refer",
+            "headers": [
+              {
+                "name": "X-Mock-Scenario",
+                "value": ""
+              },
+              {
+                "name": "X-TrackingID",
+                "value": ""
+              },
+              {
+                "name": "X-ClientSecret",
+                "value": ""
+              },
+              {
+                "name": "X-Mockable",
+                "value": ""
+              },
+              {
+                "name": "X-Partner-Id",
+                "value": ""
+              },
+              {
+                "name": "X-ClientID",
+                "value": ""
+              },
+              {
+                "name": "x-master-ref-id",
+                "value": ""
+              },
+              {
+                "name": "x-refer-policy-transaction",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The headers used for tracking transactions end-to-end"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

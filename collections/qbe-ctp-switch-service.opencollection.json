@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CTP Switch Service",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CTP Switch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Append data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.api-au.qbe.com/ctp-service/ctp-documents/appenddata",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Append data"
+        },
+        {
+          "info": {
+            "name": "Get saved data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.api-au.qbe.com/ctp-service/ctp-documents/saveddata",
+            "headers": [
+              {
+                "name": "Referer",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get saved data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

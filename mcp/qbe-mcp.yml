@@ -85,3 +85,9 @@ tools:
   description: Get saved data
   source_operation: openapi/qbe-ctp-switch-service-openapi.yml#get-saved-data
   http: GET /ctp-documents/saveddata
+deployment:
+  mode: none
+  verified: derived
+  tools: 17
+  checked: '2026-08-12'
+  source: catalog MCP census
