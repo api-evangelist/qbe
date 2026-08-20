@@ -35,6 +35,18 @@ tags:
 - Commercial Insurance
 - Underwriting
 - Policy Administration
+- Quotes
+- Brokers
+- Reinsurance
+- Carrier
+- Partner API
+tags_raw:
+- Insurance
+- Australia
+- Property and Casualty
+- Commercial Insurance
+- Underwriting
+- Policy Administration
 - Quote
 - Broker
 - Reinsurance
@@ -61,6 +73,13 @@ apis:
   humanURL: https://connect.api-au.qbe.com/apis
   baseURL: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
   tags:
+  - Insurance
+  - Quotes
+  - Bind
+  - Policy Administration
+  - Brokers
+  - Australia
+  tags_raw:
   - Insurance
   - Quote
   - Bind
