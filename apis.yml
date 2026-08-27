@@ -56,75 +56,43 @@ created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.23'
 apis:
-- aid: qbe:qbe-anzo-digital-brokers-api
-  name: QBE Australia ANZO Digital Brokers Experience API
-  description: >-
-    QBE Australia's broker-facing policy lifecycle API, published in the QBE
-    Australia API Hub as the "ANZO Digital Brokers" product. QBE describes it as
-    providing "access to the insurance policy lifecycle with QBE from creating quotes
-    to policy binding, endorsements, renewals and more", integrating a broker
-    platform with QBE's underwriting system. Fifteen documented operations cover
-    create/modify/abandon quote, bind a quote into a policy (issuing a policy
-    number), endorse, renew, cancel, abandon and refer a policy to a QBE underwriter,
-    plus quote and policy document upload and a health check. Access requires an
-    approved Azure APIM subscription key plus X-ClientID / X-ClientSecret and an
-    X-Partner-Id drawn from a fixed enumeration of QBE's broker partners — it is not
-    self-serve. No claims or FNOL operations are exposed.
+- aid: qbe:qbe-ctp-switch-api
+  name: QBE Insurance CTP Switch API
+  description: The CTP Switch API from QBE Insurance — 2 operation(s) for ctp switch.
   humanURL: https://connect.api-au.qbe.com/apis
   baseURL: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
   tags:
-  - Insurance
-  - Quotes
-  - Bind
-  - Policy Administration
-  - Brokers
-  - Australia
-  tags_raw:
-  - Insurance
-  - Quote
-  - Bind
-  - Policy Administration
-  - Broker
-  - Australia
+  - CTP Switch
   properties:
+  - type: OpenAPI
+    url: openapi/qbe-ctp-switch-api-openapi.yml
   - type: Documentation
     url: https://connect.api-au.qbe.com/
   - type: APIReference
     url: https://connect.api-au.qbe.com/apis
-  - type: OpenAPI
-    url: openapi/qbe-anzo-digital-brokers-openapi.yml
-  - type: Overlay
-    url: overlays/qbe-anzo-digital-brokers-overlay.yaml
-    name: API Evangelist enhancements overlay
   - type: Examples
     url: examples/qbe-anzo-digital-brokers-examples.yml
-    name: Published request and response examples
-- aid: qbe:qbe-ctp-switch-service-api
-  name: QBE Australia CTP Switch Service
-  description: >-
-    A small QBE Australia service published in the same API Hub as the "ANZO CTP
-    Service" product, supporting the compulsory third party (CTP) motor insurance
-    switching flow. Two documented operations append data to and retrieve saved data
-    for a CTP document, keyed by a code parameter. Like every product in the hub it
-    requires an approved subscription key and is partner-gated rather than self-serve.
+- aid: qbe:qbe-digital-brokers-api
+  name: QBE Insurance Digital Brokers API
+  description: The Digital Brokers API from QBE Insurance — 15 operation(s) for digital brokers.
   humanURL: https://connect.api-au.qbe.com/apis
-  baseURL: https://gateway.api-au.qbe.com/ctp-service
+  baseURL: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
   tags:
-  - Insurance
-  - CTP
-  - Motor Insurance
-  - Australia
+  - Digital Brokers
   properties:
+  - type: OpenAPI
+    url: openapi/qbe-digital-brokers-api-openapi.yml
   - type: Documentation
     url: https://connect.api-au.qbe.com/
   - type: APIReference
     url: https://connect.api-au.qbe.com/apis
-  - type: OpenAPI
-    url: openapi/qbe-ctp-switch-service-openapi.yml
-  - type: Overlay
-    url: overlays/qbe-ctp-switch-service-overlay.yaml
-    name: API Evangelist enhancements overlay
+  - type: Examples
+    url: examples/qbe-anzo-digital-brokers-examples.yml
 common:
+- type: Overlay
+  url: overlays/qbe-anzo-digital-brokers-overlay.yaml
+- type: Overlay
+  url: overlays/qbe-ctp-switch-service-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/qbe-agentic-access.yml
 - type: DomainSecurity
