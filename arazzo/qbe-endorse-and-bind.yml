@@ -9,8 +9,8 @@ info:
     with x-bind-policy-transaction / x-abandon-policy-transaction ENDORSEMENT.
   version: 1.0.0
 sourceDescriptions:
-- name: qbe
-  url: ../openapi/qbe-anzo-digital-brokers-openapi.yml
+- name: digitalBrokersApi
+  url: ../openapi/qbe-digital-brokers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: qbe-endorse-and-bind

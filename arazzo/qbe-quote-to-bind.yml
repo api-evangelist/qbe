@@ -9,8 +9,8 @@ info:
     run against QBE's MuleSoft WireMock scenarios while building.
   version: 1.0.0
 sourceDescriptions:
-- name: qbe
-  url: ../openapi/qbe-anzo-digital-brokers-openapi.yml
+- name: digitalBrokersApi
+  url: ../openapi/qbe-digital-brokers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: qbe-quote-to-bind

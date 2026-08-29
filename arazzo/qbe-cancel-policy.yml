@@ -8,8 +8,8 @@ info:
     be one of QBE's published reason codes — see vocabulary/qbe-vocabulary.yml.
   version: 1.0.0
 sourceDescriptions:
-- name: qbe
-  url: ../openapi/qbe-anzo-digital-brokers-openapi.yml
+- name: digitalBrokersApi
+  url: ../openapi/qbe-digital-brokers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: qbe-cancel-policy

@@ -1,7 +1,7 @@
-generated: '2026-07-25'
-method: generated
-source: openapi/qbe-anzo-digital-brokers-openapi.yml
-notes: >-
+x-generated: '2026-07-25'
+x-method: generated
+x-source: openapi/qbe-anzo-digital-brokers-openapi.yml
+x-notes: >-
   Native Arazzo 1.0.1 workflows stitching QBE Australia's own operations into the real broker journeys.
   Every operationId used appears verbatim in the referenced OpenAPI. No sandbox test values are seeded
   because QBE publishes none — set X-Mockable true to route to QBE's WireMock scenarios instead.
