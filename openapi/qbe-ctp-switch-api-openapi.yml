@@ -23,7 +23,6 @@ paths:
       summary: Append data
       tags:
       - CTP Switch
-      description: Append data
       parameters:
       - name: code
         in: query
@@ -39,7 +38,6 @@ paths:
       summary: Get saved data
       tags:
       - CTP Switch
-      description: Get saved data
       parameters:
       - name: code
         in: query

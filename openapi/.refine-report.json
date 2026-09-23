@@ -1,0 +1,24 @@
+{
+  "provider": "qbe",
+  "sources": [
+    "_original/qbe-anzo-digital-brokers-openapi.yml",
+    "_original/qbe-ctp-switch-service-openapi.yml"
+  ],
+  "outputs": [
+    "qbe-digital-brokers-api-openapi.yml",
+    "qbe-ctp-switch-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "qbe-anzo-digital-brokers-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "qbe-ctp-switch-service-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "qbe-ctp-switch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "qbe-digital-brokers-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
