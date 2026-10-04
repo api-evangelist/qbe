@@ -62,7 +62,6 @@ tags:
 - Underwriting
 - Policy Administration
 - Quotes
-- Brokers
 - Reinsurance
 - Carrier
 - Partner API
@@ -74,7 +73,6 @@ tags_raw:
 - Underwriting
 - Policy Administration
 - Quote
-- Broker
 - Reinsurance
 - Carrier
 - Partner API
@@ -192,3 +190,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-tags-removed:
+- Brokers
