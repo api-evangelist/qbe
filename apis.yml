@@ -77,7 +77,7 @@ tags_raw:
 - Carrier
 - Partner API
 created: '2026-07-25'
-modified: '2026-07-25'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: qbe:qbe-ctp-switch-api
@@ -113,6 +113,8 @@ apis:
   - type: Examples
     url: examples/qbe-anzo-digital-brokers-examples.yml
 common:
+- url: https://www.qbe.com/newsroom
+  type: Blog
 - type: Overlay
   url: overlays/qbe-anzo-digital-brokers-overlay.yaml
 - type: Overlay
