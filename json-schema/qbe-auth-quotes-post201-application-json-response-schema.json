@@ -1,0 +1,2203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/qbe/main/json-schema/qbe-auth-quotes-post201-application-json-response-schema.json",
+  "title": "AuthQuotesPost201ApplicationJsonResponse",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/qbe-digital-brokers-api-openapi.yml#/components/schemas/AuthQuotesPost201ApplicationJsonResponse",
+  "x-amf-examples": {
+    "Referral Response Example": {
+      "messageMetadata": {
+        "messageHeader": {
+          "messageDate": "2022-03-30T03:00:21Z",
+          "status": "SUCCESS"
+        },
+        "transactionInformation": {
+          "identifier": "Q609732BPK"
+        }
+      },
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2021-05-24",
+            "effectiveDate": "2021-05-24",
+            "expiryDate": "2021-06-02",
+            "quoteExpiryDate": "2021-06-02",
+            "transactionMode": "",
+            "product": "BPK",
+            "quoteNumber": "Q609732BPK",
+            "returnStatusInResponse": false,
+            "partialDeclineAllowed": false,
+            "terminateRisksNotPassed": false,
+            "policyStatus": "REFER_REQUIRED",
+            "policyMessageStatus": "Policy Referral Required",
+            "extendedStatus": [
+              {
+                "status": "REFER",
+                "message": "Refer due to short term New Business/Renewal"
+              }
+            ]
+          },
+          "subProductCd": "B",
+          "sourceOfBusinessCode": "",
+          "variableCommRate": "0.00"
+        },
+        "customerParty": {
+          "firstName": "",
+          "lastName": "LUCIFER",
+          "taxIndicator": "N",
+          "taxPercent": 0,
+          "orgName": "Lucifer",
+          "contact": {
+            "primaryEmailAddress": "",
+            "workPhoneNumber": "",
+            "homePhoneNumber": ""
+          },
+          "location": {
+            "addressLine1": "24 LUX STREET",
+            "city": "SYDNEY",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          }
+        },
+        "risks": [
+          {
+            "partnerId": "Loc1",
+            "riskNumber": 0,
+            "riskReferenceId": "1001",
+            "riskClassCode": "BPP",
+            "riskMode": "A",
+            "riskAttachmentDate": "2021-05-24T12:00:00Z",
+            "riskEffectiveDate": "2021-05-24T12:00:00Z",
+            "clauses": [
+              {
+                "clauseWording": [
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPB45",
+                    "clauseDescription": "PROPERTY DAMAGE TO FIXED PROPERTY",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "."
+                      },
+                      {
+                        "wording": "B45: Property Damage to Fixed Property"
+                      },
+                      {
+                        "wording": "The Broadform Liability Section of this Policy does not cover"
+                      },
+                      {
+                        "wording": "liability in respect of damage to or as a result of damage to roads,"
+                      },
+                      {
+                        "wording": "sewers, water pipes, gas pipes, electric, fibre optic or telecommuni-"
+                      },
+                      {
+                        "wording": "cations wires or cables or their supports or to any land or fixed"
+                      },
+                      {
+                        "wording": "property whatsoever and/or the contents thereof unless You have"
+                      },
+                      {
+                        "wording": "ascertained from the relevant authorities the actual position of any"
+                      },
+                      {
+                        "wording": "such pipes, mains, cables and wires before commencing any operation."
+                      }
+                    ]
+                  },
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPB73",
+                    "clauseDescription": "EXCESS FOR UNDERGROUND SERVICES",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "."
+                      },
+                      {
+                        "wording": "B73: EXCESS FOR UNDERGROUND SERVICES"
+                      },
+                      {
+                        "wording": "Endorsements forming part of Broadform Liability Section"
+                      },
+                      {
+                        "wording": "Claims in respect of Property Damage to roads ,sewers, water pipes,"
+                      },
+                      {
+                        "wording": "gas pipes, electric, fibre optic or telecommunications wires or cables"
+                      },
+                      {
+                        "wording": "or their supports or to any fixed property whatsoever and/or Contents"
+                      },
+                      {
+                        "wording": "thereof are subject to an Excess of $500."
+                      }
+                    ]
+                  },
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPG56",
+                    "clauseDescription": "REMOVAL/WEAKENING OF SUPPORTS",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "."
+                      },
+                      {
+                        "wording": "G56: REMOVAL/WEAKENING OF SUPPORTS"
+                      },
+                      {
+                        "wording": "The Broadform Liability Section of this Policy does not cover"
+                      },
+                      {
+                        "wording": "liability in respect of damage to any land or fixed property arising"
+                      },
+                      {
+                        "wording": "directly or indirectly from the removal or weakening of or"
+                      },
+                      {
+                        "wording": "interference with support to land, buildings or any other property."
+                      }
+                    ]
+                  },
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPP11",
+                    "clauseDescription": "LABOUR HIRE EXCLUSION",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "CONTRACTOR, SUBCONTRACTOR AND LABOUR HIRE EXCLUSION"
+                      },
+                      {
+                        "wording": "The Broadform Liability section of this policy does not cover"
+                      },
+                      {
+                        "wording": "liability caused by, contributed to by, or arising from injury to any"
+                      },
+                      {
+                        "wording": "contractor or subcontractor or labour hire personnel of the insured,"
+                      },
+                      {
+                        "wording": "or employee of any contractor or subcontractor of the insured whilst"
+                      },
+                      {
+                        "wording": "such employee or contractor or subcontractor or labour hire personnel"
+                      },
+                      {
+                        "wording": "is acting in such capacity."
+                      },
+                      {
+                        "wording": "For the purpose of this exclusion a:"
+                      },
+                      {
+                        "wording": "1. labour hire person is a person who is:"
+                      },
+                      {
+                        "wording": "a. employed by a labour hire provider; or"
+                      },
+                      {
+                        "wording": "b. contracted as an apprentice by a labour hire provider;"
+                      },
+                      {
+                        "wording": "and you have contracted with the labour hire provider to use the"
+                      },
+                      {
+                        "wording": "services of the labour hire person."
+                      },
+                      {
+                        "wording": "2. labour hire provider is a person or organisation that contracts"
+                      },
+                      {
+                        "wording": "out the services of their employees and or apprentices to you."
+                      }
+                    ]
+                  },
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPSBE",
+                    "clauseDescription": "SMALL BUSINESS NSW STAMP DUTY",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "We have been advised a NSW Small Business Stamp Duty declaration has"
+                      },
+                      {
+                        "wording": "been completed. The Small Business premium is exempt from NSW Stamp"
+                      },
+                      {
+                        "wording": "Duty charges."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "location": {
+              "partnerId": "Loc1",
+              "situationNumber": "1",
+              "situationLocated": "",
+              "situationTurnover": 0,
+              "primaryLocation": false,
+              "addressLine1": "24 Lux Street",
+              "city": "SYDNEY",
+              "stateCode": "NSW",
+              "postalCode": "2000"
+            },
+            "premium": {
+              "premiumClass": [
+                {
+                  "classType": "LIABILITY",
+                  "FAPPremium": {
+                    "premium": 3938.94,
+                    "GST": 393.89,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0,
+                    "totalPremium": 4332.83,
+                    "agentComm": 1024.12,
+                    "agentCommRate": 26,
+                    "agentCommGST": 102.41
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 97.12,
+                    "GST": 9.71,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0,
+                    "totalPremium": 106.83,
+                    "agentComm": 25.25,
+                    "agentCommRate": 26,
+                    "agentCommGST": 2.53
+                  },
+                  "transactionPremium": {
+                    "premium": 97.12,
+                    "GST": 9.71,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0,
+                    "totalPremium": 106.83,
+                    "agentComm": 25.25,
+                    "agentCommRate": 26,
+                    "agentCommGST": 2.53
+                  }
+                },
+                {
+                  "classType": "TOT",
+                  "FAPPremium": {
+                    "premium": 3938.94,
+                    "GST": 393.89,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0,
+                    "totalPremium": 4332.83,
+                    "agentComm": 1024.12,
+                    "agentCommRate": 26,
+                    "agentCommGST": 102.41
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 97.12,
+                    "GST": 9.71,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0,
+                    "totalPremium": 106.83,
+                    "agentComm": 25.25,
+                    "agentCommRate": 26,
+                    "agentCommGST": 2.53
+                  },
+                  "transactionPremium": {
+                    "premium": 97.12,
+                    "GST": 9.71,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0,
+                    "totalPremium": 106.83,
+                    "agentComm": 25.25,
+                    "agentCommRate": 26,
+                    "agentCommGST": 2.53
+                  }
+                }
+              ]
+            },
+            "riskDetail": {
+              "riskBPKLiability": {
+                "occupationCode": "421050",
+                "occupationDescription": "Hairdressing Service",
+                "business": "Hairdressing Service",
+                "numberOfEmployees": 5,
+                "limitOfLiability": 20000000,
+                "liabilityExcess": 50000,
+                "goodsInPhysicalControl": 25000,
+                "annualTurnover": 0,
+                "propertyOwners": "",
+                "propertyOwnersDesc": "",
+                "propertyValue": 0,
+                "paymentToContractors": 0
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "5",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "6",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "7",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "8",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "9",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "10",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "11",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "12",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "13",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "14",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "15",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "16",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "17",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "18",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "19",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "20",
+            "answer": {
+              "text": false
+            }
+          }
+        ],
+        "policyPremium": {
+          "FAPPremium": {
+            "premium": 3938.94,
+            "GST": 393.89,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 0,
+            "totalPremium": 4332.83,
+            "agentComm": 1024.12,
+            "agentCommRate": 26,
+            "agentCommGST": 102.41
+          },
+          "totalPostedToDatePremium": {
+            "premium": 97.12,
+            "GST": 9.71,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 0,
+            "totalPremium": 106.83,
+            "agentComm": 25.25,
+            "agentCommRate": 26,
+            "agentCommGST": 2.53
+          },
+          "transactionPremium": {
+            "premium": 97.12,
+            "GST": 9.71,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 0,
+            "totalPremium": 106.83,
+            "agentComm": 25.25,
+            "agentCommRate": 26,
+            "agentCommGST": 2.53
+          }
+        }
+      }
+    },
+    "BPK Liability Response Example": {
+      "messageMetadata": {
+        "messageHeader": {
+          "messageDate": "2022-03-30T02:51:55Z",
+          "status": "SUCCESS"
+        },
+        "transactionInformation": {
+          "identifier": "Q609732BPK"
+        }
+      },
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2022-03-30",
+            "effectiveDate": "2022-03-30",
+            "expiryDate": "2023-03-30",
+            "quoteExpiryDate": "2023-03-30",
+            "product": "BPK",
+            "quoteNumber": "Q609732BPK"
+          },
+          "subProductCd": "B",
+          "sourceOfBusinessCode": "",
+          "variableCommRate": "0.00"
+        },
+        "customerParty": {
+          "firstName": "ALBERT ",
+          "lastName": "SMITH",
+          "taxIndicator": "",
+          "taxPercent": 0,
+          "orgName": "OrgTest",
+          "orgABN": "",
+          "contact": {
+            "primaryEmailAddress": "",
+            "workPhoneNumber": "",
+            "homePhoneNumber": ""
+          },
+          "location": {
+            "addressLine1": "24 LUX STREET",
+            "city": "SYDNEY",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          }
+        },
+        "risks": [
+          {
+            "partnerId": "Loc1",
+            "riskNumber": 0,
+            "riskReferenceId": "1001",
+            "riskClassCode": "BPP",
+            "riskMode": "A",
+            "riskAttachmentDate": "2022-03-30T12:00:00Z",
+            "riskEffectiveDate": "2022-03-30T12:00:00Z",
+            "clauses": [
+              {
+                "clauseWording": [
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPB45",
+                    "clauseDescription": "PROPERTY DAMAGE TO FIXED PROPERTY",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "."
+                      },
+                      {
+                        "wording": "B45: Property Damage to Fixed Property"
+                      },
+                      {
+                        "wording": "The Broadform Liability Section of this Policy does not cover"
+                      },
+                      {
+                        "wording": "liability in respect of damage to or as a result of damage to roads,"
+                      },
+                      {
+                        "wording": "sewers, water pipes, gas pipes, electric, fibre optic or telecommuni-"
+                      },
+                      {
+                        "wording": "cations wires or cables or their supports or to any land or fixed"
+                      },
+                      {
+                        "wording": "property whatsoever and/or the contents thereof unless You have"
+                      },
+                      {
+                        "wording": "ascertained from the relevant authorities the actual position of any"
+                      },
+                      {
+                        "wording": "such pipes, mains, cables and wires before commencing any operation."
+                      }
+                    ]
+                  },
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPB73",
+                    "clauseDescription": "EXCESS FOR UNDERGROUND SERVICES",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "."
+                      },
+                      {
+                        "wording": "B73: EXCESS FOR UNDERGROUND SERVICES"
+                      },
+                      {
+                        "wording": "Endorsements forming part of Broadform Liability Section"
+                      },
+                      {
+                        "wording": "Claims in respect of Property Damage to roads ,sewers, water pipes,"
+                      },
+                      {
+                        "wording": "gas pipes, electric, fibre optic or telecommunications wires or cables"
+                      },
+                      {
+                        "wording": "or their supports or to any fixed property whatsoever and/or Contents"
+                      },
+                      {
+                        "wording": "thereof are subject to an Excess of $500."
+                      }
+                    ]
+                  },
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPG56",
+                    "clauseDescription": "REMOVAL/WEAKENING OF SUPPORTS",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "."
+                      },
+                      {
+                        "wording": "G56: REMOVAL/WEAKENING OF SUPPORTS"
+                      },
+                      {
+                        "wording": "The Broadform Liability Section of this Policy does not cover"
+                      },
+                      {
+                        "wording": "liability in respect of damage to any land or fixed property arising"
+                      },
+                      {
+                        "wording": "directly or indirectly from the removal or weakening of or"
+                      },
+                      {
+                        "wording": "interference with support to land, buildings or any other property."
+                      }
+                    ]
+                  },
+                  {
+                    "riskClass": "BPP",
+                    "premiumClass": "LIABILITY",
+                    "clauseCode": "BPPP11",
+                    "clauseDescription": "LABOUR HIRE EXCLUSION",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "CONTRACTOR, SUBCONTRACTOR AND LABOUR HIRE EXCLUSION"
+                      },
+                      {
+                        "wording": "The Broadform Liability section of this policy does not cover"
+                      },
+                      {
+                        "wording": "liability caused by, contributed to by, or arising from injury to any"
+                      },
+                      {
+                        "wording": "contractor or subcontractor or labour hire personnel of the insured,"
+                      },
+                      {
+                        "wording": "or employee of any contractor or subcontractor of the insured whilst"
+                      },
+                      {
+                        "wording": "such employee or contractor or subcontractor or labour hire personnel"
+                      },
+                      {
+                        "wording": "is acting in such capacity."
+                      },
+                      {
+                        "wording": "For the purpose of this exclusion a:"
+                      },
+                      {
+                        "wording": "1. labour hire person is a person who is:"
+                      },
+                      {
+                        "wording": "a. employed by a labour hire provider; or"
+                      },
+                      {
+                        "wording": "b. contracted as an apprentice by a labour hire provider;"
+                      },
+                      {
+                        "wording": "and you have contracted with the labour hire provider to use the"
+                      },
+                      {
+                        "wording": "services of the labour hire person."
+                      },
+                      {
+                        "wording": "2. labour hire provider is a person or organisation that contracts"
+                      },
+                      {
+                        "wording": "out the services of their employees and or apprentices to you."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "location": {
+              "partnerId": "Loc1",
+              "situationNumber": "1",
+              "situationLocated": "",
+              "situationTurnover": 0,
+              "primaryLocation": false,
+              "addressLine1": "24 Lux Street",
+              "city": "SYDNEY",
+              "stateCode": "NSW",
+              "postalCode": "2000"
+            },
+            "premium": {
+              "premiumClass": [
+                {
+                  "classType": "LIABILITY",
+                  "FAPPremium": {
+                    "premium": 3160.17,
+                    "GST": 316.02,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 312.85,
+                    "totalPremium": 3789.04,
+                    "agentComm": 821.64,
+                    "agentCommRate": 26,
+                    "agentCommGST": 82.16
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 3160.17,
+                    "GST": 316.02,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 312.85,
+                    "totalPremium": 3789.04,
+                    "agentComm": 821.64,
+                    "agentCommRate": 26,
+                    "agentCommGST": 82.16
+                  },
+                  "transactionPremium": {
+                    "premium": 3160.17,
+                    "GST": 316.02,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 312.85,
+                    "totalPremium": 3789.04,
+                    "agentComm": 821.64,
+                    "agentCommRate": 26,
+                    "agentCommGST": 82.16
+                  }
+                },
+                {
+                  "classType": "TOT",
+                  "FAPPremium": {
+                    "premium": 3160.17,
+                    "GST": 316.02,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 312.85,
+                    "totalPremium": 3789.04,
+                    "agentComm": 821.64,
+                    "agentCommRate": 26,
+                    "agentCommGST": 82.16
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 3160.17,
+                    "GST": 316.02,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 312.85,
+                    "totalPremium": 3789.04,
+                    "agentComm": 821.64,
+                    "agentCommRate": 26,
+                    "agentCommGST": 82.16
+                  },
+                  "transactionPremium": {
+                    "premium": 3160.17,
+                    "GST": 316.02,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 312.85,
+                    "totalPremium": 3789.04,
+                    "agentComm": 821.64,
+                    "agentCommRate": 26,
+                    "agentCommGST": 82.16
+                  }
+                }
+              ]
+            },
+            "riskDetail": {
+              "riskBPKLiability": {
+                "occupationCode": "421050",
+                "occupationDescription": "Hairdressing Service",
+                "business": "Hairdressing Service",
+                "numberOfEmployees": "5",
+                "limitOfLiability": 20000000,
+                "liabilityExcess": 50000,
+                "productsLiability": 0,
+                "goodsInPhysicalControl": 25000,
+                "tenantsFireLiability": 0,
+                "annualTurnover": 0,
+                "propertyOwners": "",
+                "propertyOwnersDesc": "",
+                "propertyValue": 0,
+                "paymentToContractors": 0
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "5",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "6",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "7",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "8",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "9",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "10",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "11",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "12",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "13",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "14",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "15",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "16",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "17",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "18",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "19",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "20",
+            "answer": {
+              "text": false
+            }
+          }
+        ],
+        "policyPremium": {
+          "FAPPremium": {
+            "premium": 3160.17,
+            "GST": 316.02,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 312.85,
+            "totalPremium": 3789.04,
+            "agentComm": 821.64,
+            "agentCommRate": 26,
+            "agentCommGST": 82.16
+          },
+          "totalPostedToDatePremium": {
+            "premium": 3160.17,
+            "GST": 316.02,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 312.85,
+            "totalPremium": 3789.04,
+            "agentComm": 821.64,
+            "agentCommRate": 26,
+            "agentCommGST": 82.16
+          },
+          "transactionPremium": {
+            "premium": 3160.17,
+            "GST": 316.02,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 312.85,
+            "totalPremium": 3789.04,
+            "agentComm": 821.64,
+            "agentCommRate": 26,
+            "agentCommGST": 82.16
+          }
+        }
+      }
+    },
+    "MPA Private Motor Response Example": {
+      "messageMetadata": {
+        "messageHeader": {
+          "messageDate": "2022-03-30T03:00:21Z",
+          "status": "SUCCESS"
+        },
+        "transactionInformation": {
+          "identifier": "Q609732BPK"
+        }
+      },
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2021-06-23",
+            "effectiveDate": "2021-06-23",
+            "expiryDate": "2022-06-16",
+            "quoteExpiryDate": "2022-06-16",
+            "transactionMode": "",
+            "quoteNumber": "Q609732BPK",
+            "returnStatusInResponse": false,
+            "partialDeclineAllowed": false,
+            "terminateRisksNotPassed": false
+          },
+          "subProductCd": "B",
+          "sourceOfBusinessCode": "",
+          "variableCommRate": "0.00"
+        },
+        "customerParty": {
+          "firstName": "",
+          "lastName": "Smith",
+          "taxIndicator": "I",
+          "taxPercent": 0,
+          "orgName": "Telemetric Pty.Ltd",
+          "contact": {
+            "primaryEmailAddress": "info@telemetic.com",
+            "workPhoneNumber": "",
+            "homePhoneNumber": "1234567"
+          },
+          "location": {
+            "addressLine1": "24 LUX STREET",
+            "city": "SYDNEY",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          }
+        },
+        "risks": [
+          {
+            "partnerId": "loc-A123",
+            "riskNumber": 0,
+            "riskReferenceId": "1001",
+            "riskClassCode": "MSA",
+            "riskMode": "A",
+            "riskAttachmentDate": "2021-06-23T12:00:00Z",
+            "riskEffectiveDate": "2021-06-23T12:00:00Z",
+            "location": {
+              "partnerId": "loc-A123",
+              "situationNumber": "1",
+              "situationLocated": "",
+              "situationTurnover": 0,
+              "primaryLocation": false,
+              "addressLine1": "24 Lux Street",
+              "city": "SYDNEY",
+              "stateCode": "NSW",
+              "postalCode": "2000",
+              "gnaf": ""
+            },
+            "premium": {
+              "premiumClass": [
+                {
+                  "classType": "MSP",
+                  "FAPPremium": {
+                    "premium": 1004.44,
+                    "GST": 0,
+                    "FSL": 2.51,
+                    "brokerFee": 0,
+                    "duty": 50.34,
+                    "totalPremium": 1057.29,
+                    "agentComm": 150.66,
+                    "agentCommRate": 15,
+                    "agentCommGST": 0
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 985.18,
+                    "GST": 0,
+                    "FSL": 2.46,
+                    "brokerFee": 0,
+                    "duty": 49.38,
+                    "totalPremium": 1037.02,
+                    "agentComm": 147.77,
+                    "agentCommRate": 15,
+                    "agentCommGST": 0
+                  },
+                  "transactionPremium": {
+                    "premium": 985.18,
+                    "GST": 0,
+                    "FSL": 2.46,
+                    "brokerFee": 0,
+                    "duty": 49.38,
+                    "totalPremium": 1037.02,
+                    "agentComm": 147.77,
+                    "agentCommRate": 15,
+                    "agentCommGST": 0
+                  }
+                },
+                {
+                  "classType": "TOT",
+                  "FAPPremium": {
+                    "premium": 1004.44,
+                    "GST": 0,
+                    "FSL": 2.51,
+                    "brokerFee": 0,
+                    "duty": 50.34,
+                    "totalPremium": 1057.29,
+                    "agentComm": 150.66,
+                    "agentCommRate": 15,
+                    "agentCommGST": 0
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 985.18,
+                    "GST": 0,
+                    "FSL": 2.46,
+                    "brokerFee": 0,
+                    "duty": 49.38,
+                    "totalPremium": 1037.02,
+                    "agentComm": 147.77,
+                    "agentCommRate": 15,
+                    "agentCommGST": 0
+                  },
+                  "transactionPremium": {
+                    "premium": 985.18,
+                    "GST": 0,
+                    "FSL": 2.46,
+                    "brokerFee": 0,
+                    "duty": 49.38,
+                    "totalPremium": 1037.02,
+                    "agentComm": 147.77,
+                    "agentCommRate": 15,
+                    "agentCommGST": 0
+                  }
+                }
+              ]
+            },
+            "riskDetail": {
+              "riskMSAPrivateMotor": {
+                "coverDetails": {
+                  "coverCode": "1",
+                  "basisOfCover": "R",
+                  "thirdPartyLimit": 30000000
+                },
+                "driverDetails": {
+                  "nominatedDriver": [
+                    {
+                      "nominatedDriverName": "EMBS",
+                      "nominatedDriverSex": "M",
+                      "nominatedDriverDOB": "1980-07-01T12:00:00Z",
+                      "nominatedDriverUse": 100,
+                      "nominatedDriverQBEInsure": ""
+                    }
+                  ]
+                },
+                "vehicleDetails": {
+                  "redbookCode": "FORD2010AL",
+                  "vehicleMake": "FORD",
+                  "vehicleYear": 2010,
+                  "vehicleId": "AL",
+                  "vehicleCategory": "08",
+                  "vehicleDescription": "2010 FORD FIESTA ECOnetic HATCHBACK",
+                  "registrationNumber": "1234",
+                  "engineNumber": "EMBS",
+                  "VINChassisNumber": "",
+                  "kilometersPerYear": "2",
+                  "ownVehicles": "",
+                  "approvedSecurity": "N",
+                  "accessoryDetails": {
+                    "accessories": [
+                      {
+                        "detailAccessoryCode": "ABG",
+                        "description": "ANY DESCRIPTION",
+                        "detail": "ANY DETAILS",
+                        "sumInsured": 3000
+                      }
+                    ]
+                  },
+                  "modificationDetails": {
+                    "modifications": [
+                      {
+                        "modCode": ""
+                      }
+                    ]
+                  }
+                },
+                "underwritingDetails": {
+                  "district": "V",
+                  "vehicledModified": "N",
+                  "financeType": "1",
+                  "postCodeGaragedNight": "2000",
+                  "parkedMethodNight": "UNS",
+                  "purposeOfUse": "P",
+                  "noClaimBonus": "-060",
+                  "protectedNoClaimBonus": "N",
+                  "youngDrivers": "N",
+                  "loyaltyYears": 0,
+                  "hireCar": "N",
+                  "campaignCode": "",
+                  "excesses": {
+                    "basicExcess": 500,
+                    "electedExcess": "0",
+                    "imposedExcess": 0,
+                    "ageExcess": "0800/0600",
+                    "nonNominatedExcess": 1400
+                  },
+                  "sumInsured": {
+                    "accessoriesSumInsured": 3000,
+                    "newValueSumInsured": 24990,
+                    "wholesaleValueSumInsured": 5300,
+                    "retailValueSumInsured": 7300,
+                    "agreedValueSumInsured": 0
+                  },
+                  "gatewayPurposeOfUse": ""
+                }
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "5",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "6",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "7",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "8",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "9",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "10",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "11",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "12",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "13",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "14",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "15",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "16",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "17",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "18",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "19",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "20",
+            "answer": {
+              "text": false
+            }
+          }
+        ],
+        "policyPremium": {
+          "FAPPremium": {
+            "premium": 1004.44,
+            "GST": 0,
+            "FSL": 2.51,
+            "brokerFee": 0,
+            "duty": 50.34,
+            "totalPremium": 1057.29,
+            "agentComm": 150.66,
+            "agentCommRate": 15,
+            "agentCommGST": 0
+          },
+          "totalPostedToDatePremium": {
+            "premium": 985.18,
+            "GST": 0,
+            "FSL": 2.46,
+            "brokerFee": 0,
+            "duty": 49.38,
+            "totalPremium": 1037.02,
+            "agentComm": 147.77,
+            "agentCommRate": 15,
+            "agentCommGST": 0
+          },
+          "transactionPremium": {
+            "premium": 985.18,
+            "GST": 0,
+            "FSL": 2.46,
+            "brokerFee": 0,
+            "duty": 49.38,
+            "totalPremium": 1037.02,
+            "agentComm": 147.77,
+            "agentCommRate": 15,
+            "agentCommGST": 0
+          }
+        }
+      }
+    },
+    "BPK Theft Money and Glass Response Example": {
+      "messageMetadata": {
+        "messageHeader": {
+          "messageDate": "2022-03-30T03:00:21Z",
+          "status": "SUCCESS"
+        },
+        "transactionInformation": {
+          "identifier": "Q609732BPK"
+        }
+      },
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2021-05-21",
+            "effectiveDate": "2021-05-21",
+            "expiryDate": "2021-06-05",
+            "quoteExpiryDate": "2021-06-05",
+            "transactionMode": "",
+            "product": "BPK",
+            "quoteNumber": "Q609732BPK",
+            "returnStatusInResponse": false,
+            "partialDeclineAllowed": false,
+            "terminateRisksNotPassed": false
+          },
+          "subProductCd": "B",
+          "sourceOfBusinessCode": "",
+          "variableCommRate": "0.00"
+        },
+        "customerParty": {
+          "firstName": "John",
+          "lastName": "Citizen",
+          "taxIndicator": "N",
+          "taxPercent": 0,
+          "orgName": "AllanCo",
+          "contact": {
+            "primaryEmailAddress": "",
+            "workPhoneNumber": "",
+            "homePhoneNumber": ""
+          },
+          "location": {
+            "addressLine1": "24 LUX STREET",
+            "city": "SYDNEY",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          }
+        },
+        "risks": [
+          {
+            "partnerId": "location-a",
+            "riskNumber": 0,
+            "riskReferenceId": "1001",
+            "riskClassCode": "BPO",
+            "riskMode": "A",
+            "riskAttachmentDate": "2021-05-21T12:00:00Z",
+            "riskEffectiveDate": "2021-05-21T12:00:00Z",
+            "location": {
+              "partnerId": "location-a",
+              "situationNumber": "1",
+              "situationLocated": "",
+              "situationTurnover": 0,
+              "primaryLocation": false,
+              "addressLine1": "24 Lux Street",
+              "city": "SYDNEY",
+              "stateCode": "NSW",
+              "postalCode": "2000"
+            },
+            "premium": {
+              "premiumClass": [
+                {
+                  "classType": "THEFT",
+                  "FAPPremium": {
+                    "premium": 127.59,
+                    "GST": 12.76,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 12.63,
+                    "totalPremium": 152.98,
+                    "agentComm": 33.17,
+                    "agentCommRate": 26,
+                    "agentCommGST": 3.32
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 5.24,
+                    "GST": 0.52,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0.51,
+                    "totalPremium": 6.27,
+                    "agentComm": 1.36,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0.14
+                  },
+                  "transactionPremium": {
+                    "premium": 5.24,
+                    "GST": 0.52,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0.51,
+                    "totalPremium": 6.27,
+                    "agentComm": 1.36,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0.14
+                  }
+                },
+                {
+                  "classType": "MONEY",
+                  "FAPPremium": {
+                    "premium": 114.19,
+                    "GST": 11.42,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 11.3,
+                    "totalPremium": 136.91,
+                    "agentComm": 29.68,
+                    "agentCommRate": 26,
+                    "agentCommGST": 2.97
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 4.69,
+                    "GST": 0.47,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0.46,
+                    "totalPremium": 5.62,
+                    "agentComm": 1.21,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0.12
+                  },
+                  "transactionPremium": {
+                    "premium": 4.69,
+                    "GST": 0.47,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 0.46,
+                    "totalPremium": 5.62,
+                    "agentComm": 1.21,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0.12
+                  }
+                },
+                {
+                  "classType": "GLASS",
+                  "FAPPremium": {
+                    "premium": 767.05,
+                    "GST": 76.71,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 75.93,
+                    "totalPremium": 919.69,
+                    "agentComm": 199.43,
+                    "agentCommRate": 26,
+                    "agentCommGST": 19.94
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 31.52,
+                    "GST": 3.15,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 3.12,
+                    "totalPremium": 37.79,
+                    "agentComm": 8.19,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0.82
+                  },
+                  "transactionPremium": {
+                    "premium": 31.52,
+                    "GST": 3.15,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 3.12,
+                    "totalPremium": 37.79,
+                    "agentComm": 8.19,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0.82
+                  }
+                },
+                {
+                  "classType": "TOT",
+                  "FAPPremium": {
+                    "premium": 1008.83,
+                    "GST": 100.89,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 99.86,
+                    "totalPremium": 1209.58,
+                    "agentComm": 262.28,
+                    "agentCommRate": 26,
+                    "agentCommGST": 26.23
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 41.45,
+                    "GST": 4.14,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 4.09,
+                    "totalPremium": 49.68,
+                    "agentComm": 10.76,
+                    "agentCommRate": 26,
+                    "agentCommGST": 1.08
+                  },
+                  "transactionPremium": {
+                    "premium": 41.45,
+                    "GST": 4.14,
+                    "FSL": 0,
+                    "brokerFee": 0,
+                    "duty": 4.09,
+                    "totalPremium": 49.68,
+                    "agentComm": 10.76,
+                    "agentCommRate": 26,
+                    "agentCommGST": 1.08
+                  }
+                }
+              ]
+            },
+            "riskDetail": {
+              "riskBPKTheftMoneyGlass": {
+                "occupationCode": "573045",
+                "occupationDescription": "Cafe Operation",
+                "business": "Cafe Operation",
+                "governmentResidential": "N",
+                "theft": {
+                  "contentsSI": 4000,
+                  "theftExcess": 250,
+                  "stockSI": 0,
+                  "tobaccoSI": 0,
+                  "liquorSI": 0,
+                  "WOForcibleEntrySI": 0,
+                  "security": "B",
+                  "securityDesc": "D.Locks all ext doors & (Bars all windows or local alarm)"
+                },
+                "money": {
+                  "inTransitSI": 1000,
+                  "moneyExcess": 250,
+                  "inResidenceSI": 1000,
+                  "busHrsSI": 1000,
+                  "afterHrsSI": 1000,
+                  "inSafeSI": 1000,
+                  "blanketCover": "N",
+                  "blanketCoverDesc": "No",
+                  "blanketCoverSI": 0
+                },
+                "glass": {
+                  "numberIlluminatedSigns": "0",
+                  "illuminatedSignsSI": 0,
+                  "glassExcess": 250,
+                  "largestPaneOfGlass": "B",
+                  "largestPaneOfGlassDesc": "greater than 5 metre and less than 8sq metres"
+                }
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "5",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "6",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "7",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "8",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "9",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "10",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "11",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "12",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "13",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "14",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "15",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "16",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "17",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "18",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "19",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "20",
+            "answer": {
+              "text": false
+            }
+          }
+        ],
+        "policyPremium": {
+          "FAPPremium": {
+            "premium": 1008.83,
+            "GST": 100.89,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 99.86,
+            "totalPremium": 1209.58,
+            "agentComm": 262.28,
+            "agentCommRate": 26,
+            "agentCommGST": 26.23
+          },
+          "totalPostedToDatePremium": {
+            "premium": 41.45,
+            "GST": 4.14,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 4.09,
+            "totalPremium": 49.68,
+            "agentComm": 10.76,
+            "agentCommRate": 26,
+            "agentCommGST": 1.08
+          },
+          "transactionPremium": {
+            "premium": 41.45,
+            "GST": 4.14,
+            "FSL": 0,
+            "brokerFee": 0,
+            "duty": 4.09,
+            "totalPremium": 49.68,
+            "agentComm": 10.76,
+            "agentCommRate": 26,
+            "agentCommGST": 1.08
+          }
+        }
+      }
+    },
+    "BPK Fire & Business Interruption Response Example": {
+      "messageMetadata": {
+        "messageHeader": {
+          "messageDate": "2022-03-30T03:00:21Z",
+          "status": "SUCCESS"
+        },
+        "transactionInformation": {
+          "identifier": "Q609732BPK"
+        }
+      },
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2021-05-21",
+            "effectiveDate": "2021-05-21",
+            "expiryDate": "2021-06-03",
+            "quoteExpiryDate": "2021-06-03",
+            "transactionMode": "",
+            "product": "BPK",
+            "returnStatusInResponse": false,
+            "partialDeclineAllowed": false,
+            "terminateRisksNotPassed": false,
+            "quoteNumber": "Q609732BPK"
+          },
+          "subProductCd": "B",
+          "sourceOfBusinessCode": "",
+          "variableCommRate": "0.00"
+        },
+        "customerParty": {
+          "firstName": "John",
+          "lastName": "Smith",
+          "taxIndicator": "N",
+          "taxPercent": 0,
+          "orgName": "OrgTest",
+          "contact": {
+            "primaryEmailAddress": "",
+            "workPhoneNumber": "",
+            "homePhoneNumber": ""
+          },
+          "location": {
+            "addressLine1": "24 LUX STREET",
+            "city": "SYDNEY",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          }
+        },
+        "risks": [
+          {
+            "partnerId": "location-a",
+            "riskNumber": 0,
+            "riskReferenceId": "1001",
+            "riskClassCode": "BFP",
+            "riskMode": "A",
+            "riskAttachmentDate": "2021-05-21T12:00:00Z",
+            "riskEffectiveDate": "2021-05-21T12:00:00Z",
+            "clauses": [
+              {
+                "clauseWording": [
+                  {
+                    "riskClass": "BFP",
+                    "premiumClass": "PROPERTY",
+                    "clauseCode": "BFPB10",
+                    "clauseDescription": "SPRINKLER INSTALLATIONS-OWNED PREMI",
+                    "clauseWordingLines": [
+                      {
+                        "wording": ""
+                      },
+                      {
+                        "wording": "Sprinkler Installations - Applicable to Owned Premises or"
+                      },
+                      {
+                        "wording": "Installations for which the Insured is Responsible"
+                      },
+                      {
+                        "wording": "The Insured warrants that in such of the Buildings as are protected or"
+                      },
+                      {
+                        "wording": "as required by law to be protected by an approved installation of"
+                      },
+                      {
+                        "wording": "automatic sprinklers, automatic external alarm signal and automatic"
+                      },
+                      {
+                        "wording": "alarm signal connected with the fire brigade station, in or on the"
+                      },
+                      {
+                        "wording": "premises, due diligence shall be used so that the same shall at all"
+                      },
+                      {
+                        "wording": "times be maintained in good working order."
+                      },
+                      {
+                        "wording": "The Insured further warrants that provision will be made for the"
+                      },
+                      {
+                        "wording": "regular maintenance of the installation in accordance with Australian"
+                      },
+                      {
+                        "wording": "Standards AS1851 Part 3 Automatic Sprinkler Installation by the"
+                      },
+                      {
+                        "wording": "installing engineers or firm or, failing this, by a person or"
+                      },
+                      {
+                        "wording": "organisation who must be approved by Us to carry out such maintenance."
+                      },
+                      {
+                        "wording": "Notice of all alterations and additions to the automatic sprinkler"
+                      },
+                      {
+                        "wording": "installation shall be given by the Insured to Us as soon as reasonably"
+                      },
+                      {
+                        "wording": "practicable."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "location": {
+              "partnerId": "location-a",
+              "situationNumber": "1",
+              "situationLocated": "",
+              "situationTurnover": 0,
+              "primaryLocation": false,
+              "addressLine1": "24 Lux Street",
+              "city": "SYDNEY",
+              "stateCode": "NSW",
+              "postalCode": "2000",
+              "gnaf": ""
+            },
+            "premium": {
+              "premiumClass": [
+                {
+                  "classType": "PROPERTY",
+                  "FAPPremium": {
+                    "premium": 271.38,
+                    "GST": 0,
+                    "FSL": 73.27,
+                    "brokerFee": 0,
+                    "duty": 31.01,
+                    "totalPremium": 375.66,
+                    "agentComm": 70.55,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 9.67,
+                    "GST": 0,
+                    "FSL": 2.61,
+                    "brokerFee": 0,
+                    "duty": 1.1,
+                    "totalPremium": 13.38,
+                    "agentComm": 2.51,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0
+                  },
+                  "transactionPremium": {
+                    "premium": 9.67,
+                    "GST": 0,
+                    "FSL": 2.61,
+                    "brokerFee": 0,
+                    "duty": 1.1,
+                    "totalPremium": 13.38,
+                    "agentComm": 2.51,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0
+                  }
+                },
+                {
+                  "classType": "BUSINESS_INTERRUPTION",
+                  "FAPPremium": {
+                    "premium": 95.69,
+                    "GST": 0,
+                    "FSL": 25.83,
+                    "brokerFee": 0,
+                    "duty": 10.93,
+                    "totalPremium": 132.45,
+                    "agentComm": 24.87,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 3.41,
+                    "GST": 0,
+                    "FSL": 0.92,
+                    "brokerFee": 0,
+                    "duty": 0.38,
+                    "totalPremium": 4.71,
+                    "agentComm": 0.88,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0
+                  },
+                  "transactionPremium": {
+                    "premium": 3.41,
+                    "GST": 0,
+                    "FSL": 0.92,
+                    "brokerFee": 0,
+                    "duty": 0.38,
+                    "totalPremium": 4.71,
+                    "agentComm": 0.88,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0
+                  }
+                },
+                {
+                  "classType": "TOT",
+                  "FAPPremium": {
+                    "premium": 367.07,
+                    "GST": 0,
+                    "FSL": 99.1,
+                    "brokerFee": 0,
+                    "duty": 41.94,
+                    "totalPremium": 508.11,
+                    "agentComm": 95.42,
+                    "agentCommRate": 26,
+                    "agentCommGST": 0
+                  },
+                  "totalPostedToDatePremium": {
+                    "premium": 13.08,
+                    "GST": 0,
+                    "FSL": 3.53,
+                    "brokerFee": 0,
+                    "duty": 1.48,
+                    "totalPremium": 18.09,
+                    "agentComm": 3.39,
+                    "agentCommRate": 25.9,
+                    "agentCommGST": 0
+                  },
+                  "transactionPremium": {
+                    "premium": 13.08,
+                    "GST": 0,
+                    "FSL": 3.53,
+                    "brokerFee": 0,
+                    "duty": 1.48,
+                    "totalPremium": 18.09,
+                    "agentComm": 3.39,
+                    "agentCommRate": 25.9,
+                    "agentCommGST": 0
+                  }
+                }
+              ]
+            },
+            "riskDetail": {
+              "riskBPKFireBusinessInterruption": {
+                "occupationCode": "573045",
+                "occupationDescription": "Cafe Operation",
+                "business": "Cafe Operation",
+                "fire": {
+                  "construction": "3",
+                  "yearBuilt": "2010",
+                  "sprinkler": "Y",
+                  "townWater": "Y",
+                  "buildingSI": 0,
+                  "buildingExcess": 0,
+                  "contentsSI": 87500,
+                  "contentsExcess": 250,
+                  "ADBuildingSI": 0,
+                  "ADBuildingExcess": 0,
+                  "ADContentsSI": 0,
+                  "ADContentsExcess": 0
+                },
+                "businessInterruption": {
+                  "indemnityPeriod": "24",
+                  "grossIncomeSI": 70000,
+                  "grossIncomeExcess": 250,
+                  "ICOWSI": 25000,
+                  "payrollSI": 0,
+                  "weeklyIncomeSI": 0,
+                  "weeksCovered": 0,
+                  "claimsPreparationCosts": "10000",
+                  "OSAcctRecSI": 7500,
+                  "OSAcctRecExcess": 250
+                }
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "5",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "6",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "7",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "8",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "9",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "10",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "11",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "12",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "13",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "14",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "15",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "16",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "17",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "18",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "19",
+            "answer": {
+              "text": false
+            }
+          },
+          {
+            "questionId": "20",
+            "answer": {
+              "text": false
+            }
+          }
+        ],
+        "policyPremium": {
+          "FAPPremium": {
+            "premium": 367.07,
+            "GST": 0,
+            "FSL": 99.1,
+            "brokerFee": 0,
+            "duty": 41.94,
+            "totalPremium": 508.11,
+            "agentComm": 95.42,
+            "agentCommRate": 26,
+            "agentCommGST": 0
+          },
+          "totalPostedToDatePremium": {
+            "premium": 13.08,
+            "GST": 0,
+            "FSL": 3.53,
+            "brokerFee": 0,
+            "duty": 1.48,
+            "totalPremium": 18.09,
+            "agentComm": 3.39,
+            "agentCommRate": 25.9,
+            "agentCommGST": 0
+          },
+          "transactionPremium": {
+            "premium": 13.08,
+            "GST": 0,
+            "FSL": 3.53,
+            "brokerFee": 0,
+            "duty": 1.48,
+            "totalPremium": 18.09,
+            "agentComm": 3.39,
+            "agentCommRate": 25.9,
+            "agentCommGST": 0
+          }
+        }
+      }
+    }
+  }
+}

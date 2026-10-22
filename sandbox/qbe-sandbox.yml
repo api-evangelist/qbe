@@ -4,7 +4,7 @@ source: >-
   openapi/qbe-anzo-digital-brokers-openapi.yml (X-Mockable / X-Mock-Scenario request headers, verbatim
   from https://connect.api-au.qbe.com/developer/apis/x-digital-brokers-qbe-anzov1/operations/{operationId}),
   https://partnerportal-api.qbena.com/guide (HTTP 200)
-summary: >-
+description: >-
   QBE publishes no public sandbox and no self-serve test credentials — you cannot obtain a working key
   without an approved partner subscription. What QBE does publish is a real, first-class MOCKING contract
   baked into the broker API itself: every business operation accepts a required X-Mockable boolean header
@@ -13,6 +13,10 @@ summary: >-
   the policy lifecycle against canned scenarios instead of the live underwriting system. QBE North
   America separately documents a non-production environment and an interactive "Try it" console in its
   API Product Hub.
+docs:
+- https://partnerportal-api.qbena.com/guide
+- https://connect.api-au.qbe.com/apis
+- https://partnerportal-api.qbena.com/apis/catalog
 test_live_separation:
   mechanism: request header, not a key prefix
   note: >-

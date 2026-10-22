@@ -1,7 +1,19 @@
-generated: '2026-10-13'
+generated: '2026-10-20'
 method: searched
+source:
+- https://zapier.com/apps/qbe/integrations
+- https://zapier.com/apps/qbe-insurance/integrations
+- https://n8n.io/integrations/qbe/
+- https://composio.dev/toolkits/qbe
+- https://monid.ai/tools/qbe
 checked:
 - https://app.usecanopy.com/api/v1.0.0/carriers
+- https://composio.dev/toolkits/qbe
+- https://monid.ai/tools/qbe
+- https://n8n.io/integrations/qbe/
+- https://zapier.com/apps/qbe-insurance/integrations
+- https://zapier.com/apps/qbe/integrations
+summary: null
 marketplace_apps: []
 edges:
 - partner_name: canopy
@@ -16,3 +28,4 @@ edges:
   covered_as: qbe
   detected_by: sweep-insurance.py
   detected: '2026-10-13'
+templates: []

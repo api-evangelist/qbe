@@ -1,0 +1,122 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 8
+  own: 5
+  other_domain: 2
+  platform: 1
+  roles:
+  - api
+  - other
+  - partner
+  - portal
+  - source
+  - website
+hosts:
+- host: api.qbe.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: qbe.com
+  role: api
+  relation: own
+- host: api.qbena.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: qbena.com
+  role: api
+  relation: other-domain
+- host: connect.api-au.qbe.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  - Login
+  serves:
+  - docs
+  - cdn
+  vendor: akamai
+  registrable_domain: qbe.com
+  role: portal
+  relation: own
+- host: gateway.api-au.qbe.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - api
+  registrable_domain: qbe.com
+  role: other
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: partner.qbe.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - well-known
+  types: []
+  serves: []
+  title: QBE
+  status: 200
+  registrable_domain: qbe.com
+  role: partner
+  relation: own
+- host: partnerportal-api.qbena.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - well-known
+  types:
+  - PartnerPortal
+  serves:
+  - docs
+  registrable_domain: qbena.com
+  role: other
+  relation: other-domain
+- host: www.qbe.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Blog
+  - Website
+  - Support
+  - PrivacyPolicy
+  - TermsOfService
+  - Security
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: qbe.com
+  role: website
+  relation: own

@@ -1,15 +1,15 @@
 ---
-name: QBE mid-term endorsement
+name: qbe-endorse-policy
 description: Amend an in-force QBE policy mid-term and confirm the change, using the two-step endorse-then-bind transaction with x-master-ref-id correlation.
-api: openapi/qbe-anzo-digital-brokers-openapi.yml
+api: openapi/qbe-digital-brokers-api-openapi.yml
 operations:
   - Amend-an-existing-policy-endorsement
   - Bind-a-policy-to-save-change-after-endoresement-cancellation-or-renewal-has
   - To-Abandon-a-policy-before-it-has-been-bound
   - Refer-an-existing-Policy
-generated: '2026-07-25'
+generated: '2026-10-20'
 method: generated
-source: openapi/qbe-anzo-digital-brokers-openapi.yml
+source: openapi/qbe-digital-brokers-api-openapi.yml
 ---
 
 # QBE mid-term endorsement

@@ -1,0 +1,23 @@
+name: QBE Insurance rate limits
+generated: '2026-10-20'
+method: none
+source: https://connect.api-au.qbe.com/developer/products?api-version=2022-04-01-preview
+limit_count: 0
+limits: []
+headers: []
+checked:
+- url: https://connect.api-au.qbe.com/getting-started
+  status: 200
+- url: https://connect.api-au.qbe.com/developer/products?api-version=2022-04-01-preview
+  status: 200
+- url: https://partnerportal-api.qbena.com/guide
+  status: 200
+- url: openapi/qbe-digital-brokers-api-openapi.yml
+  finding: no 429 response, no RateLimit/X-RateLimit/Retry-After header
+- url: openapi/qbe-ctp-switch-api-openapi.yml
+  finding: no 429 response, no RateLimit/X-RateLimit/Retry-After header
+note: >-
+  No request rate limits are documented. The only published numeric limit is the APIM product
+  subscriptionsLimit of 10 (subscriptions per account per product) on both ANZO products, which caps
+  subscriptions, not request rate, so it is not recorded as a rate limit. Azure APIM rate-limit
+  policies, if any, are not exposed to anonymous callers.

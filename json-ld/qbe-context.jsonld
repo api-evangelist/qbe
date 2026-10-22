@@ -1,0 +1,844 @@
+{
+  "@context": {
+    "@vocab": "https://qbe.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "qbe": "https://qbe.com/schema#",
+    "AuthPoliciesPolicyIdCancelPost403ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdCancelPost403ApplicationJsonResponse",
+    "errors": {
+      "@id": "qbe:errors",
+      "@container": "@list"
+    },
+    "PolicyType_4": "qbe:PolicyType_4",
+    "policyHeader": {
+      "@id": "qbe:policyHeader"
+    },
+    "customerParty": {
+      "@id": "qbe:customerParty"
+    },
+    "risks": {
+      "@id": "qbe:risks",
+      "@container": "@list"
+    },
+    "questions": {
+      "@id": "qbe:questions",
+      "@container": "@list"
+    },
+    "referral": {
+      "@id": "qbe:referral"
+    },
+    "policyPremium": {
+      "@id": "qbe:policyPremium",
+      "@type": "@id"
+    },
+    "AuthPoliciesPolicyIdBindPost500ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdBindPost500ApplicationJsonResponse",
+    "type_17": "qbe:type_17",
+    "occupationCode": {
+      "@id": "qbe:occupationCode",
+      "@type": "xsd:string"
+    },
+    "occupationDescription": {
+      "@id": "qbe:occupationDescription",
+      "@type": "xsd:string"
+    },
+    "business": {
+      "@id": "qbe:business",
+      "@type": "xsd:string"
+    },
+    "generalProperty": {
+      "@id": "qbe:generalProperty"
+    },
+    "machineryBreakdown": {
+      "@id": "qbe:machineryBreakdown"
+    },
+    "policy": "qbe:policy",
+    "AuthQuotesQuoteIdReferPost401ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdReferPost401ApplicationJsonResponse",
+    "DocumentType": "qbe:DocumentType",
+    "effectiveDate": {
+      "@id": "qbe:effectiveDate",
+      "@type": "xsd:string"
+    },
+    "primaryFile": {
+      "@id": "qbe:primaryFile"
+    },
+    "Generated-6": "qbe:Generated-6",
+    "AuthQuotesQuoteIdBindPost404ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdBindPost404ApplicationJsonResponse",
+    "PolicyType_3": "qbe:PolicyType_3",
+    "AuthQuotesQuoteIdDocumentsPost405ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdDocumentsPost405ApplicationJsonResponse",
+    "AuthQuotesPost500ApplicationJsonResponse": "qbe:AuthQuotesPost500ApplicationJsonResponse",
+    "Generated-1": "qbe:Generated-1",
+    "AuthPoliciesPolicyIdBindPost405ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdBindPost405ApplicationJsonResponse",
+    "AuthQuotesQuoteIdBindPost401ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdBindPost401ApplicationJsonResponse",
+    "AuthQuotesQuoteIdPut500ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdPut500ApplicationJsonResponse",
+    "type_23": "qbe:type_23",
+    "electronicEquipmentSI": {
+      "@id": "qbe:electronicEquipmentSI",
+      "@type": "xsd:integer"
+    },
+    "electronicEquipmentExcess": {
+      "@id": "qbe:electronicEquipmentExcess",
+      "@type": "xsd:integer"
+    },
+    "dataMediaSI": {
+      "@id": "qbe:dataMediaSI",
+      "@type": "xsd:integer"
+    },
+    "dataMediaExcess": {
+      "@id": "qbe:dataMediaExcess",
+      "@type": "xsd:integer"
+    },
+    "ICOWSI": {
+      "@id": "qbe:ICOWSI",
+      "@type": "xsd:integer"
+    },
+    "ICOWExcess": {
+      "@id": "qbe:ICOWExcess",
+      "@type": "xsd:integer"
+    },
+    "ICOWIndemnityPeriod": {
+      "@id": "qbe:ICOWIndemnityPeriod",
+      "@type": "xsd:integer"
+    },
+    "electronicItems": {
+      "@id": "qbe:electronicItems",
+      "@container": "@list"
+    },
+    "adjustmentIndicator": {
+      "@id": "qbe:adjustmentIndicator",
+      "@type": "xsd:boolean"
+    },
+    "adjustmentPercentage": {
+      "@id": "qbe:adjustmentPercentage",
+      "@type": "xsd:decimal"
+    },
+    "Generated-9": "qbe:Generated-9",
+    "type_19": "qbe:type_19",
+    "coverDetails": {
+      "@id": "qbe:coverDetails"
+    },
+    "driverDetails": {
+      "@id": "qbe:driverDetails"
+    },
+    "vehicleDetails": {
+      "@id": "qbe:vehicleDetails"
+    },
+    "underwritingDetails": {
+      "@id": "qbe:underwritingDetails"
+    },
+    "glassDetails": {
+      "@id": "qbe:glassDetails"
+    },
+    "AuthPoliciesPolicyIdAbandonPost404ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdAbandonPost404ApplicationJsonResponse",
+    "type_26": "qbe:type_26",
+    "premiumClass": {
+      "@id": "qbe:premiumClass",
+      "@type": "xsd:string"
+    },
+    "premium": {
+      "@id": "qbe:premium",
+      "@type": "xsd:decimal"
+    },
+    "GST": {
+      "@id": "qbe:GST",
+      "@type": "xsd:decimal"
+    },
+    "FSL": {
+      "@id": "qbe:FSL",
+      "@type": "xsd:decimal"
+    },
+    "brokerFee": {
+      "@id": "qbe:brokerFee",
+      "@type": "xsd:decimal"
+    },
+    "brokerFeeGST": {
+      "@id": "qbe:brokerFeeGST",
+      "@type": "xsd:decimal"
+    },
+    "duty": {
+      "@id": "qbe:duty",
+      "@type": "xsd:decimal"
+    },
+    "totalPremium": {
+      "@id": "qbe:totalPremium",
+      "@type": "xsd:decimal"
+    },
+    "agentComm": {
+      "@id": "qbe:agentComm",
+      "@type": "xsd:decimal"
+    },
+    "agentCommRate": {
+      "@id": "qbe:agentCommRate",
+      "@type": "xsd:decimal"
+    },
+    "agentCommGST": {
+      "@id": "qbe:agentCommGST",
+      "@type": "xsd:decimal"
+    },
+    "adjustmentAmount": {
+      "@id": "qbe:adjustmentAmount",
+      "@type": "xsd:decimal"
+    },
+    "AuthQuotesQuoteIdPut400ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdPut400ApplicationJsonResponse",
+    "__healthGet405ApplicationJsonResponse": "qbe:__healthGet405ApplicationJsonResponse",
+    "AuthQuotesQuoteIdReferPost405ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdReferPost405ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdReferPost401ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdReferPost401ApplicationJsonResponse",
+    "type_24": "qbe:type_24",
+    "typeOfCover": {
+      "@id": "qbe:typeOfCover",
+      "@type": "xsd:string"
+    },
+    "workersCompensation": {
+      "@id": "qbe:workersCompensation",
+      "@type": "xsd:string"
+    },
+    "numberOfEmployees": {
+      "@id": "qbe:numberOfEmployees",
+      "@type": "xsd:integer"
+    },
+    "insuredRetired": {
+      "@id": "qbe:insuredRetired",
+      "@type": "xsd:string"
+    },
+    "insuredDateOfBirth": {
+      "@id": "qbe:insuredDateOfBirth",
+      "@type": "xsd:date"
+    },
+    "occupancyType": {
+      "@id": "qbe:occupancyType",
+      "@type": "xsd:string"
+    },
+    "construction": {
+      "@id": "qbe:construction",
+      "@type": "xsd:string"
+    },
+    "buildingType": {
+      "@id": "qbe:buildingType",
+      "@type": "xsd:string"
+    },
+    "yearBuilt": {
+      "@id": "qbe:yearBuilt",
+      "@type": "xsd:integer"
+    },
+    "townWater": {
+      "@id": "qbe:townWater",
+      "@type": "xsd:string"
+    },
+    "heritageListed": {
+      "@id": "qbe:heritageListed",
+      "@type": "xsd:string"
+    },
+    "sizeOfBuilding": {
+      "@id": "qbe:sizeOfBuilding",
+      "@type": "xsd:integer"
+    },
+    "conditionOfBuilding": {
+      "@id": "qbe:conditionOfBuilding",
+      "@type": "xsd:string"
+    },
+    "reWired": {
+      "@id": "qbe:reWired",
+      "@type": "xsd:string"
+    },
+    "rePlumbed": {
+      "@id": "qbe:rePlumbed",
+      "@type": "xsd:string"
+    },
+    "previousInsurer": {
+      "@id": "qbe:previousInsurer",
+      "@type": "xsd:string"
+    },
+    "claimsInLast3Years": {
+      "@id": "qbe:claimsInLast3Years",
+      "@type": "xsd:integer"
+    },
+    "claimsInLast5Years": {
+      "@id": "qbe:claimsInLast5Years",
+      "@type": "xsd:integer"
+    },
+    "backToBaseAlarm": {
+      "@id": "qbe:backToBaseAlarm",
+      "@type": "xsd:string"
+    },
+    "localAlarm": {
+      "@id": "qbe:localAlarm",
+      "@type": "xsd:string"
+    },
+    "windowBars": {
+      "@id": "qbe:windowBars",
+      "@type": "xsd:string"
+    },
+    "windowLocks": {
+      "@id": "qbe:windowLocks",
+      "@type": "xsd:string"
+    },
+    "deadlocks": {
+      "@id": "qbe:deadlocks",
+      "@type": "xsd:string"
+    },
+    "highSecurity": {
+      "@id": "qbe:highSecurity",
+      "@type": "xsd:string"
+    },
+    "fixedSafe": {
+      "@id": "qbe:fixedSafe",
+      "@type": "xsd:string"
+    },
+    "securityIntercom": {
+      "@id": "qbe:securityIntercom",
+      "@type": "xsd:string"
+    },
+    "elevated": {
+      "@id": "qbe:elevated",
+      "@type": "xsd:string"
+    },
+    "buildingSumInsured": {
+      "@id": "qbe:buildingSumInsured",
+      "@type": "xsd:integer"
+    },
+    "buildingBasicXs": {
+      "@id": "qbe:buildingBasicXs",
+      "@type": "xsd:integer"
+    },
+    "buildingImposedXs": {
+      "@id": "qbe:buildingImposedXs",
+      "@type": "xsd:integer"
+    },
+    "contentsSumInsured": {
+      "@id": "qbe:contentsSumInsured",
+      "@type": "xsd:integer"
+    },
+    "contentsBasicXs": {
+      "@id": "qbe:contentsBasicXs",
+      "@type": "xsd:integer"
+    },
+    "contentsImposedXs": {
+      "@id": "qbe:contentsImposedXs",
+      "@type": "xsd:integer"
+    },
+    "valuablesSumInsured": {
+      "@id": "qbe:valuablesSumInsured",
+      "@type": "xsd:integer"
+    },
+    "valuablesBasicXs": {
+      "@id": "qbe:valuablesBasicXs",
+      "@type": "xsd:integer"
+    },
+    "valuablesImposedXs": {
+      "@id": "qbe:valuablesImposedXs",
+      "@type": "xsd:integer"
+    },
+    "specifiedContentsItems": {
+      "@id": "qbe:specifiedContentsItems",
+      "@container": "@list"
+    },
+    "specifiedValuablesItems": {
+      "@id": "qbe:specifiedValuablesItems",
+      "@container": "@list"
+    },
+    "rentDefault": {
+      "@id": "qbe:rentDefault",
+      "@type": "xsd:integer"
+    },
+    "maliciousDamage": {
+      "@id": "qbe:maliciousDamage",
+      "@type": "xsd:string"
+    },
+    "liabilitySumInsured": {
+      "@id": "qbe:liabilitySumInsured",
+      "@type": "xsd:integer"
+    },
+    "buildingOccupancy": {
+      "@id": "qbe:buildingOccupancy",
+      "@type": "xsd:string"
+    },
+    "buildingConstruction": {
+      "@id": "qbe:buildingConstruction",
+      "@type": "xsd:string"
+    },
+    "roofType": {
+      "@id": "qbe:roofType",
+      "@type": "xsd:string"
+    },
+    "numberOfUnits": {
+      "@id": "qbe:numberOfUnits",
+      "@type": "xsd:integer"
+    },
+    "buildingYear": {
+      "@id": "qbe:buildingYear",
+      "@type": "xsd:string"
+    },
+    "landSize": {
+      "@id": "qbe:landSize",
+      "@type": "xsd:string"
+    },
+    "squares": {
+      "@id": "qbe:squares",
+      "@type": "xsd:integer"
+    },
+    "condHome": {
+      "@id": "qbe:condHome",
+      "@type": "xsd:string"
+    },
+    "loyalty": {
+      "@id": "qbe:loyalty",
+      "@type": "xsd:decimal"
+    },
+    "ncb": {
+      "@id": "qbe:ncb",
+      "@type": "xsd:decimal"
+    },
+    "threeYearClaims": {
+      "@id": "qbe:threeYearClaims",
+      "@type": "xsd:integer"
+    },
+    "fiveYearClaims": {
+      "@id": "qbe:fiveYearClaims",
+      "@type": "xsd:integer"
+    },
+    "floodFlag": {
+      "@id": "qbe:floodFlag",
+      "@type": "xsd:string"
+    },
+    "floodExcess": {
+      "@id": "qbe:floodExcess",
+      "@type": "xsd:integer"
+    },
+    "floodQuestion01": {
+      "@id": "qbe:floodQuestion01",
+      "@type": "xsd:string"
+    },
+    "floodQuestion02": {
+      "@id": "qbe:floodQuestion02",
+      "@type": "xsd:string"
+    },
+    "floodQuestion03": {
+      "@id": "qbe:floodQuestion03",
+      "@type": "xsd:string"
+    },
+    "floodQuestion04": {
+      "@id": "qbe:floodQuestion04",
+      "@type": "xsd:string"
+    },
+    "floodQuestion05": {
+      "@id": "qbe:floodQuestion05",
+      "@type": "xsd:string"
+    },
+    "floodQuestion06": {
+      "@id": "qbe:floodQuestion06",
+      "@type": "xsd:string"
+    },
+    "floodQuestion07": {
+      "@id": "qbe:floodQuestion07",
+      "@type": "xsd:string"
+    },
+    "floodQuestion08": {
+      "@id": "qbe:floodQuestion08",
+      "@type": "xsd:string"
+    },
+    "floodQuestion09": {
+      "@id": "qbe:floodQuestion09",
+      "@type": "xsd:string"
+    },
+    "floodQuestion10": {
+      "@id": "qbe:floodQuestion10",
+      "@type": "xsd:string"
+    },
+    "AuthQuotesQuoteIdAbandonPost405ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdAbandonPost405ApplicationJsonResponse",
+    "type_12": "qbe:type_12",
+    "AuthPoliciesPolicyIdReferPost404ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdReferPost404ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdEndorsePost401ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdEndorsePost401ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdCancelPost500ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdCancelPost500ApplicationJsonResponse",
+    "AuthQuotesQuoteIdReferPost404ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdReferPost404ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdRenewPost401ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdRenewPost401ApplicationJsonResponse",
+    "AuthQuotesQuoteIdPut405ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdPut405ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdEndorsePost500ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdEndorsePost500ApplicationJsonResponse",
+    "PolicyType_6": "qbe:PolicyType_6",
+    "AuthQuotesQuoteIdReferPost403ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdReferPost403ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdRenewPost405ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdRenewPost405ApplicationJsonResponse",
+    "Generated-2": "qbe:Generated-2",
+    "AuthQuotesQuoteIdDocumentsPost401ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdDocumentsPost401ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdEndorsePost400ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdEndorsePost400ApplicationJsonResponse",
+    "type_22": "qbe:type_22",
+    "employmentPracticesLimit": {
+      "@id": "qbe:employmentPracticesLimit",
+      "@type": "xsd:integer"
+    },
+    "employmentPracticesExcess": {
+      "@id": "qbe:employmentPracticesExcess",
+      "@type": "xsd:integer"
+    },
+    "employmentPracticesEmployees": {
+      "@id": "qbe:employmentPracticesEmployees",
+      "@type": "xsd:integer"
+    },
+    "practicesAdjustmentIndicator": {
+      "@id": "qbe:practicesAdjustmentIndicator",
+      "@type": "xsd:boolean"
+    },
+    "practicesAdjustmentPercentage": {
+      "@id": "qbe:practicesAdjustmentPercentage",
+      "@type": "xsd:decimal"
+    },
+    "statutoryLimit": {
+      "@id": "qbe:statutoryLimit",
+      "@type": "xsd:integer"
+    },
+    "statutoryExcess": {
+      "@id": "qbe:statutoryExcess",
+      "@type": "xsd:integer"
+    },
+    "statutoryTurnover": {
+      "@id": "qbe:statutoryTurnover",
+      "@type": "xsd:integer"
+    },
+    "statutoryAdjustmentIndicator": {
+      "@id": "qbe:statutoryAdjustmentIndicator",
+      "@type": "xsd:boolean"
+    },
+    "statutoryAdjustmentPercentage": {
+      "@id": "qbe:statutoryAdjustmentPercentage",
+      "@type": "xsd:decimal"
+    },
+    "professionalLimit": {
+      "@id": "qbe:professionalLimit",
+      "@type": "xsd:integer"
+    },
+    "professionalAggregate": {
+      "@id": "qbe:professionalAggregate",
+      "@type": "xsd:integer"
+    },
+    "professionalExcess": {
+      "@id": "qbe:professionalExcess",
+      "@type": "xsd:integer"
+    },
+    "professionalAdjustmentIndicator": {
+      "@id": "qbe:professionalAdjustmentIndicator",
+      "@type": "xsd:boolean"
+    },
+    "professionalAdjustmentPercentage": {
+      "@id": "qbe:professionalAdjustmentPercentage",
+      "@type": "xsd:decimal"
+    },
+    "retroActiveDate": {
+      "@id": "qbe:retroActiveDate",
+      "@type": "xsd:date"
+    },
+    "AuthPoliciesPolicyIdAbandonPost500ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdAbandonPost500ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdEndorsePost404ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdEndorsePost404ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdBindPost404ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdBindPost404ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdBindPost400ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdBindPost400ApplicationJsonResponse",
+    "AuthQuotesPost401ApplicationJsonResponse": "qbe:AuthQuotesPost401ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdCancelPost404ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdCancelPost404ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdDocumentsPost401ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdDocumentsPost401ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdDocumentsPost403ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdDocumentsPost403ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdRenewPost500ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdRenewPost500ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdAbandonPost400ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdAbandonPost400ApplicationJsonResponse",
+    "type_16": "qbe:type_16",
+    "govermentResidential": {
+      "@id": "qbe:govermentResidential",
+      "@type": "xsd:string"
+    },
+    "fire": {
+      "@id": "qbe:fire"
+    },
+    "businessInterruption": {
+      "@id": "qbe:businessInterruption"
+    },
+    "Generated-5": "qbe:Generated-5",
+    "AuthQuotesQuoteIdDocumentsPost404ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdDocumentsPost404ApplicationJsonResponse",
+    "PolicyType_2": "qbe:PolicyType_2",
+    "AuthPoliciesPolicyIdReferPost405ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdReferPost405ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdReferPost403ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdReferPost403ApplicationJsonResponse",
+    "AuthQuotesQuoteIdAbandonPost404ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdAbandonPost404ApplicationJsonResponse",
+    "type_25": "qbe:type_25",
+    "occupation": {
+      "@id": "qbe:occupation"
+    },
+    "individual": {
+      "@id": "qbe:individual"
+    },
+    "personal": {
+      "@id": "qbe:personal"
+    },
+    "earnings": {
+      "@id": "qbe:earnings"
+    },
+    "cover": {
+      "@id": "qbe:cover"
+    },
+    "UWQuestionAnswer": {
+      "@id": "qbe:UWQuestionAnswer"
+    },
+    "selectedActivities": {
+      "@id": "qbe:selectedActivities"
+    },
+    "Generated": "qbe:Generated",
+    "AuthQuotesQuoteIdReferPost400ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdReferPost400ApplicationJsonResponse",
+    "__healthGet400ApplicationJsonResponse": "qbe:__healthGet400ApplicationJsonResponse",
+    "type_15": "qbe:type_15",
+    "limitOfLiability": {
+      "@id": "qbe:limitOfLiability",
+      "@type": "xsd:integer"
+    },
+    "liabilityExcess": {
+      "@id": "qbe:liabilityExcess",
+      "@type": "xsd:integer"
+    },
+    "liabilityExposure": {
+      "@id": "qbe:liabilityExposure",
+      "@type": "xsd:string"
+    },
+    "productsLiability": {
+      "@id": "qbe:productsLiability",
+      "@type": "xsd:integer"
+    },
+    "goodsInPhysicalControl": {
+      "@id": "qbe:goodsInPhysicalControl",
+      "@type": "xsd:integer"
+    },
+    "tenantsFireLiability": {
+      "@id": "qbe:tenantsFireLiability",
+      "@type": "xsd:integer"
+    },
+    "annualTurnover": {
+      "@id": "qbe:annualTurnover",
+      "@type": "xsd:integer"
+    },
+    "propertyOwners": {
+      "@id": "qbe:propertyOwners",
+      "@type": "xsd:string"
+    },
+    "propertyOwnersDesc": {
+      "@id": "qbe:propertyOwnersDesc",
+      "@type": "xsd:string"
+    },
+    "propertyValue": {
+      "@id": "qbe:propertyValue",
+      "@type": "xsd:integer"
+    },
+    "paymentToContractors": {
+      "@id": "qbe:paymentToContractors",
+      "@type": "xsd:integer"
+    },
+    "AuthPoliciesPolicyIdAbandonPost403ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdAbandonPost403ApplicationJsonResponse",
+    "AuthQuotesQuoteIdDocumentsPost400ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdDocumentsPost400ApplicationJsonResponse",
+    "type_21": "qbe:type_21",
+    "fidelity": {
+      "@id": "qbe:fidelity"
+    },
+    "taxAudit": {
+      "@id": "qbe:taxAudit"
+    },
+    "transit": {
+      "@id": "qbe:transit"
+    },
+    "AuthQuotesQuoteIdPut404ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdPut404ApplicationJsonResponse",
+    "type_9": "qbe:type_9",
+    "moniker": {
+      "@id": "qbe:moniker",
+      "@type": "xsd:string"
+    },
+    "addressLine1": {
+      "@id": "qbe:addressLine1",
+      "@type": "xsd:string"
+    },
+    "addressLine2": {
+      "@id": "qbe:addressLine2",
+      "@type": "xsd:string"
+    },
+    "addressLine3": {
+      "@id": "qbe:addressLine3",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "qbe:city",
+      "@type": "xsd:string"
+    },
+    "stateCode": {
+      "@id": "qbe:stateCode",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "qbe:postalCode",
+      "@type": "xsd:string"
+    },
+    "AuthPoliciesPolicyIdAbandonPost401ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdAbandonPost401ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdDocumentsPost400ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdDocumentsPost400ApplicationJsonResponse",
+    "AuthQuotesQuoteIdReferPost500ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdReferPost500ApplicationJsonResponse",
+    "items_14": "qbe:items_14",
+    "name1": {
+      "@id": "qbe:name1",
+      "@type": "xsd:string"
+    },
+    "name2": {
+      "@id": "qbe:name2",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "qbe:address"
+    },
+    "type": {
+      "@id": "qbe:type",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "qbe:description",
+      "@type": "xsd:string"
+    },
+    "terminatedDate": {
+      "@id": "qbe:terminatedDate",
+      "@type": "xsd:string"
+    },
+    "AuthQuotesQuoteIdAbandonPost403ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdAbandonPost403ApplicationJsonResponse",
+    "AuthQuotesQuoteIdBindPost403ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdBindPost403ApplicationJsonResponse",
+    "AuthQuotesQuoteIdAbandonPost401ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdAbandonPost401ApplicationJsonResponse",
+    "AuthQuotesQuoteIdAbandonPost400ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdAbandonPost400ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdReferPost400ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdReferPost400ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdDocumentsPost405ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdDocumentsPost405ApplicationJsonResponse",
+    "PolicyType_7": "qbe:PolicyType_7",
+    "__healthGet401ApplicationJsonResponse": "qbe:__healthGet401ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdEndorsePost403ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdEndorsePost403ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdAbandonPost405ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdAbandonPost405ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdCancelPost400ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdCancelPost400ApplicationJsonResponse",
+    "Generated-8": "qbe:Generated-8",
+    "AuthPoliciesPolicyIdRenewPost404ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdRenewPost404ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdBindPost401ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdBindPost401ApplicationJsonResponse",
+    "AuthQuotesQuoteIdBindPost500ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdBindPost500ApplicationJsonResponse",
+    "__healthGet403ApplicationJsonResponse": "qbe:__healthGet403ApplicationJsonResponse",
+    "Generated-7": "qbe:Generated-7",
+    "AuthQuotesQuoteIdDocumentsPost403ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdDocumentsPost403ApplicationJsonResponse",
+    "items_13": "qbe:items_13",
+    "clauseWording": {
+      "@id": "qbe:clauseWording",
+      "@container": "@list"
+    },
+    "PolicyType_5": "qbe:PolicyType_5",
+    "AuthPoliciesPolicyIdCancelPost401ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdCancelPost401ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdDocumentsPost404ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdDocumentsPost404ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdEndorsePost405ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdEndorsePost405ApplicationJsonResponse",
+    "PolicyType_1": "qbe:PolicyType_1",
+    "AuthQuotesPost405ApplicationJsonResponse": "qbe:AuthQuotesPost405ApplicationJsonResponse",
+    "items": "qbe:items",
+    "code": {
+      "@id": "qbe:code",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "qbe:message",
+      "@type": "xsd:string"
+    },
+    "details": {
+      "@id": "qbe:details"
+    },
+    "AuthQuotesQuoteIdDocumentsPost500ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdDocumentsPost500ApplicationJsonResponse",
+    "items_10": "qbe:items_10",
+    "partnerId": {
+      "@id": "qbe:partnerId",
+      "@type": "xsd:string"
+    },
+    "riskAttachmentDate": {
+      "@id": "qbe:riskAttachmentDate",
+      "@type": "xsd:date"
+    },
+    "riskClassCode": {
+      "@id": "qbe:riskClassCode",
+      "@type": "xsd:string"
+    },
+    "riskEffectiveDate": {
+      "@id": "qbe:riskEffectiveDate",
+      "@type": "xsd:date"
+    },
+    "terminationDate": {
+      "@id": "qbe:terminationDate",
+      "@type": "xsd:date"
+    },
+    "terminationReason": {
+      "@id": "qbe:terminationReason",
+      "@type": "xsd:string"
+    },
+    "riskMode": {
+      "@id": "qbe:riskMode",
+      "@type": "xsd:string"
+    },
+    "riskNumber": {
+      "@id": "qbe:riskNumber",
+      "@type": "xsd:decimal"
+    },
+    "riskReferenceId": {
+      "@id": "qbe:riskReferenceId",
+      "@type": "xsd:string"
+    },
+    "clauses": {
+      "@id": "qbe:clauses",
+      "@container": "@list"
+    },
+    "location": {
+      "@id": "qbe:location",
+      "@type": "@id"
+    },
+    "interestedParties": {
+      "@id": "qbe:interestedParties",
+      "@container": "@list"
+    },
+    "riskDetail": {
+      "@id": "qbe:riskDetail"
+    },
+    "type_11": "qbe:type_11",
+    "addressRelationshipType": {
+      "@id": "qbe:addressRelationshipType",
+      "@type": "xsd:string"
+    },
+    "situationNumber": {
+      "@id": "qbe:situationNumber",
+      "@type": "xsd:string"
+    },
+    "situationTurnover": {
+      "@id": "qbe:situationTurnover",
+      "@type": "xsd:decimal"
+    },
+    "situationLocated": {
+      "@id": "qbe:situationLocated",
+      "@type": "xsd:string"
+    },
+    "AuthPoliciesPolicyIdRenewPost403ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdRenewPost403ApplicationJsonResponse",
+    "AuthQuotesQuoteIdBindPost405ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdBindPost405ApplicationJsonResponse",
+    "type_18": "qbe:type_18",
+    "governmentResidential": {
+      "@id": "qbe:governmentResidential",
+      "@type": "xsd:string"
+    },
+    "theft": {
+      "@id": "qbe:theft"
+    },
+    "money": {
+      "@id": "qbe:money"
+    },
+    "glass": {
+      "@id": "qbe:glass"
+    },
+    "AuthQuotesQuoteIdPut403ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdPut403ApplicationJsonResponse",
+    "__healthGet404ApplicationJsonResponse": "qbe:__healthGet404ApplicationJsonResponse",
+    "DocumentType_8": "qbe:DocumentType_8",
+    "AuthPoliciesPolicyIdReferPost500ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdReferPost500ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdBindPost403ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdBindPost403ApplicationJsonResponse",
+    "AuthQuotesQuoteIdAbandonPost500ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdAbandonPost500ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdRenewPost400ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdRenewPost400ApplicationJsonResponse",
+    "AuthQuotesPost400ApplicationJsonResponse": "qbe:AuthQuotesPost400ApplicationJsonResponse",
+    "type_20": "qbe:type_20",
+    "AuthQuotesPost403ApplicationJsonResponse": "qbe:AuthQuotesPost403ApplicationJsonResponse",
+    "AuthQuotesQuoteIdPut401ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdPut401ApplicationJsonResponse",
+    "AuthQuotesPost404ApplicationJsonResponse": "qbe:AuthQuotesPost404ApplicationJsonResponse",
+    "AuthQuotesQuoteIdBindPost400ApplicationJsonResponse": "qbe:AuthQuotesQuoteIdBindPost400ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdCancelPost405ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdCancelPost405ApplicationJsonResponse",
+    "AuthPoliciesPolicyIdDocumentsPost500ApplicationJsonResponse": "qbe:AuthPoliciesPolicyIdDocumentsPost500ApplicationJsonResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "QBE Insurance API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects QBE Insurance's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/qbe-ctp-switch-api-openapi.yml, openapi/qbe-digital-brokers-api-openapi.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/qbe-ctp-switch-api-openapi.yml",
+    "openapi/qbe-digital-brokers-api-openapi.yml"
+  ]
+}

@@ -1,0 +1,87 @@
+generated: '2026-10-20'
+method: searched
+source:
+- https://www.qbe.com/au/about/governance/privacy-policy
+- https://www.qbe.com/us/legal/api-terms-of-use
+fetch_note: >-
+  www.qbe.com answers a plain GET with HTTP 403 (anti-bot challenge, 5.7KB). The privacy policy was read
+  through a headless-browser render (fetch-url.py, strategy render, no HTTP status reported, 35,182 chars,
+  title "Privacy Policy | QBE AU"); the US API Terms of Use rendered with HTTP 200. The privacy policy is
+  the Australian (QBE Insurance (Australia) Limited, "QIA") policy, so these signals describe the AU
+  entity's posture; the US API terms defer to "Company's privacy policy and data protection requirements,
+  available at QBE.com" and state no regulatory signal of their own.
+signals:
+  data_subject_request:
+    url: https://www.qbe.com/au/about/governance/privacy-policy
+    section: How to access or correct your personal information
+    stated_sla: we will endeavour to respond to your request within 30 days
+    rights_named: [access, correction, complaint]
+    channel: Information Request Form by email or post, or by phone
+    evidence:
+    - source: https://www.qbe.com/au/about/governance/privacy-policy
+      http_status: rendered (plain GET 403 bot-challenge)
+      fetched: '2026-10-20'
+      quote: >-
+        You can request access to the personal information that we hold about you in the format you require.
+        You can also ask us to correct your personal information if you believe the information we hold about
+        you is incorrect or incomplete. To do so, please fill out the Information Request Form and email or
+        post it to us using the contact details below. You can also make access or correction requests to us
+        by phone using the contact details below. Once received, we will endeavour to respond to your request
+        within 30 days.
+    - source: https://www.qbe.com/au/about/governance/privacy-policy
+      http_status: rendered (plain GET 403 bot-challenge)
+      fetched: '2026-10-20'
+      quote: We support your right to access or correct the personal information we hold about you or make a privacy complaint.
+    note: >-
+      A documented access and correction right with a named channel and a 30-day best-efforts response
+      target. Deletion and portability are not named on this page.
+  ai_transparency:
+    url: https://www.qbe.com/au/about/governance/privacy-policy
+    section: Artificial Intelligence at QBE
+    evidence:
+    - source: https://www.qbe.com/au/about/governance/privacy-policy
+      http_status: rendered (plain GET 403 bot-challenge)
+      fetched: '2026-10-20'
+      quote: >-
+        At QBE, we may use personal information in Artificial Intelligence (AI) tools to enhance our products
+        and services offered to customers, prevent fraud, and strengthen the security of our systems and
+        platforms. An example of our use of AI includes automatically summarising, transcribing, or analysing
+        interactions with customers, such as phone calls or online chats, to support our commitment to
+        customer service excellence.
+    - source: https://www.qbe.com/au/about/governance/privacy-policy
+      http_status: rendered (plain GET 403 bot-challenge)
+      fetched: '2026-10-20'
+      quote: "Personal information may be used to train or improve the performance of our or our third party’s analytics tools such as machine learning algorithms."
+    note: >-
+      Discloses that personal information is processed by AI tools (call/chat summarisation and analysis,
+      fraud prevention) and may be used to train QBE's or third parties' machine-learning tools, under
+      QBE's Responsible Use of AI Principles. A disclosure of use, not an opt-out.
+  data_residency:
+    url: https://www.qbe.com/au/about/governance/privacy-policy
+    section: Information we share with overseas recipients
+    locations_named: [China, Denmark, France, Germany, Hong Kong, India, Ireland, New Zealand, Philippines, Singapore, Thailand, United Kingdom, United States of America, Vietnam]
+    evidence:
+    - source: https://www.qbe.com/au/about/governance/privacy-policy
+      http_status: rendered (plain GET 403 bot-challenge)
+      fetched: '2026-10-20'
+      quote: >-
+        We may store and disclose personal information overseas. These locations include: China Denmark
+        France Germany Hong Kong India Ireland New Zealand Philippines Singapore Thailand The United Kingdom
+        The United States of America Vietnam.
+    - source: https://www.qbe.com/au/about/governance/privacy-policy
+      http_status: rendered (plain GET 403 bot-challenge)
+      fetched: '2026-10-20'
+      quote: >-
+        Where personal information has been disclosed overseas, there is a possibility the recipient may be
+        required to disclose it under a foreign law. Where this occurs, such disclosure is not a breach of the
+        Privacy Act.
+    note: >-
+      The opposite of a residency commitment: data may be stored and disclosed in 14 named countries outside
+      Australia. The list itself is the useful disclosure; no in-region option is offered.
+not_recorded:
+  incident_notification: >-
+    The only candidate line ("investigate security incidents") is a purpose for using cookies, not a
+    breach-notification commitment.
+  transparency_report: >-
+    The only candidate is a "Tax Transparency Report" navigation link on the responsible-disclosure page,
+    a corporate tax report, not a government-request/content transparency report.

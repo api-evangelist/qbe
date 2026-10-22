@@ -1,0 +1,16 @@
+generated: '2026-10-20'
+method: none
+source: https://connect.api-au.qbe.com/api-changelog
+scheme: azure-apim-version-set
+current_version: v1
+entries: []
+checked:
+- url: https://connect.api-au.qbe.com/api-changelog
+  status: 404
+  finding: >-
+    Rendered page says "Page you're looking for doesn't exist Or You don't have a permission to view
+    the page" — the portal changelog is either unpublished or behind an approved-user sign-in.
+- url: https://partnerportal-api.qbena.com/
+  status: 200
+  finding: no changelog link
+note: No anonymously readable changelog. Both published APIs sit at v1 in their APIM version sets.

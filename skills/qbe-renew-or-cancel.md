@@ -1,16 +1,16 @@
 ---
-name: QBE renewal and cancellation
+name: qbe-renew-or-cancel
 description: Take a QBE policy invited for renewal through to a bound renewal, or cancel an in-force policy with the correct QBE reason code.
-api: openapi/qbe-anzo-digital-brokers-openapi.yml
+api: openapi/qbe-digital-brokers-api-openapi.yml
 operations:
   - Generate-a-quote-request-for-a-policy-that-has-been-invited-for-renewal
   - Cancel-an-existing-policy
   - Bind-a-policy-to-save-change-after-endoresement-cancellation-or-renewal-has
   - To-Abandon-a-policy-before-it-has-been-bound
   - Policy-Document-Upload-API
-generated: '2026-07-25'
+generated: '2026-10-20'
 method: generated
-source: openapi/qbe-anzo-digital-brokers-openapi.yml
+source: openapi/qbe-digital-brokers-api-openapi.yml
 ---
 
 # QBE renewal and cancellation

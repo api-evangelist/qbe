@@ -1,0 +1,2825 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/qbe/main/json-schema/qbe-generated-2-schema.json",
+  "title": "Generated-2",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/qbe-digital-brokers-api-openapi.yml#/components/schemas/Generated-2",
+  "required": [
+    "policy"
+  ],
+  "type": "object",
+  "properties": {
+    "policy": {
+      "$ref": "#/$defs/PolicyType_2"
+    }
+  },
+  "x-amf-examples": {
+    "BPK Liability Request Example": {
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2022-03-30",
+            "effectiveDate": "2022-03-30",
+            "expiryDate": "2023-03-30",
+            "quoteExpiryDate": "2023-03-30",
+            "product": "BPK"
+          },
+          "subProductCd": "B"
+        },
+        "customerParty": {
+          "orgName": "OrgTest",
+          "location": {
+            "addressLine1": "24 Lux Street",
+            "city": "Sydney",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          },
+          "firstName": "Albert",
+          "lastName": "Smith"
+        },
+        "risks": [
+          {
+            "riskNumber": 1,
+            "partnerId": "Loc1",
+            "riskReferenceId": "999",
+            "riskClassCode": "BPP",
+            "riskMode": "A",
+            "riskAttachmentDate": "2022-03-30",
+            "riskEffectiveDate": "2022-03-30",
+            "location": {
+              "partnerId": "Loc1",
+              "addressLine1": "24 Lux Street",
+              "city": "Sydney",
+              "stateCode": "NSW",
+              "postalCode": "2000",
+              "situationTurnover": 0,
+              "situationNumber": ""
+            },
+            "riskDetail": {
+              "riskBPKLiability": {
+                "occupationCode": "421050",
+                "occupationDescription": "Hairdressing Service",
+                "business": "Hairdressing Service",
+                "numberOfEmployees": 5,
+                "limitOfLiability": 20000000,
+                "liabilityExcess": 500,
+                "goodsInPhysicalControl": 25000,
+                "tenantsFireLiability": 0,
+                "annualTurnover": 0,
+                "propertyOwnersDesc": "NO",
+                "propertyValue": 0,
+                "paymentToContractors": 0,
+                "liabilityExposure": "B",
+                "adjustmentIndicator": true,
+                "adjustmentPercentage": 0
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": "false"
+            }
+          }
+        ]
+      }
+    },
+    "BPK Fire & Business Interruption Request Example": {
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2021-05-21",
+            "effectiveDate": "2021-05-21",
+            "expiryDate": "2021-06-03",
+            "product": "BPK"
+          },
+          "subProductCd": "B"
+        },
+        "customerParty": {
+          "orgName": "OrgTest",
+          "location": {
+            "addressLine1": "24 Lux Street",
+            "city": "Sydney",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          },
+          "firstName": "John",
+          "lastName": "Smith",
+          "taxIndicator": "I",
+          "taxPercent": 0
+        },
+        "risks": [
+          {
+            "riskNumber": 1,
+            "partnerId": "location-a",
+            "riskReferenceId": "999",
+            "riskClassCode": "BFP",
+            "riskMode": "A",
+            "inceptionDate": "2021-05-21",
+            "riskAttachmentDate": "2021-05-21",
+            "effectiveDate": "2021-05-21",
+            "riskEffectiveDate": "2021-05-21",
+            "clauses": [
+              {
+                "clauseWording": [
+                  {
+                    "riskClass": "",
+                    "premiumClass": "PROPERTY",
+                    "clauseCode": "",
+                    "clauseDescription": "BROKER1 FLOOD INCLUSION",
+                    "clauseWordingLines": [
+                      {
+                        "wording": "Test"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "location": {
+              "partnerId": "location-a",
+              "addressLine1": "24 Lux Street",
+              "city": "Sydney",
+              "stateCode": "NSW",
+              "postalCode": "2000",
+              "situationTurnover": 0,
+              "situationNumber": ""
+            },
+            "riskDetail": {
+              "riskBPKFireBusinessInterruption": {
+                "occupationCode": "573045",
+                "occupationDescription": "Cafe Operation",
+                "business": "Cafe Operation",
+                "govermentResidential": "N",
+                "fire": {
+                  "construction": "3",
+                  "yearBuilt": "2010",
+                  "sprinkler": "Y",
+                  "townWater": "Y",
+                  "buildingSI": 0,
+                  "contentsSI": 87500,
+                  "contentsExcess": 500,
+                  "flood": "Y",
+                  "adjustmentIndicator": false,
+                  "adjustmentPercentage": 0
+                },
+                "businessInterruption": {
+                  "indemnityPeriod": "3",
+                  "grossIncomeSI": 70000,
+                  "grossIncomeExcess": 500,
+                  "ICOWSI": 25000,
+                  "weeklyIncomeSI": 0,
+                  "weeksCovered": 0,
+                  "claimsPreparationCosts": 10000,
+                  "OSAcctRecSI": 7500,
+                  "OSAcctRecExcess": 500,
+                  "adjustmentIndicator": false,
+                  "adjustmentPercentage": 0
+                }
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": "false"
+            }
+          }
+        ]
+      }
+    },
+    "BPK Theft Money and Glass Request Example": {
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2021-05-21",
+            "effectiveDate": "2021-05-21",
+            "expiryDate": "2021-06-05",
+            "product": "BPK"
+          }
+        },
+        "customerParty": {
+          "orgName": "AllanCo",
+          "location": {
+            "addressLine1": "24 Lux Street",
+            "city": "Sydney",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          },
+          "firstName": "Robert",
+          "lastName": "Smith",
+          "taxIndicator": "N",
+          "taxPercent": 0
+        },
+        "risks": [
+          {
+            "riskNumber": 1,
+            "partnerId": "location-a",
+            "riskReferenceId": "999",
+            "riskClassCode": "BPO",
+            "riskMode": "A",
+            "riskAttachmentDate": "2021-05-21",
+            "riskEffectiveDate": "2021-05-21",
+            "location": {
+              "partnerId": "location-a",
+              "addressLine1": "24 Lux Street",
+              "city": "Sydney",
+              "stateCode": "NSW",
+              "postalCode": "2000",
+              "situationTurnover": 0,
+              "situationNumber": ""
+            },
+            "riskDetail": {
+              "riskBPKTheftMoneyGlass": {
+                "occupationCode": "573045",
+                "occupationDescription": "Cafe Operation",
+                "business": "Cafe Operation",
+                "govermentResidential": "N",
+                "theft": {
+                  "contentsSI": 4000,
+                  "theftExcess": 500,
+                  "stockSI": 0,
+                  "tobaccoSI": 0,
+                  "liquorSI": 0,
+                  "WOForcibleEntrySI": 0,
+                  "security": "B",
+                  "securityDesc": "",
+                  "adjustmentIndicator": false,
+                  "adjustmentPercentage": 0
+                },
+                "money": {
+                  "inTransitSI": 1000,
+                  "moneyExcess": 500,
+                  "inResidenceSI": 1000,
+                  "busHrsSI": 1000,
+                  "afterHrsSI": 1000,
+                  "inSafeSI": 1000,
+                  "blanketCover": "N",
+                  "blanketCoverDesc": "",
+                  "blanketCoverSI": 5000,
+                  "adjustmentIndicator": false,
+                  "adjustmentPercentage": 0
+                },
+                "glass": {
+                  "numberIlluminatedSigns": 0,
+                  "illuminatedSignsSI": 0,
+                  "glassExcess": 500,
+                  "largestPaneOfGlass": "B",
+                  "largestPaneOfGlassDesc": "",
+                  "adjustmentIndicator": false,
+                  "adjustmentPercentage": 0
+                }
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": "false"
+            }
+          }
+        ]
+      }
+    },
+    "MPA Private Motor Request Example": {
+      "policy": {
+        "policyHeader": {
+          "policyTransactionInformation": {
+            "inceptionDate": "2021-06-23",
+            "effectiveDate": "2021-06-23",
+            "product": "BPK"
+          }
+        },
+        "customerParty": {
+          "orgName": "TestOrganization",
+          "location": {
+            "addressLine1": "24 Lux Street",
+            "city": "Sydney",
+            "stateCode": "NSW",
+            "postalCode": "2000"
+          },
+          "firstName": "John",
+          "lastName": "Citizen",
+          "taxIndicator": "N",
+          "taxPercent": 0
+        },
+        "risks": [
+          {
+            "riskNumber": 1,
+            "partnerId": "Loc1",
+            "riskReferenceId": "999",
+            "riskClassCode": "MSA",
+            "riskMode": "A",
+            "riskAttachmentDate": "2021-06-23",
+            "riskEffectiveDate": "2021-06-23",
+            "location": {
+              "partnerId": "Loc1",
+              "addressLine1": "24 Lux Street",
+              "city": "Sydney",
+              "stateCode": "NSW",
+              "postalCode": "2000",
+              "moniker": "",
+              "situationTurnover": 0,
+              "situationNumber": ""
+            },
+            "riskDetail": {
+              "riskMSAPrivateMotor": {
+                "coverDetails": {
+                  "coverCode": "1",
+                  "thirdPartyLimit": 30000000
+                },
+                "driverDetails": {
+                  "nominatedDriver": [
+                    {
+                      "nominatedDriverName": "EMBS",
+                      "nominatedDriverSex": "M",
+                      "nominatedDriverDOB": "1980-07-01",
+                      "nominatedDriverUse": 100
+                    }
+                  ]
+                },
+                "vehicleDetails": {
+                  "redbookCode": "FORD2010AL",
+                  "registrationNumber": "1234",
+                  "engineNumber": "EMBS",
+                  "accessoryDetails": {
+                    "accessories": [
+                      {
+                        "detailAccessoryCode": "ABG",
+                        "sumInsured": 3000
+                      }
+                    ]
+                  },
+                  "modificationDetails": {
+                    "modifications": [
+                      {
+                        "modCode": ""
+                      }
+                    ]
+                  }
+                },
+                "underwritingDetails": {
+                  "vehicledModified": "N",
+                  "financeType": "1",
+                  "postCodeGaragedNight": "2000",
+                  "purposeOfUse": "P",
+                  "noClaimBonus": "-060",
+                  "youngDrivers": "N",
+                  "gatewayPurposeOfUse": "PX",
+                  "dangerousGoodsSublimit": "500000"
+                }
+              }
+            }
+          }
+        ],
+        "questions": [
+          {
+            "questionId": "1",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "2",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "3",
+            "answer": {
+              "text": "false"
+            }
+          },
+          {
+            "questionId": "4",
+            "answer": {
+              "text": "false"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "PolicyType_2": {
+      "title": "PolicyType",
+      "required": [
+        "customerParty",
+        "risks",
+        "questions"
+      ],
+      "type": "object",
+      "properties": {
+        "policyHeader": {
+          "type": "object",
+          "properties": {
+            "variableCommRate": {
+              "type": "number"
+            },
+            "brokerFeeTotal": {
+              "type": "number"
+            },
+            "commissionType": {
+              "enum": [
+                "VARIABLE"
+              ],
+              "type": "string"
+            },
+            "subProductCd": {
+              "type": "string"
+            },
+            "cancelReasonCode": {
+              "enum": [
+                "CL",
+                "PR",
+                "DC",
+                "TL",
+                "IC",
+                "OG",
+                "IE",
+                "LR",
+                "ER",
+                "NR",
+                "CO",
+                "NP",
+                "PS"
+              ],
+              "type": "string",
+              "description": "Reason codes for Cancellation of the existing policy CL -  Cancelled (Payout) PR - Policy Replaced DC - Declined by Company TL - Total Loss IC - Found cheaper Policy OG - Outside Guidelines IE - Insured Elsewhere LR - Loan Refinance ER - Error Correction NR - Not Required CO - Cooling Off NP - Non-Payment PS - Property Sold"
+            },
+            "policyTransactionInformation": {
+              "required": [
+                "inceptionDate",
+                "product"
+              ],
+              "type": "object",
+              "properties": {
+                "inceptionDate": {
+                  "type": "string",
+                  "description": "Inception date of the policy in format `yyyy-mm-dd`",
+                  "format": "date"
+                },
+                "effectiveDate": {
+                  "type": "string",
+                  "description": "Effective Date in the format in format `yyyy-mm-dd`. Defaulted to inceptionDate if not provided",
+                  "format": "date"
+                },
+                "expiryDate": {
+                  "type": "string",
+                  "description": "Expiry date in the format `yyyy-mm-dd`. Defaulted to inceptionDate + 1 year if not provided",
+                  "format": "date"
+                },
+                "product": {
+                  "enum": [
+                    "BPK",
+                    "MSA",
+                    "MPA",
+                    "MVA"
+                  ],
+                  "type": "string"
+                },
+                "policyNumber": {
+                  "type": "string"
+                },
+                "policyStatus": {
+                  "type": "string"
+                },
+                "policyMessageStatus": {
+                  "type": "string"
+                },
+                "deleteReferIfExist": {
+                  "type": "boolean"
+                },
+                "returnStatusInResponse": {
+                  "type": "boolean"
+                },
+                "partialDeclineAllowed": {
+                  "type": "boolean"
+                },
+                "terminateRisksNotPassed": {
+                  "type": "boolean"
+                },
+                "transactionType": {
+                  "enum": [
+                    "NEW_QUOTE",
+                    "CONVERT_QUOTE",
+                    "ENDORSEMENT",
+                    "RENEWAL",
+                    "RENEWAL_AMEND",
+                    "CANCEL"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "PDSDetails": {
+              "required": [
+                "QMNumber",
+                "versionNo",
+                "url"
+              ],
+              "type": "object",
+              "properties": {
+                "QMNumber": {
+                  "type": "string"
+                },
+                "versionNo": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "customerParty": {
+          "required": [
+            "location"
+          ],
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "taxIndicator": {
+              "enum": [
+                "I",
+                "P",
+                "T",
+                "N",
+                "X"
+              ],
+              "type": "string"
+            },
+            "taxPercent": {
+              "type": "number"
+            },
+            "orgName": {
+              "type": "string"
+            },
+            "orgABN": {
+              "pattern": "^(\\d *?){11}$",
+              "type": "string"
+            },
+            "businessName": {
+              "type": "string"
+            },
+            "tradingName": {
+              "type": "string"
+            },
+            "businessEntity": {
+              "type": "string",
+              "description": "TBD"
+            },
+            "emailNotification": {
+              "type": "boolean"
+            },
+            "contact": {
+              "type": "object",
+              "properties": {
+                "primaryEmailAddress": {
+                  "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$",
+                  "type": "string"
+                },
+                "mobilePhoneNumber": {
+                  "type": "string"
+                },
+                "workPhoneNumber": {
+                  "type": "string"
+                },
+                "homePhoneNumber": {
+                  "type": "string"
+                }
+              }
+            },
+            "location": {
+              "$ref": "#/$defs/type_9"
+            }
+          }
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/items_10"
+          }
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "required": [
+              "questionId",
+              "answer"
+            ],
+            "type": "object",
+            "properties": {
+              "questionId": {
+                "type": "string"
+              },
+              "answer": {
+                "required": [
+                  "text"
+                ],
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              },
+              "historyDetailsList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "itemDate": {
+                      "type": "string"
+                    },
+                    "cause": {
+                      "type": "string"
+                    },
+                    "riskClass": {
+                      "type": "string"
+                    },
+                    "cost": {
+                      "type": "number"
+                    },
+                    "detailLines": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "referral": {
+          "type": "object",
+          "properties": {
+            "reasons": {
+              "maxItems": 10,
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "policyPremium": {
+          "$ref": "#/$defs/type"
+        }
+      },
+      "description": "This is a simplified instance of \"PolicyType\" containing fewer fields used by  Experience API."
+    },
+    "items_10": {
+      "title": "Policy Risk",
+      "required": [
+        "partnerId",
+        "riskEffectiveDate",
+        "riskReferenceId",
+        "riskDetail"
+      ],
+      "type": "object",
+      "properties": {
+        "partnerId": {
+          "type": "string"
+        },
+        "riskAttachmentDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "riskClassCode": {
+          "enum": [
+            "BFP",
+            "BPO",
+            "BGM",
+            "BEI",
+            "BPP",
+            "BAC",
+            "BAL",
+            "MVA",
+            "MSA"
+          ],
+          "type": "string"
+        },
+        "riskEffectiveDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "terminationReason": {
+          "enum": [
+            "TL"
+          ],
+          "type": "string"
+        },
+        "riskMode": {
+          "enum": [
+            "A",
+            "V",
+            "M",
+            "T"
+          ],
+          "type": "string",
+          "description": "Specifies if the risk is to be added (A), modified (M), view an existing risk (V) or terminate a risk (T) as a part of Endorsements."
+        },
+        "riskNumber": {
+          "type": "number"
+        },
+        "riskReferenceId": {
+          "type": "string"
+        },
+        "clauses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/items_13"
+          }
+        },
+        "location": {
+          "$ref": "#/$defs/type_11"
+        },
+        "interestedParties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/items_14"
+          }
+        },
+        "premium": {
+          "$ref": "#/$defs/type_12"
+        },
+        "riskDetail": {
+          "type": "object",
+          "properties": {
+            "riskBPKLiability": {
+              "$ref": "#/$defs/type_15"
+            },
+            "riskBPKFireBusinessInterruption": {
+              "$ref": "#/$defs/type_16"
+            },
+            "riskBPKGeneralPropertyMachineryBreakdown": {
+              "$ref": "#/$defs/type_17"
+            },
+            "riskBPKTheftMoneyGlass": {
+              "$ref": "#/$defs/type_18"
+            },
+            "riskMSAPrivateMotor": {
+              "$ref": "#/$defs/type_19"
+            },
+            "riskMVACommercialMotor": {
+              "$ref": "#/$defs/type_20"
+            },
+            "riskBPKEmployeeDishonestyTaxAuditTransit": {
+              "$ref": "#/$defs/type_21"
+            },
+            "riskBPKEmploymentLiability": {
+              "$ref": "#/$defs/type_22"
+            },
+            "riskBPKElectronicEquipment": {
+              "$ref": "#/$defs/type_23"
+            },
+            "riskHPKHome": {
+              "$ref": "#/$defs/type_24"
+            },
+            "riskPANPersonalInjuryType": {
+              "$ref": "#/$defs/type_25"
+            }
+          }
+        }
+      }
+    },
+    "items_13": {
+      "title": "Policy Risk Clause",
+      "required": [
+        "clauseWording"
+      ],
+      "type": "object",
+      "properties": {
+        "clauseWording": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "effectiveDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "riskClass": {
+                "type": "string"
+              },
+              "premiumClasses": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "clauseCode": {
+                "type": "string"
+              },
+              "clauseDescription": {
+                "type": "string"
+              },
+              "clauseWordingLines": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "wording": {
+                      "type": "string"
+                    },
+                    "varNo": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              },
+              "clauseWordingVariable": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "length": {
+                      "type": "string"
+                    },
+                    "indent": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "items_14": {
+      "title": "Policy Risk Interested Party",
+      "type": "object",
+      "properties": {
+        "name1": {
+          "type": "string"
+        },
+        "name2": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "addressLine1": {
+              "type": "string"
+            },
+            "addressLine2": {
+              "type": "string"
+            },
+            "addressLine3": {
+              "type": "string"
+            }
+          }
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "terminatedDate": {
+          "type": "string"
+        }
+      }
+    },
+    "type": {
+      "title": "Policy Premium",
+      "type": "object",
+      "properties": {
+        "stampDutyExemptIndicator": {
+          "type": "string"
+        },
+        "FAPPremium": {
+          "type": "number"
+        },
+        "totalPostedToDatePremium": {
+          "type": "number"
+        },
+        "transactionPremium": {
+          "type": "number"
+        },
+        "adjustmentIndicator": {
+          "type": "boolean"
+        },
+        "adjustmentAmount": {
+          "type": "number"
+        },
+        "adjustmentPercentage": {
+          "type": "number"
+        }
+      }
+    },
+    "type_11": {
+      "title": "Policy Risk Location",
+      "required": [
+        "addressLine1",
+        "stateCode",
+        "city",
+        "postalCode"
+      ],
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string"
+        },
+        "partnerId": {
+          "type": "string"
+        },
+        "addressRelationshipType": {
+          "type": "string"
+        },
+        "situationNumber": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "moniker": {
+          "type": "string"
+        },
+        "situationTurnover": {
+          "type": "number"
+        },
+        "stateCode": {
+          "enum": [
+            "NSW",
+            "QLD",
+            "SA",
+            "TAS",
+            "VIC",
+            "WA",
+            "NT",
+            "ACT"
+          ],
+          "type": "string"
+        },
+        "situationLocated": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        }
+      }
+    },
+    "type_12": {
+      "title": "Policy Risk Premium",
+      "required": [
+        "premiumClass"
+      ],
+      "type": "object",
+      "properties": {
+        "brokerFee": {
+          "type": "number"
+        },
+        "brokerFeeGST": {
+          "type": "number"
+        },
+        "premiumClass": {
+          "type": "array",
+          "items": {
+            "required": [
+              "classType",
+              "FAPPremium",
+              "totalPostedToDatePremium",
+              "transactionPremium"
+            ],
+            "type": "object",
+            "properties": {
+              "classType": {
+                "enum": [
+                  "BFF",
+                  "BLP",
+                  "BBU",
+                  "BMO",
+                  "BPG",
+                  "BPL",
+                  "BGP",
+                  "BMB",
+                  "BMC",
+                  "BAU",
+                  "BDO",
+                  "BEP",
+                  "BFG",
+                  "BPI",
+                  "BPM",
+                  "MVG",
+                  "DTM",
+                  "MSP"
+                ],
+                "type": "string"
+              },
+              "FAPPremium": {
+                "$ref": "#/$defs/type_26"
+              },
+              "totalPostedToDatePremium": {
+                "$ref": "#/$defs/type_26"
+              },
+              "transactionPremium": {
+                "$ref": "#/$defs/type_26"
+              }
+            }
+          }
+        }
+      }
+    },
+    "type_15": {
+      "title": "Policy Risk for BPK Liability",
+      "required": [
+        "occupationCode"
+      ],
+      "type": "object",
+      "properties": {
+        "occupationCode": {
+          "type": "string"
+        },
+        "occupationDescription": {
+          "type": "string"
+        },
+        "business": {
+          "type": "string"
+        },
+        "numberOfEmployees": {
+          "type": "number"
+        },
+        "limitOfLiability": {
+          "enum": [
+            5000000,
+            10000000,
+            20000000,
+            50000000
+          ],
+          "type": "integer"
+        },
+        "liabilityExcess": {
+          "enum": [
+            500,
+            750,
+            1000,
+            1500,
+            2500,
+            5000,
+            10000
+          ],
+          "type": "integer"
+        },
+        "liabilityExposure": {
+          "type": "string"
+        },
+        "productsLiability": {
+          "type": "integer"
+        },
+        "goodsInPhysicalControl": {
+          "type": "integer"
+        },
+        "tenantsFireLiability": {
+          "type": "integer"
+        },
+        "annualTurnover": {
+          "type": "integer"
+        },
+        "propertyOwners": {
+          "enum": [
+            "Yes",
+            "No"
+          ],
+          "type": "string"
+        },
+        "propertyOwnersDesc": {
+          "type": "string"
+        },
+        "propertyValue": {
+          "type": "integer"
+        },
+        "paymentToContractors": {
+          "type": "integer"
+        },
+        "adjustmentIndicator": {
+          "type": "boolean"
+        },
+        "adjustmentPercentage": {
+          "type": "number"
+        }
+      }
+    },
+    "type_16": {
+      "title": "PolicyRiskBPKFireBusinessInterruption",
+      "required": [
+        "occupationCode"
+      ],
+      "type": "object",
+      "properties": {
+        "occupationCode": {
+          "type": "string"
+        },
+        "occupationDescription": {
+          "type": "string"
+        },
+        "business": {
+          "type": "string"
+        },
+        "govermentResidential": {
+          "type": "string"
+        },
+        "fire": {
+          "type": "object",
+          "properties": {
+            "construction": {
+              "type": "string"
+            },
+            "yearBuilt": {
+              "type": "string"
+            },
+            "sprinkler": {
+              "type": "string"
+            },
+            "buildingSI": {
+              "type": "integer"
+            },
+            "buildingExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "contentsSI": {
+              "type": "integer"
+            },
+            "contentsExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "flood": {
+              "type": "string"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        },
+        "businessInterruption": {
+          "type": "object",
+          "properties": {
+            "indemnityPeriod": {
+              "enum": [
+                "3",
+                "6",
+                "9",
+                "12",
+                "15",
+                "18",
+                "24",
+                "30",
+                "36"
+              ],
+              "type": "string"
+            },
+            "grossIncomeSI": {
+              "type": "integer"
+            },
+            "grossIncomeExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "ICOWSI": {
+              "type": "integer"
+            },
+            "payrollSI": {
+              "type": "integer"
+            },
+            "weeklyIncomeSI": {
+              "type": "integer"
+            },
+            "weeksCovered": {
+              "type": "integer"
+            },
+            "claimsPreparationCosts": {
+              "type": "integer"
+            },
+            "OSAcctRecSI": {
+              "type": "integer"
+            },
+            "OSAcctRecExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "type_17": {
+      "title": "Policy Risk BPK General Property Machinery Breakdown Type",
+      "required": [
+        "occupationCode"
+      ],
+      "type": "object",
+      "properties": {
+        "occupationCode": {
+          "type": "string"
+        },
+        "occupationDescription": {
+          "type": "string"
+        },
+        "business": {
+          "type": "string"
+        },
+        "generalProperty": {
+          "type": "object",
+          "properties": {
+            "generalPropertySumInsured": {
+              "type": "integer"
+            },
+            "generalPropertyExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "FSLArea": {
+              "type": "string"
+            },
+            "FSLAreaDesc": {
+              "type": "string"
+            },
+            "itemList": {
+              "type": "array",
+              "items": {
+                "required": [
+                  "itemSI"
+                ],
+                "type": "object",
+                "properties": {
+                  "itemGroup": {
+                    "type": "string"
+                  },
+                  "itemGroupDesc": {
+                    "type": "string"
+                  },
+                  "itemDescription": {
+                    "type": "string"
+                  },
+                  "serialNumber": {
+                    "type": "string"
+                  },
+                  "itemSI": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number",
+              "description": "Premium Ajustment Percentage"
+            }
+          }
+        },
+        "machineryBreakdown": {
+          "type": "object",
+          "properties": {
+            "machineryBreakDownSI": {
+              "type": "integer"
+            },
+            "machineryBreakDownExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "refrigerators": {
+              "type": "integer"
+            },
+            "microwaves": {
+              "type": "integer"
+            },
+            "airConditioners": {
+              "type": "integer"
+            },
+            "boilers": {
+              "type": "integer"
+            },
+            "dishwashers": {
+              "type": "integer"
+            },
+            "cashRegisters": {
+              "type": "integer"
+            },
+            "others": {
+              "type": "integer"
+            },
+            "deteriorationOfStockSI": {
+              "type": "integer"
+            },
+            "goodsInTransitSI": {
+              "type": "integer"
+            },
+            "goodsInTransitExcess": {
+              "type": "integer"
+            },
+            "machinerySpecifiedItemSI": {
+              "type": "integer"
+            },
+            "machineryBlanketSI": {
+              "type": "integer"
+            },
+            "machineryBlanketNumberOfItems": {
+              "type": "integer"
+            },
+            "machineryItems": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "machineryCode": {
+                    "type": "string"
+                  },
+                  "machineryDesc": {
+                    "type": "string"
+                  },
+                  "machinerySI": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "type_18": {
+      "required": [
+        "occupationCode"
+      ],
+      "type": "object",
+      "properties": {
+        "occupationCode": {
+          "type": "string"
+        },
+        "occupationDescription": {
+          "type": "string"
+        },
+        "business": {
+          "type": "string"
+        },
+        "governmentResidential": {
+          "type": "string"
+        },
+        "theft": {
+          "type": "object",
+          "properties": {
+            "contentsSI": {
+              "type": "integer"
+            },
+            "theftExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "stockSI": {
+              "type": "integer"
+            },
+            "tobaccoSI": {
+              "type": "integer"
+            },
+            "liquorSI": {
+              "type": "integer"
+            },
+            "WOForcibleEntrySI": {
+              "type": "integer"
+            },
+            "security": {
+              "type": "string"
+            },
+            "securityDesc": {
+              "type": "string"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        },
+        "money": {
+          "type": "object",
+          "properties": {
+            "inTransitSI": {
+              "type": "integer"
+            },
+            "moneyExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "inResidenceSI": {
+              "type": "integer"
+            },
+            "busHrsSI": {
+              "type": "integer"
+            },
+            "afterHrsSI": {
+              "type": "integer"
+            },
+            "inSafeSI": {
+              "type": "integer"
+            },
+            "blanketCover": {
+              "enum": [
+                "Y",
+                "N"
+              ],
+              "type": "string"
+            },
+            "blanketCoverDesc": {
+              "type": "string"
+            },
+            "blanketCoverSI": {
+              "enum": [
+                2500,
+                5000,
+                10000,
+                15000,
+                20000
+              ],
+              "type": "integer"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        },
+        "glass": {
+          "type": "object",
+          "properties": {
+            "numberIlluminatedSigns": {
+              "type": "integer"
+            },
+            "illuminatedSignsSI": {
+              "type": "integer"
+            },
+            "glassExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "largestPaneOfGlass": {
+              "enum": [
+                "A",
+                "B",
+                "C"
+              ],
+              "type": "string",
+              "description": "C - Less than 5 sq metres B - Greater than 5 metres but less than 8 sq metres A - Greater than 8 sq meters"
+            },
+            "largestPaneOfGlassDesc": {
+              "type": "string"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "type_19": {
+      "type": "object",
+      "properties": {
+        "coverDetails": {
+          "required": [
+            "coverCode",
+            "thirdPartyLimit"
+          ],
+          "type": "object",
+          "properties": {
+            "coverCode": {
+              "type": "string"
+            },
+            "basisOfCover": {
+              "type": "string"
+            },
+            "thirdPartyLimit": {
+              "type": "number"
+            }
+          }
+        },
+        "driverDetails": {
+          "type": "object",
+          "properties": {
+            "nominatedDriver": {
+              "type": "array",
+              "items": {
+                "required": [
+                  "nominatedDriverName",
+                  "nominatedDriverDOB",
+                  "nominatedDriverSex",
+                  "nominatedDriverUse"
+                ],
+                "type": "object",
+                "properties": {
+                  "nominatedDriverName": {
+                    "type": "string"
+                  },
+                  "nominatedDriverDOB": {
+                    "type": "string"
+                  },
+                  "nominatedDriverSex": {
+                    "type": "string"
+                  },
+                  "nominatedDriverUse": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "vehicleDetails": {
+          "required": [
+            "registrationNumber",
+            "engineNumber",
+            "modificationDetails"
+          ],
+          "type": "object",
+          "properties": {
+            "vehicleMake": {
+              "type": "string"
+            },
+            "vehicleYear": {
+              "type": "integer"
+            },
+            "vehicleDescription": {
+              "type": "string"
+            },
+            "registrationNumber": {
+              "type": "string"
+            },
+            "engineNumber": {
+              "type": "string"
+            },
+            "VINChassisNumber": {
+              "type": "string"
+            },
+            "ownVehicles": {
+              "type": "string"
+            },
+            "accessoryDetails": {
+              "type": "object",
+              "properties": {
+                "accessories": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "detailAccessoryCode",
+                      "sumInsured"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "detailAccessoryCode": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "sumInsured": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "modificationDetails": {
+              "required": [
+                "modifications"
+              ],
+              "type": "object",
+              "properties": {
+                "modifications": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "modCode": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "underwritingDetails": {
+          "required": [
+            "vehicledModified",
+            "financeType",
+            "postCodeGaragedNight",
+            "purposeOfUse",
+            "noClaimBonus"
+          ],
+          "type": "object",
+          "properties": {
+            "vehicledModified": {
+              "type": "string"
+            },
+            "financeType": {
+              "type": "string"
+            },
+            "postCodeGaragedNight": {
+              "type": "string"
+            },
+            "parkedMethodNight": {
+              "type": "string"
+            },
+            "purposeOfUse": {
+              "type": "string"
+            },
+            "noClaimBonus": {
+              "type": "string"
+            },
+            "protectedNoClaimBonus": {
+              "type": "string"
+            },
+            "hireCar": {
+              "type": "string"
+            },
+            "excesses": {
+              "type": "object",
+              "properties": {
+                "basicExcess": {
+                  "type": "number"
+                },
+                "electedExcess": {
+                  "type": "string"
+                },
+                "imposedExcess": {
+                  "type": "number"
+                },
+                "ageExcess": {
+                  "type": "string"
+                },
+                "nonNominatedExcess": {
+                  "type": "number"
+                }
+              }
+            },
+            "sumInsured": {
+              "type": "object",
+              "properties": {
+                "agreedValueSumInsured": {
+                  "type": "number"
+                }
+              }
+            },
+            "newCarReplacement": {
+              "type": "object"
+            },
+            "gatewayPurposeOfUse": {
+              "enum": [
+                "PX"
+              ],
+              "type": "string",
+              "default": "PX"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        },
+        "glassDetails": {
+          "type": "object",
+          "properties": {
+            "nvic": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "type_20": {
+      "type": "object",
+      "properties": {
+        "vehicleDetails": {
+          "required": [
+            "coverCode"
+          ],
+          "type": "object",
+          "properties": {
+            "vehicleDescription": {
+              "type": "string"
+            },
+            "coverCode": {
+              "type": "string"
+            },
+            "vehicleClass": {
+              "type": "string"
+            },
+            "vehicleClassExt": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "registered": {
+              "type": "string"
+            },
+            "regoNo": {
+              "type": "string"
+            },
+            "engineNo": {
+              "type": "string"
+            },
+            "modelNo": {
+              "type": "string"
+            },
+            "yearManufactured": {
+              "type": "string"
+            },
+            "trailerType": {
+              "type": "string"
+            },
+            "accessoryDetails": {
+              "type": "object",
+              "properties": {
+                "accessories": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "detailAccessoryCode": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "sumInsured": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "cropTypeCode": {
+              "type": "string"
+            },
+            "cropTypeDesc": {
+              "type": "string"
+            },
+            "contractingUse": {
+              "type": "string"
+            },
+            "cropContractCode": {
+              "type": "string"
+            }
+          }
+        },
+        "underwritingDetails": {
+          "type": "object",
+          "properties": {
+            "vehicleSumInsured": {
+              "type": "number"
+            },
+            "vehicleModified": {
+              "type": "string"
+            },
+            "riskState": {
+              "type": "string"
+            },
+            "postcodeGaraged": {
+              "type": "string"
+            },
+            "financeType": {
+              "type": "string"
+            },
+            "NCBCode": {
+              "type": "string"
+            },
+            "driversYearOfBirth": {
+              "type": "string"
+            },
+            "thirdPartyLiability": {
+              "type": "number"
+            },
+            "basicExcess": {
+              "type": "number"
+            },
+            "electedExcess": {
+              "type": "number"
+            },
+            "imposedExcess": {
+              "type": "number"
+            },
+            "ageExcess": {
+              "type": "string"
+            },
+            "constructionMiningUse": {
+              "type": "string"
+            },
+            "kilometerRadius": {
+              "type": "string"
+            },
+            "contentsSumInsured": {
+              "type": "number"
+            },
+            "windscreenCover": {
+              "type": "string"
+            },
+            "gatewayPurposeOfUse": {
+              "type": "string"
+            },
+            "dangerousGoodsSublimit": {
+              "type": "string"
+            },
+            "downtimeCover": {
+              "type": "string"
+            },
+            "downtimeCoverDailyIndemnity": {
+              "type": "number"
+            },
+            "downtimeCoverPeriod": {
+              "type": "number"
+            },
+            "downtimeCoverDeferment": {
+              "type": "number"
+            },
+            "downtimeExpense": {
+              "type": "number"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        },
+        "glassDetails": {
+          "type": "object",
+          "properties": {
+            "nvic": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "type_21": {
+      "type": "object",
+      "properties": {
+        "occupationCode": {
+          "type": "string"
+        },
+        "occupationDescription": {
+          "type": "string"
+        },
+        "business": {
+          "type": "string"
+        },
+        "fidelity": {
+          "required": [
+            "fidelitySI",
+            "employees"
+          ],
+          "type": "object",
+          "properties": {
+            "fidelitySI": {
+              "type": "integer"
+            },
+            "fidelityExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "employees": {
+              "type": "integer"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        },
+        "taxAudit": {
+          "required": [
+            "taxAuditSI",
+            "turnover"
+          ],
+          "type": "object",
+          "properties": {
+            "taxAuditSI": {
+              "enum": [
+                5000,
+                10000,
+                20000,
+                50000
+              ],
+              "type": "integer"
+            },
+            "taxAuditExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "integer"
+            },
+            "turnover": {
+              "type": "integer"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        },
+        "transit": {
+          "required": [
+            "transitSI",
+            "annualSendings"
+          ],
+          "type": "object",
+          "properties": {
+            "transitSI": {
+              "type": "integer"
+            },
+            "transitExcess": {
+              "enum": [
+                500,
+                750,
+                1000,
+                1500,
+                2500,
+                5000,
+                10000
+              ],
+              "type": "number"
+            },
+            "annualSendings": {
+              "type": "integer"
+            },
+            "adjustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "type_22": {
+      "type": "object",
+      "properties": {
+        "occupationCode": {
+          "type": "string"
+        },
+        "occupationDescription": {
+          "type": "string"
+        },
+        "business": {
+          "type": "string"
+        },
+        "employmentPracticesLimit": {
+          "enum": [
+            100000,
+            250000,
+            500000,
+            1000000
+          ],
+          "type": "integer"
+        },
+        "employmentPracticesExcess": {
+          "enum": [
+            500,
+            750,
+            1000,
+            1500,
+            2500,
+            5000,
+            10000
+          ],
+          "type": "integer"
+        },
+        "employmentPracticesEmployees": {
+          "type": "integer"
+        },
+        "practicesAdjustmentIndicator": {
+          "type": "boolean"
+        },
+        "practicesAdjustmentPercentage": {
+          "type": "number"
+        },
+        "statutoryLimit": {
+          "enum": [
+            250000,
+            500000
+          ],
+          "type": "integer"
+        },
+        "statutoryExcess": {
+          "enum": [
+            500,
+            750,
+            1000,
+            1500,
+            2500,
+            5000,
+            10000
+          ],
+          "type": "integer"
+        },
+        "statutoryTurnover": {
+          "type": "integer"
+        },
+        "statutoryAdjustmentIndicator": {
+          "type": "boolean"
+        },
+        "statutoryAdjustmentPercentage": {
+          "type": "number"
+        },
+        "professionalLimit": {
+          "type": "integer"
+        },
+        "professionalAggregate": {
+          "type": "integer"
+        },
+        "professionalExcess": {
+          "type": "integer"
+        },
+        "professionalAdjustmentIndicator": {
+          "type": "boolean"
+        },
+        "professionalAdjustmentPercentage": {
+          "type": "number"
+        },
+        "retroActiveDate": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "type_23": {
+      "required": [
+        "electronicEquipmentSI"
+      ],
+      "type": "object",
+      "properties": {
+        "occupationCode": {
+          "type": "string"
+        },
+        "occupationDescription": {
+          "type": "string"
+        },
+        "business": {
+          "type": "string"
+        },
+        "electronicEquipmentSI": {
+          "type": "integer"
+        },
+        "electronicEquipmentExcess": {
+          "enum": [
+            500,
+            750,
+            1000,
+            1500,
+            2500,
+            5000,
+            10000
+          ],
+          "type": "integer"
+        },
+        "dataMediaSI": {
+          "type": "integer"
+        },
+        "dataMediaExcess": {
+          "type": "integer"
+        },
+        "ICOWSI": {
+          "type": "integer"
+        },
+        "ICOWExcess": {
+          "type": "integer"
+        },
+        "ICOWIndemnityPeriod": {
+          "type": "integer"
+        },
+        "electronicItems": {
+          "type": "array",
+          "items": {
+            "required": [
+              "sumInsured"
+            ],
+            "type": "object",
+            "properties": {
+              "itemDesc": {
+                "type": "string"
+              },
+              "itemGroup": {
+                "type": "string"
+              },
+              "itemGroupDesc": {
+                "type": "string"
+              },
+              "yearPurchased": {
+                "type": "string"
+              },
+              "sumInsured": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "adjustmentIndicator": {
+          "type": "boolean"
+        },
+        "adjustmentPercentage": {
+          "type": "number"
+        }
+      }
+    },
+    "type_24": {
+      "type": "object",
+      "properties": {
+        "typeOfCover": {
+          "type": "string"
+        },
+        "workersCompensation": {
+          "type": "string"
+        },
+        "numberOfEmployees": {
+          "type": "integer"
+        },
+        "insuredRetired": {
+          "type": "string"
+        },
+        "insuredDateOfBirth": {
+          "type": "string",
+          "format": "date"
+        },
+        "occupancyType": {
+          "type": "string"
+        },
+        "construction": {
+          "type": "string"
+        },
+        "buildingType": {
+          "type": "string"
+        },
+        "yearBuilt": {
+          "type": "integer"
+        },
+        "townWater": {
+          "type": "string"
+        },
+        "heritageListed": {
+          "type": "string"
+        },
+        "sizeOfBuilding": {
+          "type": "integer"
+        },
+        "conditionOfBuilding": {
+          "type": "string"
+        },
+        "reWired": {
+          "type": "string"
+        },
+        "rePlumbed": {
+          "type": "string"
+        },
+        "previousInsurer": {
+          "type": "string"
+        },
+        "claimsInLast3Years": {
+          "type": "integer"
+        },
+        "claimsInLast5Years": {
+          "type": "integer"
+        },
+        "backToBaseAlarm": {
+          "type": "string"
+        },
+        "localAlarm": {
+          "type": "string"
+        },
+        "windowBars": {
+          "type": "string"
+        },
+        "windowLocks": {
+          "type": "string"
+        },
+        "deadlocks": {
+          "type": "string"
+        },
+        "highSecurity": {
+          "type": "string"
+        },
+        "fixedSafe": {
+          "type": "string"
+        },
+        "securityIntercom": {
+          "type": "string"
+        },
+        "elevated": {
+          "type": "string"
+        },
+        "buildingSumInsured": {
+          "type": "integer"
+        },
+        "buildingBasicXs": {
+          "type": "integer"
+        },
+        "buildingImposedXs": {
+          "type": "integer"
+        },
+        "contentsSumInsured": {
+          "type": "integer"
+        },
+        "contentsBasicXs": {
+          "type": "integer"
+        },
+        "contentsImposedXs": {
+          "type": "integer"
+        },
+        "valuablesSumInsured": {
+          "type": "integer"
+        },
+        "valuablesBasicXs": {
+          "type": "integer"
+        },
+        "valuablesImposedXs": {
+          "type": "integer"
+        },
+        "specifiedContentsItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "sumInsured": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "specifiedValuablesItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "sumInsured": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "rentDefault": {
+          "type": "integer"
+        },
+        "maliciousDamage": {
+          "type": "string"
+        },
+        "liabilitySumInsured": {
+          "type": "integer"
+        },
+        "buildingOccupancy": {
+          "type": "string"
+        },
+        "buildingConstruction": {
+          "type": "string"
+        },
+        "roofType": {
+          "type": "string"
+        },
+        "numberOfUnits": {
+          "type": "integer"
+        },
+        "buildingYear": {
+          "type": "string"
+        },
+        "landSize": {
+          "type": "string"
+        },
+        "squares": {
+          "type": "integer"
+        },
+        "condHome": {
+          "type": "string"
+        },
+        "loyalty": {
+          "type": "number"
+        },
+        "ncb": {
+          "type": "number"
+        },
+        "threeYearClaims": {
+          "type": "integer"
+        },
+        "fiveYearClaims": {
+          "type": "integer"
+        },
+        "floodFlag": {
+          "type": "string"
+        },
+        "floodExcess": {
+          "type": "integer"
+        },
+        "floodQuestion01": {
+          "type": "string"
+        },
+        "floodQuestion02": {
+          "type": "string"
+        },
+        "floodQuestion03": {
+          "type": "string"
+        },
+        "floodQuestion04": {
+          "type": "string"
+        },
+        "floodQuestion05": {
+          "type": "string"
+        },
+        "floodQuestion06": {
+          "type": "string"
+        },
+        "floodQuestion07": {
+          "type": "string"
+        },
+        "floodQuestion08": {
+          "type": "string"
+        },
+        "floodQuestion09": {
+          "type": "string"
+        },
+        "floodQuestion10": {
+          "type": "string"
+        },
+        "adjustmentIndicator": {
+          "type": "boolean"
+        },
+        "adjustmentPercentage": {
+          "type": "number"
+        }
+      }
+    },
+    "type_25": {
+      "type": "object",
+      "properties": {
+        "occupation": {
+          "type": "object",
+          "properties": {
+            "occupationCode": {
+              "type": "string"
+            },
+            "occupationDesc": {
+              "type": "string"
+            },
+            "occupationClass": {
+              "type": "string"
+            }
+          }
+        },
+        "individual": {
+          "type": "object",
+          "properties": {
+            "insuredPerson": {
+              "type": "string"
+            },
+            "dateOfBirth": {
+              "type": "string"
+            },
+            "gender": {
+              "type": "string"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "weight": {
+              "type": "integer"
+            },
+            "smoker": {
+              "type": "string"
+            },
+            "employeeCategory": {
+              "type": "string"
+            },
+            "typeOfCover": {
+              "type": "string"
+            },
+            "postCodeOfRisk": {
+              "type": "string"
+            }
+          }
+        },
+        "personal": {
+          "type": "object",
+          "properties": {
+            "permanentResident": {
+              "type": "string"
+            },
+            "workOutsideAus": {
+              "type": "string"
+            },
+            "newVenture": {
+              "type": "string"
+            }
+          }
+        },
+        "earnings": {
+          "type": "object",
+          "properties": {
+            "weeklyGrossIncome": {
+              "type": "integer"
+            },
+            "expensesIncurred": {
+              "type": "integer"
+            },
+            "expensesFixed": {
+              "type": "integer"
+            }
+          }
+        },
+        "cover": {
+          "type": "object",
+          "properties": {
+            "capitalBenefits": {
+              "type": "integer"
+            },
+            "conditions": {
+              "type": "string"
+            },
+            "injuryWeeklyBenefits": {
+              "type": "integer"
+            },
+            "injuryBenefitPeriod": {
+              "type": "integer"
+            },
+            "injuryExclusionPeriod": {
+              "type": "integer"
+            },
+            "includeIllnessCover": {
+              "type": "string"
+            },
+            "illnessWeeklyBenefits": {
+              "type": "integer"
+            },
+            "illnessBenefitPeriod": {
+              "type": "integer"
+            },
+            "illnessExclusionPeriod": {
+              "type": "integer"
+            },
+            "ajustmentIndicator": {
+              "type": "boolean"
+            },
+            "adjustmentPercentage": {
+              "type": "number"
+            }
+          }
+        },
+        "UWQuestionAnswer": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string"
+            },
+            "UWQuestionDetail": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "itemDate": {
+                    "type": "string"
+                  },
+                  "detailLine": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "selectedActivities": {
+          "type": "object",
+          "properties": {
+            "activityCode": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "type_26": {
+      "title": "Policy Premium",
+      "required": [
+        "premium",
+        "GST",
+        "FSL",
+        "duty",
+        "totalPremium"
+      ],
+      "type": "object",
+      "properties": {
+        "premiumClass": {
+          "type": "string"
+        },
+        "premium": {
+          "type": "number"
+        },
+        "GST": {
+          "type": "number"
+        },
+        "FSL": {
+          "type": "number"
+        },
+        "brokerFee": {
+          "type": "number"
+        },
+        "brokerFeeGST": {
+          "type": "number"
+        },
+        "duty": {
+          "type": "number"
+        },
+        "totalPremium": {
+          "type": "number"
+        },
+        "agentComm": {
+          "type": "number"
+        },
+        "agentCommRate": {
+          "type": "number"
+        },
+        "agentCommGST": {
+          "type": "number"
+        },
+        "adjustmentIndicator": {
+          "type": "boolean"
+        },
+        "adjustmentAmount": {
+          "type": "number"
+        },
+        "adjustmentPercentage": {
+          "type": "number"
+        }
+      },
+      "description": "Premium details used by Policy Premium & Risk Premium"
+    },
+    "type_9": {
+      "title": "Address",
+      "required": [
+        "addressLine1",
+        "city",
+        "stateCode",
+        "postalCode"
+      ],
+      "type": "object",
+      "properties": {
+        "moniker": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateCode": {
+          "enum": [
+            "NSW",
+            "QLD",
+            "SA",
+            "TAS",
+            "VIC",
+            "WA",
+            "NT",
+            "ACT"
+          ],
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

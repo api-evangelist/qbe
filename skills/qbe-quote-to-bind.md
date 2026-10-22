@@ -1,16 +1,16 @@
 ---
-name: QBE quote to bound policy
+name: qbe-quote-to-bind
 description: Create a commercial quote with QBE Australia, modify it if needed, refer it to an underwriter when required, then convert it into a bound policy.
-api: openapi/qbe-anzo-digital-brokers-openapi.yml
+api: openapi/qbe-digital-brokers-api-openapi.yml
 operations:
   - Create-a-new-Quote
   - Modify-an-existing-Quote
   - Refer-a-quote-to-QBE-Underwriter
   - Convert-a-Quote-to-Policy
   - To-Abandon-an-existing-quote
-generated: '2026-07-25'
+generated: '2026-10-20'
 method: generated
-source: openapi/qbe-anzo-digital-brokers-openapi.yml
+source: openapi/qbe-digital-brokers-api-openapi.yml
 ---
 
 # QBE quote to bound policy

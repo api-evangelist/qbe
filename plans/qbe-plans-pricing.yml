@@ -1,0 +1,28 @@
+name: QBE Insurance pricing
+generated: '2026-10-20'
+method: none
+source: https://connect.api-au.qbe.com/api-terms-of-use
+audience: unclear
+pricing_basis: negotiated
+published: false
+delivery:
+  delivery: managed
+plan_count: 0
+plans: []
+checked:
+- url: https://connect.api-au.qbe.com/api-terms-of-use
+  status: 200
+  finding: "Your use of these APIs is governed by the terms and conditions of your Distribution Agreement with QBE."
+- url: https://connect.api-au.qbe.com/products
+  status: 200
+  finding: Two APIM products (ANZO CTP Service, ANZO Digital Brokers); no price, no tier.
+- url: https://connect.api-au.qbe.com/developer/products?api-version=2022-04-01-preview
+  status: 200
+  finding: Both products approvalRequired true, subscriptionsLimit 10, terms null — access control, not pricing.
+- url: https://partnerportal-api.qbena.com/guide
+  status: 200
+  finding: Onboarding guide (client id/secret to JWT); no pricing.
+note: >-
+  QBE publishes no API pricing or plans. API access is a partner/broker entitlement governed by a
+  bilateral Distribution Agreement and gated by APIM subscription approval; no price or tier is
+  stated on any reachable page.

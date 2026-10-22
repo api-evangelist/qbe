@@ -1,32 +1,26 @@
 aid: qbe
+
 url: https://raw.githubusercontent.com/api-evangelist/qbe/refs/heads/main/apis.yml
+
 name: QBE Insurance
+
 kind: company
-description: >-
-  QBE Insurance Group Limited is a Sydney-headquartered, ASX-listed global general
-  insurance and reinsurance group, tracing back to 1886 in Townsville, Queensland,
-  and operating today across Australia Pacific, North America and International
-  divisions including a Lloyd's of London syndicate. QBE writes commercial and
-  personal property and casualty lines — property, liability, motor and compulsory
-  third party (CTP), workers compensation, marine, aviation, trade credit, crop and
-  specialty — distributed overwhelmingly through brokers and agents rather than
-  direct to consumers. Its API posture reflects that distribution model and is
-  partner-gated by design: QBE Australia runs a real, publicly browsable Azure API
-  Management developer portal at connect.api-au.qbe.com whose catalogue, operations,
-  schemas and examples can be read anonymously, but every product requires an
-  approved subscription (approvalRequired true) and the broker API is keyed to named
-  partner platforms. The portal exposes genuine quote, bind, endorse, renew, cancel
-  and refer operations for the commercial policy lifecycle — the four real insurance
-  verbs, minus claims/FNOL, which QBE does not expose publicly. A separate QBE North
-  America partner API hub at partnerportal-api.qbena.com serves an empty Azure APIM
-  catalogue to anonymous callers but does publish seven named API products in its own
-  content pages — Quote, Bind, Master Liability, Property Inquiry, Zip Code Validate
-  and Reconciliation and Cancellation for Renters, plus Quote for Homeowners — behind a
-  documented client-id/secret to JWT token exchange; no endpoints or specs are exposed.
-  QBE Hong Kong documents a partner API behind qbe.com pages that are bot-blocked to
-  anonymous fetchers. Australia is the home market; the Consumer Data Right was
-  designated for general insurance and then deferred, so nothing here is compelled by
-  regulation.
+
+description: 'QBE Insurance Group Limited is a Sydney-headquartered, ASX-listed global general insurance and reinsurance group, tracing back to
+  1886 in Townsville, Queensland, and operating today across Australia Pacific, North America and International divisions including a Lloyd''s
+  of London syndicate. QBE writes commercial and personal property and casualty lines — property, liability, motor and compulsory third party
+  (CTP), workers compensation, marine, aviation, trade credit, crop and specialty — distributed overwhelmingly through brokers and agents rather
+  than direct to consumers. Its API posture reflects that distribution model and is partner-gated by design: QBE Australia runs a real, publicly
+  browsable Azure API Management developer portal at connect.api-au.qbe.com whose catalogue, operations, schemas and examples can be read anonymously,
+  but every product requires an approved subscription (approvalRequired true) and the broker API is keyed to named partner platforms. The portal
+  exposes genuine quote, bind, endorse, renew, cancel and refer operations for the commercial policy lifecycle — the four real insurance verbs,
+  minus claims/FNOL, which QBE does not expose publicly. A separate QBE North America partner API hub at partnerportal-api.qbena.com serves an
+  empty Azure APIM catalogue to anonymous callers but does publish seven named API products in its own content pages — Quote, Bind, Master Liability,
+  Property Inquiry, Zip Code Validate and Reconciliation and Cancellation for Renters, plus Quote for Homeowners — behind a documented client-id/secret
+  to JWT token exchange; no endpoints or specs are exposed. QBE Hong Kong documents a partner API behind qbe.com pages that are bot-blocked to
+  anonymous fetchers. Australia is the home market; the Consumer Data Right was designated for general insurance and then deferred, so nothing
+  here is compelled by regulation.'
+
 deliveryModel:
   model: saas
   open_source: false
@@ -39,6 +33,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -53,7 +48,9 @@ accessModel:
   - sandbox
   generated: '2026-09-03'
   method: derived
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+
+image: https://avatars.githubusercontent.com/u/55916773?s=280&v=4
+
 tags:
 - Insurance
 - Australia
@@ -65,6 +62,7 @@ tags:
 - Reinsurance
 - Carrier
 - Partner API
+
 tags_raw:
 - Insurance
 - Australia
@@ -76,49 +74,49 @@ tags_raw:
 - Reinsurance
 - Carrier
 - Partner API
+
 created: '2026-07-25'
-modified: '2026-10-06'
+
+modified: '2026-10-20'
+
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: www.qbe.com answers a browser User-Agent with a 403 bot challenge (front door unreadable, pointers kept as live-behind-edge-policy);
+    identity verified from QBE's own API hub portals and GitHub org. Image is the QBE Insurance Group Limited GitHub org avatar.
+  evidence:
+  - url: https://www.qbe.com/
+    status: 403
+  - url: https://connect.api-au.qbe.com/
+    status: 200
+  - url: https://partnerportal-api.qbena.com/
+    status: 200
+  - url: https://github.com/qbegroup
+    status: 200
+  - url: https://avatars.githubusercontent.com/u/55916773?s=280&v=4
+    status: 200
+
 specificationVersion: '0.23'
-apis:
-- aid: qbe:qbe-ctp-switch-api
-  name: QBE Insurance CTP Switch API
-  description: The CTP Switch API from QBE Insurance — 2 operation(s) for ctp switch.
-  humanURL: https://connect.api-au.qbe.com/apis
-  baseURL: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
-  tags:
-  - CTP Switch
-  properties:
-  - type: OpenAPI
-    url: openapi/qbe-ctp-switch-api-openapi.yml
-  - type: Documentation
-    url: https://connect.api-au.qbe.com/
-  - type: APIReference
-    url: https://connect.api-au.qbe.com/apis
-  - type: Examples
-    url: examples/qbe-anzo-digital-brokers-examples.yml
-- aid: qbe:qbe-digital-brokers-api
-  name: QBE Insurance Digital Brokers API
-  description: The Digital Brokers API from QBE Insurance — 15 operation(s) for digital brokers.
-  humanURL: https://connect.api-au.qbe.com/apis
-  baseURL: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
-  tags:
-  - Digital Brokers
-  properties:
-  - type: OpenAPI
-    url: openapi/qbe-digital-brokers-api-openapi.yml
-  - type: Documentation
-    url: https://connect.api-au.qbe.com/
-  - type: APIReference
-    url: https://connect.api-au.qbe.com/apis
-  - type: Examples
-    url: examples/qbe-anzo-digital-brokers-examples.yml
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
 common:
+- type: Spectral
+  url: rules/qbe-rules.yml
+- type: JSONLD
+  url: json-ld/qbe-context.jsonld
+- type: Overlay
+  url: overlays/qbe-ctp-switch-api-overlay.yaml
+- type: Hosts
+  url: hosts/qbe-hosts.yml
+- type: IntegrationEdges
+  url: integrations/qbe-integration-edges.yml
+- type: Vendors
+  url: vendors/qbe-vendors.yml
 - url: https://www.qbe.com/newsroom
   type: Blog
-- type: Overlay
-  url: overlays/qbe-anzo-digital-brokers-overlay.yaml
-- type: Overlay
-  url: overlays/qbe-ctp-switch-service-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/qbe-agentic-access.yml
 - type: DomainSecurity
@@ -168,14 +166,12 @@ common:
 - type: Sandbox
   url: sandbox/qbe-sandbox.yml
   name: Mocking and non-production access
-- type: Packages
-  url: packages/qbe-packages.yml
 - type: X-MCPServerCandidate
   url: mcp/qbe-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
+    API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
+    the artifact-type surfaces with a server that does not exist.'
   name: Candidate MCP manifest (no hosted server published)
-- type: ToolCrosswalk
-  url: mcp/qbe-tool-crosswalk.yml
 - type: LLMsTxt
   url: llms/qbe-llms.txt
 - type: AgentSkill
@@ -189,8 +185,73 @@ common:
 - type: Arazzo
   url: arazzo/qbe-cancel-policy.yml
   name: QBE policy cancellation
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+
+apis:
+- aid: qbe:qbe-ctp-switch-api
+  name: QBE Insurance CTP Switch API
+  description: The CTP Switch API from QBE Insurance — 2 operation(s) for ctp switch.
+  humanURL: https://connect.api-au.qbe.com/apis
+  baseURL: https://gateway.api-au.qbe.com/ctp-service
+  tags:
+  - CTP Switch
+  properties:
+  - type: OpenAPI
+    url: openapi/qbe-ctp-switch-api-openapi.yml
+  - type: Documentation
+    url: https://connect.api-au.qbe.com/
+  - type: APIReference
+    url: https://connect.api-au.qbe.com/apis
+- aid: qbe:qbe-digital-brokers-api
+  name: QBE Insurance Digital Brokers API
+  description: The Digital Brokers API from QBE Insurance — 15 operation(s) for digital brokers.
+  humanURL: https://connect.api-au.qbe.com/apis
+  baseURL: https://gateway.api-au.qbe.com/x-digital-brokers-qbe-anzo/api
+  tags:
+  - Digital Brokers
+  properties:
+  - type: OpenAPI
+    url: openapi/qbe-digital-brokers-api-openapi.yml
+  - type: Documentation
+    url: https://connect.api-au.qbe.com/
+  - type: APIReference
+    url: https://connect.api-au.qbe.com/apis
+  - type: Examples
+    url: examples/qbe-anzo-digital-brokers-examples.yml
+  - type: JSONSchema
+    url: json-schema/qbe-auth-quotes-post201-application-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/qbe-auth-quotes-quote-id-refer-post200-application-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/qbe-auth-policies-policy-id-endorse-post200-application-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/qbe-auth-policies-policy-id-refer-post200-application-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/qbe-auth-quotes-quote-id-bind-post201-application-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/qbe-generated-2-schema.json
+- aid: qbe:qbe-north-america-partner-api
+  name: QBE North America Partner API Hub
+  description: QBE North America's API Product Hub for agency and property-manager partners, offering Renters (HO4, multi-dwelling unit) and Homeowners
+    APIs such as the real-time Homeowners Quote API; access is requested per product and the Azure APIM catalogue is empty to anonymous callers,
+    so no endpoints, base URL or contract are published.
+  humanURL: https://partnerportal-api.qbena.com/
+  tags:
+  - Partner API
+  - Renters Insurance
+  - Homeowners Insurance
+  properties:
+  - type: Documentation
+    url: https://partnerportal-api.qbena.com/document/homeowners
+  - type: Documentation
+    url: https://partnerportal-api.qbena.com/document/renter
+  - type: APIReference
+    url: https://partnerportal-api.qbena.com/apis/catalog
+
 x-tags-removed:
 - Brokers
+x-enrichment:
+  date: '2026-10-20'
+  status: enriched
+  artifacts_added: 17
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

@@ -20,6 +20,7 @@ transport:
     Both published APIs declare protocols ["https"] only in the APIM catalogue. Document upload
     operations post a body carrying effectiveDate plus primaryFile.
 idempotency:
+  coverage: none
   supported: false
   header: null
   note: >-
@@ -100,3 +101,32 @@ related:
   data_model: data-model/qbe-data-model.yml
   vocabulary: vocabulary/qbe-vocabulary.yml
   sandbox: sandbox/qbe-sandbox.yml
+reversibility:
+  generated: '2026-10-20'
+  method: derived
+  source: openapi/qbe-digital-brokers-api-openapi.yml
+  grade: documented
+  surfaces:
+  - write: Create-a-new-Quote / Modify-an-existing-Quote
+    reversal: To-Abandon-an-existing-quote
+    path: POST /auth/quotes/{quoteId}/abandon
+    window: null
+    window_note: The spec states no window; abandoning applies to a quote not yet bound (summary "Abandon an existing quote").
+  - write: Amend-an-existing-policy-endorsement / Cancel-an-existing-policy / Generate-a-quote-request-for-a-policy-that-has-been-invited-for-renewal
+    reversal: To-Abandon-a-policy-before-it-has-been-bound
+    path: POST /auth/policies/{policyId}/abandon
+    window: null
+    window_note: >-
+      Summary "Abandon a policy before it has been bound"; header x-abandon-policy-transaction
+      "Specifies which preceding policy lifecycle transaction to abandon" (ENDORSEMENT | CANCEL | RENEWAL).
+      The precondition (before bind) is stated; no time window is.
+  - write: Convert-a-Quote-to-Policy (bind)
+    reversal: Cancel-an-existing-policy
+    path: POST /auth/policies/{policyId}/cancel
+    window: null
+    window_note: >-
+      Cancellation reason codes include "CO - Cooling Off" and "ER - Error Correction", but no cooling-off
+      period or cancellation window is stated anywhere in the published docs.
+  - write: Policy-Document-Upload-API / Quote-Document-Upload-API / append-data
+    reversal: null
+    note: No delete or retract operation is published for uploaded documents or CTP appended data.

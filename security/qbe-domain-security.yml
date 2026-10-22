@@ -1,4 +1,4 @@
-generated: '2026-07-25'
+generated: '2026-10-20'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -10,13 +10,13 @@ hosts:
 - host: connect.api-au.qbe.com
   https: true
   tls_version: TLSv1.3
-  cert_expires: Sep 29 23:59:59 2026 GMT
+  cert_expires: Feb 15 23:59:59 2027 GMT
   hsts: true
   hsts_max_age: 31536000
 - host: gateway.api-au.qbe.com
   https: true
   tls_version: TLSv1.3
-  cert_expires: Sep 29 23:59:59 2026 GMT
+  cert_expires: Feb 15 23:59:59 2027 GMT
   hsts: null
 domains:
 - domain: qbe.com
